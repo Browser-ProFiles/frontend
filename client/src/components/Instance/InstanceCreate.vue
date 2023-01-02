@@ -56,6 +56,9 @@
       <option value="US/Pacific">US/Pacific</option>
     </select>
 
+    <label for="systemLanguage">Language</label>
+    <input id="systemLanguage" type="text" v-model="form.system.language">
+
     <button type="submit">Create & Open</button>
   </form>
 </template>
@@ -84,6 +87,7 @@ const form = reactive({
   },
   system: {
     timezone: 'Europe/Warsaw',
+    language: 'gb',
   }
 })
 
