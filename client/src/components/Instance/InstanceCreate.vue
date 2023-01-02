@@ -52,7 +52,8 @@
 
     <label for="systemTimezone">Timezone</label>
     <select name="systemTimezone" id="systemTimezone" v-model="form.system.timezone">
-      <option value="America/New_York" selected>America / New_York</option>
+      <option value="Europe/Warsaw">Europe/Warsaw</option>
+      <option value="US/Pacific">US/Pacific</option>
     </select>
 
     <button type="submit">Create & Open</button>
@@ -82,7 +83,7 @@ const form = reactive({
     password: null,
   },
   system: {
-    timezone: null,
+    timezone: 'Europe/Warsaw',
   }
 })
 
