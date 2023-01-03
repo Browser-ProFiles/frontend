@@ -15,7 +15,7 @@ export const useNewInstanceFormStore = defineStore('newInstanceForm', () => {
 
     const sendForm = async () => {
         sending.value = true
-        await createInstance(form);
+        await createInstance(form)
         sending.value = false
     }
 
