@@ -246,7 +246,7 @@ export const CONFIG_INSTANCE_FORM = () => ({
              * IMPORTANT: This isn't to be confused with --site-per-process (which is about isolation, not consolidation).
              * You probably want the other one.
              */
-            processPerSite: true, //-- process-per-site
+            processPerSite: true, // --process-per-site
 
             /**
              * Enforces a one-site-per-process security policy: * Each renderer process, for its whole lifetime,
@@ -590,7 +590,7 @@ export const CONFIG_INSTANCE_FORM = () => ({
 
         webgl: {
             // Disable all versions of WebGL.
-            disableWebgl: false, // --disable-webgl
+            disableWebgl: true, // --disable-webgl
 
             // Disables WebGL rendering into a scanout buffer for overlay support.
             disableWebglImageChromium: false, // --disable-webgl-image-chromium
@@ -756,7 +756,7 @@ export const CONFIG_INSTANCE_FORM = () => ({
         disableSkiaRuntimeOpts: false, // --disable-skia-runtime-opts
 
         // Disable smooth scrolling for testing.
-        disableSmoothScrolling: false, //--disable-smooth-scrolling
+        disableSmoothScrolling: false, // --disable-smooth-scrolling
 
         /**
          * For tests, to disable falling back to software compositing if the GPU Process
