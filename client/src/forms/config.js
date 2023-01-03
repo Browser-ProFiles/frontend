@@ -790,7 +790,7 @@ export const CONFIG_INSTANCE_FORM = () => ({
         disabledAccelerated2DCanvas: false, // --disable-accelerated-2d-canvas
 
         // Enable accelerated 2D canvas.
-        enableAccelerated2dCanvas: false, // --enable-accelerated-2d-canvas
+        // enableAccelerated2dCanvas: false, // --enable-accelerated-2d-canvas TODO: ???
     },
     additional: {
         // Disables all experiments set on about:flags.
