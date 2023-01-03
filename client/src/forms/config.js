@@ -232,10 +232,10 @@ export const CONFIG_INSTANCE_FORM = () => ({
     },
     security: {
         ssl: {
-            //Specifies the maximum SSL/TLS version ("tls1.2" or "tls1.3").
+            // Specifies the maximum SSL/TLS version ("tls1.2" or "tls1.3").
             sslVersionMax: null, // --ssl-version-max
-            // // Specifies the minimum SSL/TLS version ("tls1.2" or "tls1.3").
-            sslVersionMin: null,	// --ssl-version-min
+            // Specifies the minimum SSL/TLS version ("tls1.2" or "tls1.3").
+            sslVersionMin: null, // --ssl-version-min
         },
 
         isolation: {
@@ -273,13 +273,13 @@ export const CONFIG_INSTANCE_FORM = () => ({
             processPerTab: false, // --process-per-tab
 
             // Require dedicated processes for a set of origins, specified as a comma-separated list. For example: --isolate-origins=https://www.foo.com,https://www.bar.com
-            isolateOrigins: false, // --isolate-origins
+            isolateOrigins: null, // --isolate-origins
 
             // Enable Isolated App restrictions for a set of origins, specified as a comma-separated list. For example: --isolated-app-origins=https://www.foo.com,https://www.bar.com
-            isolatedAppOrigins: false, // --isolated-app-origins
+            isolatedAppOrigins: null, // --isolated-app-origins
 
             // Enables APIs guarded with the [IsolatedContext] IDL attribute for the given comma-separated list of origins.
-            isolatedContextOrigin: false, // --isolated-context-origins
+            isolatedContextOrigin: null, // --isolated-context-origins
 
             /**
              * Enables the web-facing behaviors that will enable origin-isolation by default at some point
@@ -373,7 +373,7 @@ export const CONFIG_INSTANCE_FORM = () => ({
         },
 
         // Enables web socket connections from the specified origins only. '*' allows any origin.
-        remoteAllowOrigins: false, // --remote-allow-origins
+        remoteAllowOrigins: null, // --remote-allow-origins
 
         /**
          *  Don't enforce the same-origin policy; meant for website testing only.
