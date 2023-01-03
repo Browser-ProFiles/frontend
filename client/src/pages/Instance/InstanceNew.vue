@@ -1,8 +1,5 @@
 <template>
   <main-layout :title="`New Profile - ${steps[step].title}`">
-    <template #header>
-
-    </template>
     <template #sider>
       <a-steps @change="onChangeStep" :current="step" direction="vertical">
         <a-step v-for="item in steps" :key="item.title" :title="item.title" />

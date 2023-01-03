@@ -1,6 +1,8 @@
 import { reactive, ref } from 'vue'
 import { defineStore } from 'pinia'
 
+import { set } from '~/helpers/obj.js'
+
 import { createInstance } from '../../api/instance.js'
 import { CONFIG_INSTANCE_FORM } from '../forms/config.js'
 
@@ -17,6 +19,8 @@ export const useNewInstanceFormStore = defineStore('newInstanceForm', () => {
         sending.value = false
     }
 
+    const onChangeField = (path, value) => set(form, path, value instanceof Event ? value?.target?.value : value)
+
     const nextStep = () => step.value += 1
     const prevStep = () => step.value -= 1
 
@@ -26,6 +30,7 @@ export const useNewInstanceFormStore = defineStore('newInstanceForm', () => {
     return {
         form,
         sendForm,
+        onChangeField,
         step,
         nextStep,
         prevStep,
