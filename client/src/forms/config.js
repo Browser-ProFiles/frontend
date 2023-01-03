@@ -25,7 +25,7 @@ export const CONFIG_INSTANCE_FORM = () => ({
         proxyPassword: null,
     },
     identity: {
-        // A string used to override the default user agent with a custom one. ↪
+        // A string used to override the default user agent with a custom one.
         userAgent: null, // --user-agent
 
         // Set when Chromium should use a mobile user agent.
