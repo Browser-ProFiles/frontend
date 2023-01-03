@@ -108,7 +108,7 @@ export const CONFIG_INSTANCE_FORM = () => ({
         disableExtensions: false, // --disable-extensions
 
         // Disable extensions except those specified in a comma-separated list.
-        disableExtensionsExcept: false, // --disable-extensions-except
+        disableExtensionsExcept: null, // --disable-extensions-except
 
         /**
          * Disable checking for user opt-in for extensions that want to
