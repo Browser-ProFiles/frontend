@@ -1,7 +1,6 @@
 <template>
   <div class="proxy-step">
     <div class="section">
-      <h2 class="title">Proxy</h2>
       <a-row class="row" :gutter="20">
         <a-col span="12">
           <base-input-group

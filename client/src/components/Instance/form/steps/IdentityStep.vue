@@ -1,7 +1,6 @@
 <template>
   <div class="proxy-step">
     <div class="section">
-      <h2 class="title">Identity</h2>
       <a-row class="row" :gutter="20">
         <a-col span="24">
           <base-input-group
