@@ -192,7 +192,7 @@ export const CONFIG_INSTANCE_FORM = () => ({
         * */
         disabled3DApis: true, // --disable-3d-apis
 
-        // Disables touch event based drag and drop. ↪
+        // Disables touch event based drag and drop.
         disableTouchDragDrop: false, // --disable-touch-drag-drop
 
         // Disables the check for the system font when specified.
