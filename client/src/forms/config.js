@@ -613,7 +613,7 @@ export const CONFIG_INSTANCE_FORM = () => ({
             disableGlDrawingForTests: false, // --disable-gl-drawing-for-tests
 
             // Disables specified comma separated GL Extensions if found.
-            disableGlExtensions: false, // --disable-gl-extensions
+            disableGlExtensions: null, // --disable-gl-extensions
 
             // Disable the GLSL translator.
             disableGlslTranslator: false, // --disable-glsl-translator
@@ -648,9 +648,6 @@ export const CONFIG_INSTANCE_FORM = () => ({
 
             webviewSandboxedRenderer: false, // --webview-sandboxed-renderer
 
-            // Enables use selective image inversion to automatically darken page, it will be used when WebView is in dark mode, but website doesn't provide dark style.
-            webviewSelectiveImageInversionDarkening: false, // --webview-selective-image-inversion-darkening
-
             // Enables MPArch-based FencedFrames. This also implies PrivacySandboxAdsAPIsOverride and SharedStorageAPI.
             webviewShadowDomFencedFrames: false, // --webview-shadow-dom-fenced-frames
         },
@@ -661,8 +658,8 @@ export const CONFIG_INSTANCE_FORM = () => ({
              * When Chrome embeds Content, it ignores this switch on its stable and beta channels.
              */
             disableWebrtcEncryption: false, // --disable-webrtc-encryption
-            // Disables HW decode acceleration for WebRTC.
 
+            // Disables HW decode acceleration for WebRTC.
             disableWebrtcHwDecoding: false, // --disable-webrtc-hw-decoding
 
             // Disables HW encode acceleration for WebRTC.
