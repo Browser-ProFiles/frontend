@@ -9,12 +9,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "ant-design-vue": "^3.3.0-beta.4",
     "axios": "^1.2.2",
     "pinia": "^2.0.28",
-    "vue": "^3.2.45"
+    "sass": "^1.57.1",
+    "vue": "^3.2.45",
+    "vue-router": "^4.1.6"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.0.0",
+    "unplugin-vue-components": "^0.22.12",
     "vite": "^4.0.0"
   }
 }

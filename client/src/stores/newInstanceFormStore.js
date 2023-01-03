@@ -4,7 +4,10 @@ import { defineStore } from 'pinia'
 import { createInstance } from '../../api/instance.js'
 import { CONFIG_INSTANCE_FORM } from '../forms/config.js'
 
+const DEFAULT_STEP = 0
+
 export const useNewInstanceFormStore = defineStore('newInstanceForm', () => {
+    const step = ref(DEFAULT_STEP)
     const sending = ref(false)
     const form = reactive(CONFIG_INSTANCE_FORM())
 
@@ -14,5 +17,19 @@ export const useNewInstanceFormStore = defineStore('newInstanceForm', () => {
         sending.value = false
     }
 
-    return { form, sendForm }
+    const nextStep = () => step.value += 1
+    const prevStep = () => step.value -= 1
+
+    const firstStep = () => step.value = DEFAULT_STEP
+    const changeStep = (value) => step.value = value
+
+    return {
+        form,
+        sendForm,
+        step,
+        nextStep,
+        prevStep,
+        changeStep,
+        firstStep
+    }
 })
