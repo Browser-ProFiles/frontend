@@ -15,11 +15,12 @@ export const CONFIG_INSTANCE_FORM = () => ({
         touchEvents: null, // --touch-events
     },
     proxy: {
-        // --proxy-server  (manual)
+        // --proxy-server (manual)
         proxyEnabled: false,
-        proxyType: null,
+        proxyType: 'http',
         proxyHost: null,
         proxyPort: null,
+        proxyAuthEnabled: false,
         proxyUsername: null,
         proxyPassword: null,
     },

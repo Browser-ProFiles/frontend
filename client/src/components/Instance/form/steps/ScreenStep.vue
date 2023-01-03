@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="screen-step">
     <div class="section">
       <h2 class="title"><label for="name">Name</label></h2>
       <base-input
