@@ -72,13 +72,40 @@ const form = reactive({
   screen: {
     width: 1440,
     height: 900,
+
+    /**
+     * Tells chrome to interpret events from these devices as touch events.
+     * Only available with XInput 2 (i.e. X server 1.8 or above). The id's of the devices can be retrieved from 'xinput list'.
+     */
+    touchDevices: null, // --touch-devices
+
+    // Enable support for touch event feature detection.
+    touchEvents: null, // --touch-events
   },
   identity: {
-    userAgent: null,
+    // A string used to override the default user agent with a custom one. ↪
+    userAgent: null, // --user-agent
 
-    // --reduce-accept-language ⊗	Reduce the accept-language http header, and only send one language in the request header: https://github.com/Tanych/accept-language. ↪
-    // --reduce-user-agent-minor-version ⊗	Reduce the minor version number in the User-Agent string. This flag implements phase 4 of User-Agent reduction: https://blog.chromium.org/2021/09/user-agent-reduction-origin-trial-and-dates.html. ↪
-    // --reduce-user-agent-platform-oscpu ⊗	Reduce the platform and oscpu in the desktop User-Agent string. This flag implements phase 5 of User-Agent reduction: https://blog.chromium.org/2021/09/user-agent-reduction-origin-trial-and-dates.html. ↪
+    // Set when Chromium should use a mobile user agent.
+    useMobileUserAgent: false, // --use-mobile-user-agent
+
+    /**
+     * Reduce the minor version number in the User-Agent string. This flag implements phase 4 of User-Agent
+     * reduction: https://blog.chromium.org/2021/09/user-agent-reduction-origin-trial-and-dates.html.
+     */
+    reduceUserAgentMinorVersion: false, // --reduce-user-agent-minor-version
+
+    /**
+     * Reduce the platform and oscpu in the desktop User-Agent string. This flag implements phase 5 of User-Agent
+     * reduction: https://blog.chromium.org/2021/09/user-agent-reduction-origin-trial-and-dates.html.
+     */
+    reduceUserAgentPlatformOscpu: false, // --reduce-user-agent-platform-oscpu
+
+    /**
+     * Reduce the accept-language http header, and only send one language in the request
+     * header: https://github.com/Tanych/accept-language.
+     */
+    reduceAcceptLanguage: false, // --reduce-accept-language
   },
   proxy: {
     enabled: false,
@@ -89,13 +116,18 @@ const form = reactive({
     password: null,
   },
   system: {
-    timezone: 'Europe/Warsaw',
+    timezone: {
+      timezone: 'Europe/Warsaw',
 
-    // Disables fine grained time zone detection.
-    disableFineGrainedTimeZoneDetection: false, // --disable-fine-grained-time-zone-detection
+      // Disables fine grained time zone detection.
+      disableFineGrainedTimeZoneDetection: false, // --disable-fine-grained-time-zone-detection
 
-    // Disables per-user timezone.
-    disablePerUserTimezone: false, // --disable-per-user-timezone
+      // Disables per-user timezone.
+      disablePerUserTimezone: false, // --disable-per-user-timezone
+
+      // The time zone to use for testing. Passed to renderers and plugins on startup.
+      timeZoneForTesting: null, // --time-zone-for-testing
+    },
 
     language: 'gb',
 
@@ -456,6 +488,48 @@ const form = reactive({
 
       // Disable WebGL2.
       disableWebgl2: false, // --disable-webgl2
+
+      // Set the antialiasing method used for webgl. (none, explicit, implicit)
+      webglAntialiasingMode: false, // --webgl-antialiasing-mode
+
+      // Set a default sample count for webgl if msaa is enabled..
+      webglMsaaSampleCount: null, // --webgl-msaa-sample-count
+    },
+
+    webview: {
+      // Disables WebView from checking for app recovery mitigations.
+      webviewDisableAppRecovery: false, // --webview-disable-app-recovery
+
+      // Disables throttling querying apps package names allowlist components in WebView clients.
+      webviewDisablePackageAllowlistThrottling: false, // --webview-disable-package-allowlist-throttling
+
+      // Used to disable safebrowsing functionality in webview
+      webviewDisableSafebrowsingSupport: false, // --webview-disable-safebrowsing-support
+
+      // Enables WebView to check for app recovery mitigations.
+      webviewEnableAppRecovery: false, // --webview-enable-app-recovery
+
+      /**
+       * Enables modern SameSite cookie behavior (as opposed to legacy behavior).
+       * This is used for WebView versions prior to when the modern behavior will be enabled by default.
+       * This enables the same-site-by-default-cookies, cookies-without-SameSite-must-be-secure,
+       * and schemeful-same-site features.
+       */
+      webviewEnableModernCookieSameSite: false, // --webview-enable-modern-cookie-same-site
+
+      // Enables MPArch-based FencedFrames. This also implies PrivacySandboxAdsAPIsOverride and SharedStorageAPI.
+      webviewMparchFencedFrames: false, // --webview-mparch-fenced-frames
+
+      // Enables SafeBrowsing and causes WebView to treat all resources as malicious. Use care: this will block all resources from loading.
+      webviewSafebrowsingBlockAllResources: false, // --webview-safebrowsing-block-all-resources
+
+      webviewSandboxedRenderer: false, // --webview-sandboxed-renderer
+
+      // Enables use selective image inversion to automatically darken page, it will be used when WebView is in dark mode, but website doesn't provide dark style.
+      webviewSelectiveImageInversionDarkening: false, // --webview-selective-image-inversion-darkening
+
+      // Enables MPArch-based FencedFrames. This also implies PrivacySandboxAdsAPIsOverride and SharedStorageAPI.
+      webviewShadowDomFencedFrames: false, // --webview-shadow-dom-fenced-frames
     }
   },
   api: {
@@ -543,6 +617,9 @@ const form = reactive({
     // Disable LocalStorage.
     disableLocalStorage: false, // --disable-local-storage
 
+    // Overrides per-origin quota settings to unlimited storage for any apps/origins.
+    unlimitedStorage: false, // --unlimited-storage
+
     // Disables Domain Reliability Monitoring
     disableDomainReliability: false, // --disable-domain-reliability
 
@@ -596,6 +673,13 @@ const form = reactive({
      */
     safebrowsingManualDownloadBlacklist: null, // --safebrowsing-manual-download-blacklist
 
+    ssl: {
+      //Specifies the maximum SSL/TLS version ("tls1.2" or "tls1.3").
+      sslVersionMax: null, // --ssl-version-max
+      // // Specifies the minimum SSL/TLS version ("tls1.2" or "tls1.3").
+      sslVersionMin: null,	// --ssl-version-min
+    },
+
     isolation: {
       /**
        * Enable the "Process Per Site" process model for all domains. This mode consolidates same-site pages so that
@@ -605,6 +689,23 @@ const form = reactive({
        * You probably want the other one.
        */
       processPerSite: true, //-- process-per-site
+
+      /**
+       * Enforces a one-site-per-process security policy: * Each renderer process, for its whole lifetime,
+       * is dedicated to rendering pages for just one site. * Thus, pages from different sites are never in
+       * the same process. * A renderer process's access rights are restricted based on its site.
+       * * All cross-site navigations force process swaps. * <iframe>s are rendered out-of-process
+       * whenever the src=is cross-site. More details here: -
+       * https://www.chromium.org/developers/design-documents/site-isolation -
+       * https://www.chromium.org/developers/design-documents/process-models -
+       * The class comment in site_instance.h, listing the supported process models.
+       * IMPORTANT: this isn't to be confused with --process-per-site (which is about process consolidation, not isolation).
+       * You probably want this one.
+       */
+      sitePerProcess: true, // --site-per-process
+
+      // Runs the renderer and plugins in the same process as the browser
+      singleProcess: false, // --single-process
 
       /**
        * Runs each set of script-connected tabs (i.e., a BrowsingInstance) in its own renderer process.
@@ -643,14 +744,67 @@ const form = reactive({
       disableSiteIsolationTrials: false, // --disable-site-isolation-trials
     },
 
+    fakes: {
+      // Replaces the existing codecs supported in peer connection with a single fake codec entry that create a fake video encoder and decoder.
+      useFakeCodecForPeerConnection: false, // --use-fake-codec-for-peer-connection
+
+      /**
+       * Use fake device for Media Stream to replace actual camera and microphone.
+       * For the list of allowed parameters, see FakeVideoCaptureDeviceFactory::ParseFakeDevicesConfigFromOptionsString().
+       */
+      useFakeDeviceForMediaStream: false, // --use-fake-device-for-media-stream
+
+      /**
+       * Use a fake device for accelerated decoding of MJPEG. This allows, for example, testing of the communication
+       * to the GPU service without requiring actual accelerator hardware to be present.
+       */
+      useFakeMjpegDecodeAccelerator: false, // --use-fake-mjpeg-decode-accelerator
+
+      /**
+       * Bypass the FedCM account selection dialog. If a value is provided for this switch,
+       * that account ID is selected, otherwise the first account is chosen.
+       */
+      useFakeUiForFedcm: false, // --use-fake-ui-for-fedcm
+
+      /**
+       * Bypass the media stream infobar by selecting the default device for media streams (e.g. WebRTC).
+       * Works with --use-fake-device-for-media-stream.
+       */
+      useFakeUiForMediaStream: false, // --use-fake-ui-for-media-stream
+
+      /**
+       * Play a .wav file as the microphone. Note that for WebRTC calls we'll treat the bits as if they came from
+       * the microphone, which means you should disable audio processing (lest your audio file will play back distorted).
+       * The input file is converted to suit Chrome's audio buses if necessary, so most sane .wav files should work.
+       * You can pass either <path> to play the file looping or <path>%noloop to stop after playing the file to completion.
+       */
+      useFileForFakeAudioCapture: false, // --use-file-for-fake-audio-capture
+    },
+
     simulation: {
-      // --simulate-critical-update ⊗	Simulates a critical update being available. ↪
-      // --simulate-elevated-recovery ⊗	Simulates that elevation is needed to recover upgrade channel. ↪
-      // --simulate-outdated ⊗	Simulates that current version is outdated. ↪
-      // --simulate-outdated-no-au ⊗	Simulates that current version is outdated and auto-update is off. ↪
-      // --simulate-update-error-code ⊗	Simulates a GoogleUpdateErrorCode error by the update check. Must be supplied with |kSimulateUpdateHresult| switch. ↪
-      // --simulate-update-hresult ⊗	Simulates a specific HRESULT error code returned by the update check. If the switch value is not specified (as hex) then it defaults to E_FAIL. ↪
-      // --simulate-upgrade ⊗	Simulates an update being available. ↪
+      // Simulates a critical update being available.
+      simulateCriticalUpdate: false, // --simulate-critical-update
+
+      // Simulates that elevation is needed to recover upgrade channel.
+      simulateElevatedRecovery: false, // --simulate-elevated-recovery
+
+      // Simulates that current version is outdated.
+      simulateOutdated: false, // --simulate-outdated
+
+      // Simulates that current version is outdated and auto-update is off.
+      simulateOutdatedNoAu: false, // --simulate-outdated-no-au
+
+      // Simulates a GoogleUpdateErrorCode error by the update check. Must be supplied with |kSimulateUpdateHresult| switch.
+      simulateUpdateErrorCode: false, // --simulate-update-error-code
+
+      /**
+       * Simulates a specific HRESULT error code returned by the update check.
+       * If the switch value is not specified (as hex) then it defaults to E_FAIL.
+       */
+      simulateUpdateHresult: false, // --simulate-update-hresult
+
+      // Simulates an update being available.
+      simulateUpgrade: false, // --simulate-upgrade
     },
 
     webrtc: {
@@ -660,9 +814,40 @@ const form = reactive({
        */
       disableWebrtcEncryption: false, // --disable-webrtc-encryption
       // Disables HW decode acceleration for WebRTC.
+
       disableWebrtcHwDecoding: false, // --disable-webrtc-hw-decoding
+
       // Disables HW encode acceleration for WebRTC.
-      disableWebrtcHwEncoding: false // --disable-webrtc-hw-encoding
+      disableWebrtcHwEncoding: false, // --disable-webrtc-hw-encoding
+
+      /**
+       * Sets the delay (in seconds) between proactive prunings of remote-bound WebRTC event logs which are pending upload.
+       * All positive values are legal. All negative values are illegal, and ignored.
+       * If set to 0, the meaning is "no proactive pruning".
+       */
+      webrtcEventLogProactivePruningDelta: null, // --webrtc-event-log-proactive-pruning-delta
+
+      // WebRTC event logs will only be uploaded if the conditions hold for this many milliseconds.
+      webrtcEventLogUploadDelayMs: null, // --webrtc-event-log-upload-delay-ms
+
+      // Normally, remote-bound WebRTC event logs are uploaded only when no peer connections are active. With this flag, the upload is never suppressed.
+      webrtcEventLogUploadNoSuppression: false, // --webrtc-event-log-upload-no-suppression
+
+      /**
+       * Enable capture and local storage of WebRTC event logs without visiting chrome://webrtc-internals.
+       * This is useful for automated testing. It accepts the path to which the local logs would be stored.
+       * Disabling is not possible without restarting the browser and relaunching without this flag.
+       */
+      webrtcEventLogging: null, // --webrtc-event-logging
+
+      // Override WebRTC IP handling policy to mimic the behavior when WebRTC IP handling policy is specified in Preferences.
+      webrtcIpHandlingPolicy: null, // --webrtc-ip-handling-policy
+
+      /**
+       * Configure the maximum CPU time percentage of a single core that can be consumed for desktop capturing.
+       * Default is 50. Set 100 to disable the throttling of the capture.
+       */
+      webrtcMaxCpuConsumptionPercentage: null, // --webrtc-max-cpu-consumption-percentage
     }
   },
   javascript: {
