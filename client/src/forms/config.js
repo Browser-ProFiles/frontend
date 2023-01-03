@@ -59,7 +59,7 @@ export const CONFIG_INSTANCE_FORM = () => ({
         },
 
         language: {
-            acceptLang: 'gb', // --accept-lang
+            acceptLang: 'en', // --accept-lang
 
             /**
              * Reduce the accept-language http header, and only send one language in the request
