@@ -221,7 +221,7 @@ export const CONFIG_INSTANCE_FORM = () => ({
          * runtime_enabled_features.json5, separated by commas.
          * Applied after kEnableBlinkFeatures, and after other flags that change these features.
          */
-        disableBlinkFeatures: false, // --disable-blink-features
+        disableBlinkFeatures: 'AutomationControlled', // --disable-blink-features
 
         /*
         * Set blink settings. Format is <name>[=<value],<name>[=<value>],... The names are declared in Settings.json5.

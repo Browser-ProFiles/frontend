@@ -331,10 +331,9 @@
             name="disableBlinkFeatures"
             label="Disable blink features"
           >
-            <template #afterLabel>
-              <base-checkbox
-                class="checkbox"
-                @change="onChangeField('api.disableBlinkFeatures', $event.target.checked)"
+            <template #default>
+              <base-input
+                @change="onChangeField('api.disableBlinkFeatures', $event.target.value)"
                 :value="form.api.disableBlinkFeatures"
               />
             </template>
