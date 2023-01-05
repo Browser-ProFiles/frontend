@@ -121,7 +121,7 @@ export const CONFIG_INSTANCE_FORM = () => ({
         disableExtensionsHttpThrottling: false, // --disable-extensions-http-throttling
 
         // Comma-separated list of feature names to disable. See also kEnableFeatures.
-        disableFeatures: null, // --disable-features
+        disableFeatures: 'IsolateOrigins,site-per-process', // --disable-features
 
         /**
          * Disables installation of default apps on first run.
@@ -222,6 +222,13 @@ export const CONFIG_INSTANCE_FORM = () => ({
          * Applied after kEnableBlinkFeatures, and after other flags that change these features.
          */
         disableBlinkFeatures: false, // --disable-blink-features
+
+        /*
+        * Set blink settings. Format is <name>[=<value],<name>[=<value>],... The names are declared in Settings.json5.
+        * For boolean type, use "true", "false", or omit '=<value>' part to set to true. For enum type, use the int
+        * value of the enum value. Applied after other command line flags and prefs.
+        */
+        blinkSettings: 'imagesEnabled=true', // --blink-settings
     },
     devices: {
         // Adds fake Bluetooth devices to the quick settings menu.
@@ -501,7 +508,7 @@ export const CONFIG_INSTANCE_FORM = () => ({
              * Disables GPU hardware acceleration.
              * If software renderer is not in place, then the GPU process won't launch.
              */
-            disableGpu: false, // --disable-gpu
+            disableGpu: true, // --disable-gpu
 
             // Prevent the compositor from using its GPU implementation.
             disableGpuCompositing: false, // --disable-gpu-compositing

@@ -42,7 +42,7 @@
                   value: 'http',
                 },
                 {
-                  label: 'Socks',
+                  label: 'Socks5',
                   value: 'socks5',
                 }
               ]"

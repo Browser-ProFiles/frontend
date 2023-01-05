@@ -346,6 +346,26 @@
             </template>
           </base-input-group>
         </a-col>
+
+        <a-col span="24">
+          <base-input-group
+            name="blinkSettings"
+            label="Blink settings"
+          >
+            <template #default>
+              <base-checkbox
+                @change="onChangeField('api.blinkSettings', $event.target.value)"
+                :value="form.api.blinkSettings"
+              />
+            </template>
+
+            <template #description>
+              Set blink settings. Format is  &lt;name&gt;[=&lt;value],&lt;name&gt;[=&lt;value&gt;],...
+              The names are declared in Settings.json5. For boolean type, use "true", "false", or omit '=&lt;value&gt;' part to set to true.
+              For enum type, use the int value of the enum value. Applied after other command line flags and prefs.
+            </template>
+          </base-input-group>
+        </a-col>
       </a-row>
     </div>
   </div>
