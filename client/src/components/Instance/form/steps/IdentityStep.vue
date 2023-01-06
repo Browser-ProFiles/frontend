@@ -96,13 +96,13 @@ import { onMounted } from 'vue'
 import { storeToRefs } from 'pinia'
 import ua from 'useragent-generator'
 
-import { useNewInstanceFormStore } from '~/stores/newInstanceFormStore.js'
+import { useInstanceFormStore } from '@/stores/instanceFormStore.js'
 
 import BaseInput from '~/components/Base/Form/BaseInput.vue'
 import BaseCheckbox from '~/components/Base/Form/BaseCheckbox.vue'
 import BaseInputGroup from '~/components/Base/Form/BaseInputGroup.vue'
 
-const store = useNewInstanceFormStore()
+const store = useInstanceFormStore()
 const { onChangeField } = store
 const { form } = storeToRefs(store)
 

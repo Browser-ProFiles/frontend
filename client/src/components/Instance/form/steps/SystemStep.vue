@@ -135,7 +135,7 @@
 
 <script setup>
 import { storeToRefs } from 'pinia'
-import { useNewInstanceFormStore } from '~/stores/newInstanceFormStore.js'
+import { useInstanceFormStore } from '@/stores/instanceFormStore.js'
 
 import BaseInput from '~/components/Base/Form/BaseInput.vue'
 import BaseSelect from '~/components/Base/Form/BaseSelect.vue'
@@ -146,7 +146,7 @@ import BaseInputGroup from '~/components/Base/Form/BaseInputGroup.vue'
 import { TIMEZONES } from '~/const/timezones.js'
 import { LANGUAGES } from '~/const/lang.js'
 
-const store = useNewInstanceFormStore()
+const store = useInstanceFormStore()
 const { onChangeField } = store
 const { form } = storeToRefs(store)
 </script>

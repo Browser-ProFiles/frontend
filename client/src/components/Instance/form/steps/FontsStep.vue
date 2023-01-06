@@ -133,12 +133,12 @@
 
 <script setup>
 import { storeToRefs } from 'pinia'
-import { useNewInstanceFormStore } from '~/stores/newInstanceFormStore.js'
+import { useInstanceFormStore } from '@/stores/instanceFormStore.js'
 
 import BaseCheckbox from '~/components/Base/Form/BaseCheckbox.vue'
 import BaseInputGroup from '~/components/Base/Form/BaseInputGroup.vue'
 
-const store = useNewInstanceFormStore()
+const store = useInstanceFormStore()
 const { onChangeField } = store
 const { form } = storeToRefs(store)
 </script>

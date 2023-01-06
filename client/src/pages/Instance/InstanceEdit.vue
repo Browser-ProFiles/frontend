@@ -1,5 +1,5 @@
 <template>
-  <main-layout :title="`New Profile - ${steps[step].title}`">
+  <main-layout :title="`Edit Profile - ${editProfileName} - ${steps[step].title}`">
     <template #sider>
       <a-button class="back">
         <router-link to="/profiles">Back</router-link>
@@ -9,7 +9,7 @@
       </a-steps>
     </template>
     <template #default>
-      <form @submit.prevent="sendForm">
+      <form @submit.prevent="sendEditForm">
         <div class="steps-action">
           <a-button v-if="step !== 0" type="dashed" @click="firstStep">&lt;&lt;</a-button>
 
@@ -18,9 +18,9 @@
           <a-button
             v-if="step === steps.length - 1"
             type="primary"
-            @click="sendForm"
+            @click="sendEditForm"
           >
-            Done
+            Done Editing
           </a-button>
 
           <a-button v-if="step < steps.length - 1" type="primary" @click="nextStep">Next</a-button>
@@ -36,7 +36,9 @@
 
 <script setup>
 import { onMounted } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import { storeToRefs } from 'pinia'
+import safeString from 'safe-string'
 
 import { useInstanceFormStore } from '@/stores/instanceFormStore.js'
 
@@ -56,8 +58,8 @@ import CanvasStep from '~/components/Instance/form/steps/CanvasStep.vue'
 import AdditionalStep from '~/components/Instance/form/steps/AdditionalStep.vue'
 
 const store = useInstanceFormStore()
-const { step } = storeToRefs(store)
-const { clearEditName, sendForm, nextStep, prevStep, firstStep, changeStep } = store
+const { step, editProfileName } = storeToRefs(store)
+const { sendEditForm, setEditName, nextStep, prevStep, firstStep, changeStep } = store
 
 const steps = [
   {
@@ -114,11 +116,20 @@ const steps = [
   },
 ]
 
+const route = useRoute()
+const router = useRouter()
+
 const onChangeStep = (step) => changeStep(Math.max(0, Math.min(steps.length - 1, step)))
 
 const lastStep = () => changeStep(steps.length - 1)
 
-onMounted(() => clearEditName())
+onMounted(() => {
+  if (!route.params.name) {
+    router.push('/')
+  }
+
+  setEditName(safeString(route.params.name))
+})
 </script>
 
 <style lang="scss">

@@ -1,40 +1,60 @@
 <template>
   <a-layout>
-    <a-layout-header class="header">
+    <a-layout-header
+      :class="{
+        'has-sidebar': route.meta.hasSidebar,
+      }"
+      class="header"
+    >
       <slot name="header">{{ title }}</slot>
     </a-layout-header>
     <a-layout>
       <a-layout-sider
+        v-if="route.meta.hasSidebar"
         class="sider"
         :width="250"
         theme="light"
       >
         <slot name="sider" />
       </a-layout-sider>
-      <a-layout-content class="content">
+      <a-layout-content
+        :class="{
+          'has-sidebar': route.meta.hasSidebar,
+        }"
+        class="content"
+      >
         <slot />
       </a-layout-content>
     </a-layout>
     <a-layout-footer>
-      <slot name="footer">Footer</slot>
+      <slot name="footer"></slot>
     </a-layout-footer>
   </a-layout>
 </template>
 
 <script setup>
+import { useRoute } from 'vue-router'
+
 defineProps({
   title: {
     type: String,
     default: 'SandBox'
   }
 })
+
+const route = useRoute()
 </script>
 
 <style lang="scss" scoped>
+.header,
+.content {
+  &.has-sidebar {
+    margin-left: 250px;
+  }
+}
+
 .header {
   height: 60px;
-
-  margin-left: 250px;
 
   font-size: 24px;
 
@@ -60,8 +80,6 @@ defineProps({
 .content {
   overflow-y: scroll;
   min-height: calc(100vh - 60px - 70px);
-
-  margin-left: 250px;
 
   padding: 15px 50px;
 }

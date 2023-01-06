@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import { Steps, Button, Layout, Input, InputNumber, Select, Checkbox, Row, Col } from 'ant-design-vue'
+import { Steps, Button, Layout, Input, InputNumber, Select, Checkbox, Row, Col, List } from 'ant-design-vue'
 import { createPinia } from 'pinia'
 
 import { router } from './router'
@@ -23,4 +23,5 @@ createApp(App)
     .use(Checkbox)
     .use(Row)
     .use(Col)
+    .use(List)
     .mount('#app')
