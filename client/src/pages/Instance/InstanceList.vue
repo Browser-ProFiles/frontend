@@ -6,6 +6,11 @@
         <router-link to="/profile/new">New Profile</router-link>
       </a-button>
 
+      <p class="note">
+        <b>Note: You can launch profiles only from desktop application.</b>
+        Download it <router-link to="/download">here</router-link>.
+      </p>
+
       <a-list class="list" item-layout="horizontal" :data-source="profilesList">
         <template #renderItem="{ item }">
           <a-list-item>
@@ -49,7 +54,8 @@ const profilesList = [
 </script>
 
 <style lang="scss" scoped>
-.list {
-  margin-top: 15px;
+.note {
+  margin-top: 10px;
+  margin-bottom: 5px;
 }
 </style>
