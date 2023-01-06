@@ -9,7 +9,7 @@
       </a-steps>
     </template>
     <template #default>
-      <form @submit.prevent="sendForm">
+      <form>
         <div class="steps-action">
           <a-button v-if="step !== 0" type="dashed" @click="firstStep">&lt;&lt;</a-button>
 
@@ -17,8 +17,9 @@
 
           <a-button
             v-if="step === steps.length - 1"
+            :disabled="loading"
             type="primary"
-            @click="sendForm"
+            @click="onSendForm"
           >
             Done
           </a-button>
@@ -36,6 +37,7 @@
 
 <script setup>
 import { onMounted } from 'vue'
+import { useRouter } from 'vue-router'
 import { storeToRefs } from 'pinia'
 
 import { useInstanceFormStore } from '@/stores/instanceFormStore.js'
@@ -55,8 +57,10 @@ import RenderStep from '~/components/Instance/Form/Steps/RenderStep.vue'
 import CanvasStep from '~/components/Instance/Form/Steps/CanvasStep.vue'
 import AdditionalStep from '~/components/Instance/Form/Steps/AdditionalStep.vue'
 
+const router = useRouter()
 const store = useInstanceFormStore()
-const { step } = storeToRefs(store)
+const { step, loading } = storeToRefs(store)
+
 const { clearEditName, sendForm, nextStep, prevStep, firstStep, changeStep } = store
 
 const steps = [
@@ -117,6 +121,11 @@ const steps = [
 const onChangeStep = (step) => changeStep(Math.max(0, Math.min(steps.length - 1, step)))
 
 const lastStep = () => changeStep(steps.length - 1)
+
+const onSendForm = async () => {
+  await sendForm()
+  router.push('/')
+}
 
 onMounted(() => clearEditName())
 </script>

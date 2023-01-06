@@ -15,7 +15,7 @@ const instance = axios.create({
 })
 
 instance.interceptors.response.use(response => response, async error => {
-    if (!error.response || error.response.status !== 403) {
+    if (!error.response || error.response.status !== 401) {
         return Promise.reject(error)
     }
 

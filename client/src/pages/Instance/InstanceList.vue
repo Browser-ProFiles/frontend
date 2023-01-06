@@ -29,7 +29,7 @@
               <a-button type="primary">
                 <router-link :to="`/profile/edit/${item.name}`">Edit</router-link>
               </a-button>
-              <a-button type="danger">
+              <a-button @click="removeInstance(item.name)" type="danger">
                 Delete
               </a-button>
             </template>
@@ -44,7 +44,7 @@
 import { ref, onMounted } from 'vue'
 import Avatar from 'vue-boring-avatars'
 
-import { getInstanceList } from '@/api/instance.js'
+import { getInstanceList, deleteInstance } from '@/api/instance.js'
 
 import MainLayout from '@/layouts/MainLayout.vue'
 
@@ -56,6 +56,18 @@ const fetchInstances = async () => {
     loading.value = true
     const { data } = await getInstanceList()
     list.value = data?.profiles
+  } catch (e) {
+    console.error(e)
+  } finally {
+    loading.value = false
+  }
+}
+
+const removeInstance = async (name) => {
+  try {
+    loading.value = true
+    await deleteInstance(name)
+    list.value = list.value.filter((item) => item.name !== name)
   } catch (e) {
     console.error(e)
   } finally {

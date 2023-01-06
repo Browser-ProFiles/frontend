@@ -9,27 +9,30 @@
       </a-steps>
     </template>
     <template #default>
-      <form @submit.prevent="sendEditForm">
-        <div class="steps-action">
-          <a-button v-if="step !== 0" type="dashed" @click="firstStep">&lt;&lt;</a-button>
+      <a-spin :delay="350" :spinning="loading" tip="Loading...">
+        <form @submit.prevent="onSendForm">
+          <div class="steps-action">
+            <a-button v-if="step !== 0" type="dashed" @click="firstStep">&lt;&lt;</a-button>
 
-          <a-button v-if="step > 0" type="danger" @click="prevStep">Previous</a-button>
+            <a-button v-if="step > 0" type="danger" @click="prevStep">Previous</a-button>
 
-          <a-button
-            v-if="step === steps.length - 1"
-            type="primary"
-            @click="sendEditForm"
-          >
-            Done Editing
-          </a-button>
+            <a-button
+              v-if="step === steps.length - 1"
+              :disabled="loading"
+              type="primary"
+              @click="onSendForm"
+            >
+              Done Editing
+            </a-button>
 
-          <a-button v-if="step < steps.length - 1" type="primary" @click="nextStep">Next</a-button>
+            <a-button v-if="step < steps.length - 1" type="primary" @click="nextStep">Next</a-button>
 
-          <a-button v-if="step !== steps.length - 1" type="dashed" @click="lastStep">&gt;&gt;</a-button>
-        </div>
+            <a-button v-if="step !== steps.length - 1" type="dashed" @click="lastStep">&gt;&gt;</a-button>
+          </div>
 
-        <component :is="steps[step].content" />
-      </form>
+          <component :is="steps[step].content" />
+        </form>
+      </a-spin>
     </template>
   </main-layout>
 </template>
@@ -58,7 +61,7 @@ import CanvasStep from '~/components/Instance/Form/Steps/CanvasStep.vue'
 import AdditionalStep from '~/components/Instance/Form/Steps/AdditionalStep.vue'
 
 const store = useInstanceFormStore()
-const { step, editProfileName } = storeToRefs(store)
+const { step, editProfileName, loading } = storeToRefs(store)
 const { sendEditForm, setEditName, nextStep, prevStep, firstStep, changeStep } = store
 
 const steps = [
@@ -123,12 +126,17 @@ const onChangeStep = (step) => changeStep(Math.max(0, Math.min(steps.length - 1,
 
 const lastStep = () => changeStep(steps.length - 1)
 
+const onSendForm = async () => {
+  await sendEditForm()
+  router.push('/')
+}
+
 onMounted(() => {
   if (!route.params.name) {
     router.push('/')
   }
 
-  setEditName(safeString(route.params.name))
+  setEditName(route.params.name)
 })
 </script>
 

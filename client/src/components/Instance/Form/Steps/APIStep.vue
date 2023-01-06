@@ -353,7 +353,7 @@
           >
             <template #default>
               <base-checkbox
-                @change="onChangeField('api.blinkSettings', $event.target.value)"
+                @change="onChangeField('api.blinkSettings', $event.target.checked)"
                 :value="form.api.blinkSettings"
               />
             </template>

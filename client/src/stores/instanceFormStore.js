@@ -1,37 +1,64 @@
 import { reactive, ref } from 'vue'
 import { defineStore } from 'pinia'
+import { useToast } from 'vue-toastification'
 
 import { set } from '~/helpers/obj.js'
 
-import { createInstance } from '~/api/instance.js'
+import { createInstance, editInstance, getInstanceSingle } from '~/api/instance.js'
 import { CONFIG_INSTANCE_FORM } from '~/forms/config.js'
 
 const DEFAULT_STEP = 0
 
+const toast = useToast()
+
 export const useInstanceFormStore = defineStore('instanceForm', () => {
     const step = ref(DEFAULT_STEP)
-    const sending = ref(false)
     const editProfileName = ref(null)
+    const loading = ref(false)
     const form = reactive(CONFIG_INSTANCE_FORM())
 
     const sendForm = async () => {
-        sending.value = true
-        await createInstance(form)
-        sending.value = false
+        try {
+            loading.value = true
+            await createInstance(form)
+            step.value = DEFAULT_STEP
+        } catch (e) {
+            toast.error(e.response?.data?.message || e.message)
+        } finally {
+            loading.value = false
+        }
     }
 
     const sendEditForm = async () => {
-        sending.value = true
-        await createInstance(form)
-        sending.value = false
+        try {
+            loading.value = true
+            await editInstance(editProfileName.value, form)
+            step.value = DEFAULT_STEP
+        } catch (e) {
+            toast.error(e.response?.data?.message || e.message)
+        } finally {
+            loading.value = false
+        }
     }
 
-    const setEditName = (name) => {
-        editProfileName.value = name
+    const setEditName = async (name) => {
+        try {
+            loading.value = true
+            editProfileName.value = name
+            const { data } = await getInstanceSingle(name)
+            Object.assign(form, data.form)
+            step.value = DEFAULT_STEP
+        } catch (e) {
+            toast.error(e.response?.data?.message || e.message)
+        } finally {
+            loading.value = false
+        }
     }
 
     const clearEditName = () => {
         editProfileName.value = null
+        Object.assign(form, CONFIG_INSTANCE_FORM())
+        step.value = DEFAULT_STEP
     }
 
     const onChangeField = (path, value) => set(form, path, value instanceof Event ? value?.target?.value : value)
@@ -44,9 +71,9 @@ export const useInstanceFormStore = defineStore('instanceForm', () => {
 
     return {
         form,
+        loading,
 
         editProfileName,
-        editMode: !!editProfileName,
         setEditName,
         clearEditName,
 

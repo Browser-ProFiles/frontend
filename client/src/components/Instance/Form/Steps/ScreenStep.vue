@@ -7,6 +7,7 @@
         type="text"
         @change="onChangeField('name', $event.target.value)"
         :value="form.name"
+        :disabled="!!editProfileName"
       />
     </div>
 
@@ -96,5 +97,5 @@ import BaseInputGroup from '~/components/Base/Form/BaseInputGroup.vue'
 
 const store = useInstanceFormStore()
 const { onChangeField } = store
-const { form } = storeToRefs(store)
+const { form, editProfileName } = storeToRefs(store)
 </script>
