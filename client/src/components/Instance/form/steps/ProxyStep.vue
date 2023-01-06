@@ -16,7 +16,7 @@
             </template>
           </base-input-group>
         </a-col>
-        <a-col span="12">
+        <a-col v-if="form.proxy.proxyEnabled" span="12">
           <base-input-group
             name="proxyAuthEnabled"
             label="Authorization required"
@@ -32,8 +32,8 @@
         </a-col>
       </a-row>
 
-      <a-row class="row" :gutter="20">
-        <a-col span="4">
+      <a-row v-if="form.proxy.proxyEnabled" class="row" :gutter="20">
+        <a-col span="6">
           <base-input-group name="proxyType" label="Type">
             <base-select
               :items="[
@@ -51,7 +51,7 @@
             />
           </base-input-group>
         </a-col>
-        <a-col span="8">
+        <a-col span="14">
           <base-input-group name="proxyHost" label="Host">
             <base-input
               @change="onChangeField('proxy.proxyHost', $event)"
@@ -71,27 +71,25 @@
         </a-col>
       </a-row>
 
-      <template v-if="form.proxy.proxyAuthEnabled">
-        <a-row class="row" :gutter="20">
-          <a-col span="12">
-            <base-input-group name="proxyUsername" label="Username">
-              <base-input
-                @change="onChangeField('proxy.proxyUsername', $event)"
-                :value="form.proxy.proxyUsername"
-              />
-            </base-input-group>
-          </a-col>
-          <a-col span="12">
-            <base-input-group name="proxyPassword" label="Password">
-              <base-input
-                type="password"
-                @change="onChangeField('proxy.proxyPassword', $event)"
-                :value="form.proxy.proxyPassword"
-              />
-            </base-input-group>
-          </a-col>
-        </a-row>
-      </template>
+      <a-row v-if="form.proxy.proxyAuthEnabled" class="row" :gutter="20">
+        <a-col span="12">
+          <base-input-group name="proxyUsername" label="Username">
+            <base-input
+              @change="onChangeField('proxy.proxyUsername', $event)"
+              :value="form.proxy.proxyUsername"
+            />
+          </base-input-group>
+        </a-col>
+        <a-col span="12">
+          <base-input-group name="proxyPassword" label="Password">
+            <base-input
+              type="password"
+              @change="onChangeField('proxy.proxyPassword', $event)"
+              :value="form.proxy.proxyPassword"
+            />
+          </base-input-group>
+        </a-col>
+      </a-row>
     </div>
   </div>
 </template>

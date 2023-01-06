@@ -7,15 +7,15 @@
             name="userAgent"
             label="User Agent"
           >
-            <template #afterLabel>
+            <template #default>
               <base-input
-                @change="onChangeField('identity.userAgent', $event.target.checked)"
+                @change="onChangeField('identity.userAgent', $event.target.value)"
                 :value="form.identity.userAgent"
               />
             </template>
           </base-input-group>
 
-          <a-button class="submit-button" type="primary">Generate</a-button>
+          <!--<a-button @click="generateUserAgent" class="submit-button" type="primary">Generate</a-button>-->
         </a-col>
       </a-row>
 
@@ -92,7 +92,10 @@
 </template>
 
 <script setup>
+import { onMounted } from 'vue'
 import { storeToRefs } from 'pinia'
+import ua from 'useragent-generator'
+
 import { useNewInstanceFormStore } from '~/stores/newInstanceFormStore.js'
 
 import BaseInput from '~/components/Base/Form/BaseInput.vue'
@@ -102,4 +105,8 @@ import BaseInputGroup from '~/components/Base/Form/BaseInputGroup.vue'
 const store = useNewInstanceFormStore()
 const { onChangeField } = store
 const { form } = storeToRefs(store)
+
+onMounted(() => {
+  onChangeField('identity.userAgent', ua.chrome({ version: '109' }))
+})
 </script>
