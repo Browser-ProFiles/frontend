@@ -3,8 +3,8 @@ import { defineStore } from 'pinia'
 
 import { set } from '~/helpers/obj.js'
 
-import { createInstance } from '../../api/instance.js'
-import { CONFIG_INSTANCE_FORM } from '../forms/config.js'
+import { createInstance } from '~/api/instance.js'
+import { CONFIG_INSTANCE_FORM } from '~/forms/config.js'
 
 const DEFAULT_STEP = 0
 

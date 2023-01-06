@@ -50,13 +50,15 @@
 <script setup>
 import { reactive, ref } from 'vue'
 import { useRouter } from 'vue-router'
+import { useToast } from 'vue-toastification'
 
-import { login } from '../../../api/instance.js'
+import { login } from '~/api/auth.js'
 
 import BaseInput from '~/components/Base/Form/BaseInput.vue'
 import BaseInputGroup from '~/components/Base/Form/BaseInputGroup.vue'
 
 const router = useRouter()
+const toast = useToast()
 
 const submitting = ref(false)
 
@@ -67,16 +69,14 @@ const form = reactive({
 
 const onSubmit = async () => {
   submitting.value = true
-  try {
-    await login(form)
 
-    router.push('/')
-  } catch (e) {
-    console.error(e)
-    alert('Error!')
-  } finally {
-    submitting.value = false
-  }
+  login(form)
+    .then(() => router.push('/'))
+    .catch((e) => {
+      console.error(e.response.data.message)
+      toast.error(e.response?.data?.message)
+    })
+    .finally(() => submitting.value = false)
 }
 
 const onChangeField = (name, value) => form[name] = value

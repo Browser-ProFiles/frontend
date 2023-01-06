@@ -1,11 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-import AuthLogin from '../pages/Auth/AuthLogin.vue'
-import AuthSignUp from '../pages/Auth/AuthSignUp.vue'
+import AuthLogin from '~/pages/Auth/AuthLogin.vue'
+import AuthSignUp from '~/pages/Auth/AuthSignUp.vue'
 
-import InstanceList from '../pages/Instance/InstanceList.vue'
-import InstanceNew from '../pages/Instance/InstanceNew.vue'
-import InstanceEdit from '../pages/Instance/InstanceEdit.vue'
+import InstanceList from '~/pages/Instance/InstanceList.vue'
+import InstanceNew from '~/pages/Instance/InstanceNew.vue'
+import InstanceEdit from '~/pages/Instance/InstanceEdit.vue'
 
 const routes = [
     { path: '/auth/login', component: AuthLogin, meta: { hasSidebar: true } },

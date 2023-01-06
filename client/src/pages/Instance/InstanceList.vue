@@ -11,11 +11,11 @@
         Download it <router-link to="/download">here</router-link>.
       </p>
 
-      <a-list class="list" item-layout="horizontal" :data-source="profilesList">
+      <a-list :loading="loading" :data-source="list" class="list" item-layout="horizontal">
         <template #renderItem="{ item }">
           <a-list-item>
             <a-list-item-meta
-              :description="item.description"
+              :description="item.description || 'No description'"
             >
               <template #title>
                 <router-link :to="`/profile/edit/${item.name}`">{{ item.name }}</router-link>
@@ -41,21 +41,34 @@
 </template>
 
 <script setup>
+import { ref, onMounted } from 'vue'
 import Avatar from 'vue-boring-avatars'
+
+import { getInstanceList } from '@/api/instance.js'
 
 import MainLayout from '@/layouts/MainLayout.vue'
 
-const profilesList = [
-  {
-    name: 'Profile_1',
-    description: 'Example profile'
-  },
-]
+const loading = ref(false)
+const list = ref([])
+
+const fetchInstances = async () => {
+  try {
+    loading.value = true
+    const { data } = await getInstanceList()
+    list.value = data?.profiles
+  } catch (e) {
+    console.error(e)
+  } finally {
+    loading.value = false
+  }
+}
+
+onMounted(() => fetchInstances())
 </script>
 
 <style lang="scss" scoped>
 .note {
   margin-top: 10px;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
 }
 </style>

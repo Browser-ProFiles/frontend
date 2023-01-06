@@ -65,7 +65,7 @@
 import { reactive, ref } from 'vue'
 import { useRouter } from 'vue-router'
 
-import { signUp } from '../../../api/instance.js'
+import { signUp } from '~/api/auth.js'
 
 import BaseInput from '~/components/Base/Form/BaseInput.vue'
 import BaseInputGroup from '~/components/Base/Form/BaseInputGroup.vue'
@@ -87,7 +87,6 @@ const onSubmit = async () => {
     router.push('/auth/login')
   } catch (e) {
     console.error(e)
-    alert('Error!')
   } finally {
     submitting.value = false
   }
