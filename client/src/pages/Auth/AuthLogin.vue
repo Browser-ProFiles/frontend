@@ -5,7 +5,7 @@
 
       <p class="note">
         Don't have an account?
-        <router-link to="/auth/sign-up">Sign Up</router-link>
+        <router-link to="/auth/sign-up">Sign In</router-link>
       </p>
 
       <base-input-group
