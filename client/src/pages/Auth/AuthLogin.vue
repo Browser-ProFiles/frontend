@@ -54,6 +54,8 @@ import { useToast } from 'vue-toastification'
 
 import { login } from '~/api/auth.js'
 
+import { setAuthToken } from '~/helpers/auth.js';
+
 import BaseInput from '~/components/Base/Form/BaseInput.vue'
 import BaseInputGroup from '~/components/Base/Form/BaseInputGroup.vue'
 
@@ -71,7 +73,11 @@ const onSubmit = async () => {
   submitting.value = true
 
   login(form)
-    .then(() => router.push('/'))
+    .then(({ data }) => {
+      setAuthToken(data.token)
+      toast.success('Successfully authenticated')
+      router.push('/')
+    })
     .catch((e) => {
       console.error(e.response.data.message)
       toast.error(e.response?.data?.message)
