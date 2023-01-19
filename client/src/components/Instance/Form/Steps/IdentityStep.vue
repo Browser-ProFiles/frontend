@@ -29,7 +29,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('identity.useMobileUserAgent', $event.target.checked)"
-                :value="form.identity.useMobileUserAgent"
+                :checked="form.identity.useMobileUserAgent"
               />
             </template>
 
@@ -50,7 +50,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('identity.reduceUserAgentMinorVersion', $event.target.checked)"
-                :value="form.identity.reduceUserAgentMinorVersion"
+                :checked="form.identity.reduceUserAgentMinorVersion"
               />
             </template>
 
@@ -74,7 +74,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('identity.reduceUserAgentPlatformOscpu', $event.target.checked)"
-                :value="form.identity.useMobileUserAgent"
+                :checked="form.identity.useMobileUserAgent"
               />
             </template>
 

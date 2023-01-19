@@ -25,7 +25,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('system.timezone.disableFineGrainedTimeZoneDetection', $event.target.checked)"
-                :value="form.system.timezone.disableFineGrainedTimeZoneDetection"
+                :checked="form.system.timezone.disableFineGrainedTimeZoneDetection"
               />
             </template>
 
@@ -43,7 +43,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('system.timezone.disablePerUserTimezone', $event.target.checked)"
-                :value="form.system.timezone.disablePerUserTimezone"
+                :checked="form.system.timezone.disablePerUserTimezone"
               />
             </template>
 
@@ -100,7 +100,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('system.language.reduceAcceptLanguage', $event.target.checked)"
-                :value="form.system.language.reduceAcceptLanguage"
+                :checked="form.system.language.reduceAcceptLanguage"
               />
             </template>
 
@@ -119,7 +119,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('system.language.defaultCountryCode', $event.target.checked)"
-                :value="form.system.language.defaultCountryCode"
+                :checked="form.system.language.defaultCountryCode"
               />
             </template>
 

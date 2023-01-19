@@ -11,7 +11,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('fonts.disableRemoteFonts', $event.target.checked)"
-                :value="form.fonts.disableRemoteFonts"
+                :checked="form.fonts.disableRemoteFonts"
               />
             </template>
 
@@ -32,7 +32,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('fonts.disableFontSubpixelPositioning', $event.target.checked)"
-                :value="form.fonts.disableFontSubpixelPositioning"
+                :checked="form.fonts.disableFontSubpixelPositioning"
               />
             </template>
 
@@ -54,7 +54,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('fonts.disableLcdText', $event.target.checked)"
-                :value="form.fonts.disableLcdText"
+                :checked="form.fonts.disableLcdText"
               />
             </template>
 
@@ -75,7 +75,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('fonts.disablePreferCompositingToLcdText', $event.target.checked)"
-                :value="form.fonts.disablePreferCompositingToLcdText"
+                :checked="form.fonts.disablePreferCompositingToLcdText"
               />
             </template>
 
@@ -96,7 +96,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('fonts.disableScrollToTextFragment', $event.target.checked)"
-                :value="form.fonts.disableScrollToTextFragment"
+                :checked="form.fonts.disableScrollToTextFragment"
               />
             </template>
 
@@ -117,7 +117,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('fonts.enableFontAntialiasing', $event.target.checked)"
-                :value="form.fonts.enableFontAntialiasing"
+                :checked="form.fonts.enableFontAntialiasing"
               />
             </template>
 

@@ -55,7 +55,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('security.isolation.processPerSite', $event.target.checked)"
-                :value="form.security.isolation.processPerSite"
+                :checked="form.security.isolation.processPerSite"
               />
             </template>
 
@@ -80,7 +80,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('security.isolation.sitePerProcess', $event.target.checked)"
-                :value="form.security.isolation.sitePerProcess"
+                :checked="form.security.isolation.sitePerProcess"
               />
             </template>
 
@@ -110,7 +110,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('security.isolation.singleProcess', $event.target.checked)"
-                :value="form.security.isolation.singleProcess"
+                :checked="form.security.isolation.singleProcess"
               />
             </template>
 
@@ -131,7 +131,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('security.isolation.processPerTab', $event.target.checked)"
-                :value="form.security.isolation.processPerTab"
+                :checked="form.security.isolation.processPerTab"
               />
             </template>
 
@@ -215,7 +215,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('security.isolation.isolationByDefault', $event.target.checked)"
-                :value="form.security.isolation.isolationByDefault"
+                :checked="form.security.isolation.isolationByDefault"
               />
             </template>
 
@@ -237,7 +237,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('security.isolation.disableSiteIsolationForPolicy', $event.target.checked)"
-                :value="form.security.isolation.disableSiteIsolationForPolicy"
+                :checked="form.security.isolation.disableSiteIsolationForPolicy"
               />
             </template>
 
@@ -258,7 +258,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('security.isolation.disableSiteIsolationTrials', $event.target.checked)"
-                :value="form.security.isolation.disableSiteIsolationTrials"
+                :checked="form.security.isolation.disableSiteIsolationTrials"
               />
             </template>
 
@@ -285,7 +285,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('security.isolation.disableAutoWptOriginIsolation', $event.target.checked)"
-                :value="form.security.isolation.disableAutoWptOriginIsolation"
+                :checked="form.security.isolation.disableAutoWptOriginIsolation"
               />
             </template>
 
@@ -312,7 +312,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('security.fakes.useFakeCodecForPeerConnection', $event.target.checked)"
-                :value="form.security.fakes.useFakeCodecForPeerConnection"
+                :checked="form.security.fakes.useFakeCodecForPeerConnection"
               />
             </template>
 
@@ -334,7 +334,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('security.fakes.useFakeDeviceForMediaStream', $event.target.checked)"
-                :value="form.security.fakes.useFakeDeviceForMediaStream"
+                :checked="form.security.fakes.useFakeDeviceForMediaStream"
               />
             </template>
 
@@ -356,7 +356,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('security.fakes.useFakeMjpegDecodeAccelerator', $event.target.checked)"
-                :value="form.security.fakes.useFakeMjpegDecodeAccelerator"
+                :checked="form.security.fakes.useFakeMjpegDecodeAccelerator"
               />
             </template>
 
@@ -378,7 +378,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('security.fakes.useFakeUiForFedcm', $event.target.checked)"
-                :value="form.security.fakes.useFakeUiForFedcm"
+                :checked="form.security.fakes.useFakeUiForFedcm"
               />
             </template>
 
@@ -400,7 +400,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('security.fakes.useFakeUiForMediaStream', $event.target.checked)"
-                :value="form.security.fakes.useFakeUiForMediaStream"
+                :checked="form.security.fakes.useFakeUiForMediaStream"
               />
             </template>
 
@@ -422,7 +422,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('security.fakes.useFileForFakeAudioCapture', $event.target.checked)"
-                :value="form.security.fakes.useFileForFakeAudioCapture"
+                :checked="form.security.fakes.useFileForFakeAudioCapture"
               />
             </template>
 
@@ -450,7 +450,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('security.simulation.simulateCriticalUpdate', $event.target.checked)"
-                :value="form.security.simulation.simulateCriticalUpdate"
+                :checked="form.security.simulation.simulateCriticalUpdate"
               />
             </template>
 
@@ -469,7 +469,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('security.simulation.simulateElevatedRecovery', $event.target.checked)"
-                :value="form.security.simulation.simulateElevatedRecovery"
+                :checked="form.security.simulation.simulateElevatedRecovery"
               />
             </template>
 
@@ -488,7 +488,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('security.simulation.simulateOutdated', $event.target.checked)"
-                :value="form.security.simulation.simulateOutdated"
+                :checked="form.security.simulation.simulateOutdated"
               />
             </template>
 
@@ -507,7 +507,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('security.simulation.simulateOutdatedNoAu', $event.target.checked)"
-                :value="form.security.simulation.simulateOutdatedNoAu"
+                :checked="form.security.simulation.simulateOutdatedNoAu"
               />
             </template>
 
@@ -526,7 +526,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('security.simulation.simulateUpdateErrorCode', $event.target.checked)"
-                :value="form.security.simulation.simulateUpdateErrorCode"
+                :checked="form.security.simulation.simulateUpdateErrorCode"
               />
             </template>
 
@@ -545,7 +545,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('security.simulation.simulateUpdateHresult', $event.target.checked)"
-                :value="form.security.simulation.simulateUpdateHresult"
+                :checked="form.security.simulation.simulateUpdateHresult"
               />
             </template>
 
@@ -565,7 +565,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('security.simulation.simulateUpgrade', $event.target.checked)"
-                :value="form.security.simulation.simulateUpgrade"
+                :checked="form.security.simulation.simulateUpgrade"
               />
             </template>
 
@@ -610,7 +610,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('security.disableWebSecurity', $event.target.checked)"
-                :value="form.security.disableWebSecurity"
+                :checked="form.security.disableWebSecurity"
               />
             </template>
 
@@ -633,7 +633,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('security.disabledCookieEncryption', $event.target.checked)"
-                :value="form.security.disabledCookieEncryption"
+                :checked="form.security.disabledCookieEncryption"
               />
             </template>
 
@@ -654,7 +654,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('security.enableExperimentalCookieFeatures', $event.target.checked)"
-                :value="form.security.enableExperimentalCookieFeatures"
+                :checked="form.security.enableExperimentalCookieFeatures"
               />
             </template>
 
@@ -680,7 +680,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('security.disableDatabases', $event.target.checked)"
-                :value="form.security.disableDatabases"
+                :checked="form.security.disableDatabases"
               />
             </template>
 
@@ -701,7 +701,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('security.disableLocalStorage', $event.target.checked)"
-                :value="form.security.disableLocalStorage"
+                :checked="form.security.disableLocalStorage"
               />
             </template>
           </base-input-group>
@@ -718,7 +718,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('security.unlimitedStorage', $event.target.checked)"
-                :value="form.security.unlimitedStorage"
+                :checked="form.security.unlimitedStorage"
               />
             </template>
 
@@ -739,7 +739,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('security.disableDomainReliability', $event.target.checked)"
-                :value="form.security.disableDomainReliability"
+                :checked="form.security.disableDomainReliability"
               />
             </template>
 
@@ -760,7 +760,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('security.enablePotentiallyAnnoyingSecurityFeatures', $event.target.checked)"
-                :value="form.security.enablePotentiallyAnnoyingSecurityFeatures"
+                :checked="form.security.enablePotentiallyAnnoyingSecurityFeatures"
               />
             </template>
 
@@ -782,7 +782,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('security.disableDomainBlockingFor3dApis', $event.target.checked)"
-                :value="form.security.disableDomainBlockingFor3dApis"
+                :checked="form.security.disableDomainBlockingFor3dApis"
               />
             </template>
 
@@ -804,7 +804,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('security.disablePopupBlocking', $event.target.checked)"
-                :value="form.security.disablePopupBlocking"
+                :checked="form.security.disablePopupBlocking"
               />
             </template>
 
@@ -826,7 +826,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('security.disableGaiaServices', $event.target.checked)"
-                :value="form.security.disableGaiaServices"
+                :checked="form.security.disableGaiaServices"
               />
             </template>
 
@@ -848,7 +848,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('security.disableV8IdleTasks', $event.target.checked)"
-                :value="form.security.disableV8IdleTasks"
+                :checked="form.security.disableV8IdleTasks"
               />
             </template>
           </base-input-group>
@@ -865,7 +865,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('security.disableHidBlocklist', $event.target.checked)"
-                :value="form.security.disableHidBlocklist"
+                :checked="form.security.disableHidBlocklist"
               />
             </template>
           </base-input-group>

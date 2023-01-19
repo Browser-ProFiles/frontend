@@ -41,13 +41,13 @@
 import { onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { storeToRefs } from 'pinia'
-import safeString from 'safe-string'
 
 import { useInstanceFormStore } from '@/stores/instanceFormStore.js'
 
 import MainLayout from '~/layouts/MainLayout.vue'
 import ScreenStep from '~/components/Instance/Form/Steps/ScreenStep.vue'
 import ProxyStep from '~/components/Instance/Form/Steps/ProxyStep.vue'
+import FingerprintStep from '~/components/Instance/Form/Steps/FingerprintStep.vue'
 import IdentityStep from '~/components/Instance/Form/Steps/IdentityStep.vue'
 import SystemStep from '~/components/Instance/Form/Steps/SystemStep.vue'
 import FontsStep from '~/components/Instance/Form/Steps/FontsStep.vue'
@@ -72,6 +72,10 @@ const steps = [
   {
     title: 'Proxy',
     content: ProxyStep,
+  },
+  {
+    title: 'Fingerprint',
+    content: FingerprintStep,
   },
   {
     title: 'Identity',

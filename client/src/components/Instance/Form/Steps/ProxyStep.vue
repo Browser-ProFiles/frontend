@@ -11,7 +11,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('proxy.proxyEnabled', $event.target.checked)"
-                :value="form.proxy.proxyEnabled"
+                :checked="form.proxy.proxyEnabled"
               />
             </template>
           </base-input-group>
@@ -25,7 +25,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('proxy.proxyAuthEnabled', $event.target.checked)"
-                :value="form.proxy.proxyAuthEnabled"
+                :checked="form.proxy.proxyAuthEnabled"
               />
             </template>
           </base-input-group>

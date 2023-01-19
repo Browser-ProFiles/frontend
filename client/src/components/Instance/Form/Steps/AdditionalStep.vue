@@ -11,7 +11,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('additional.noExperiments', $event.target.checked)"
-                :value="form.additional.noExperiments"
+                :checked="form.additional.noExperiments"
               />
             </template>
 
@@ -32,7 +32,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('additional.enableLowEndDeviceMode', $event.target.checked)"
-                :value="form.additional.enableLowEndDeviceMode"
+                :checked="form.additional.enableLowEndDeviceMode"
               />
             </template>
 
@@ -53,7 +53,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('additional.crosDisksFake', $event.target.checked)"
-                :value="form.additional.crosDisksFake"
+                :checked="form.additional.crosDisksFake"
               />
             </template>
 
@@ -75,7 +75,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('additional.denyPermissionPrompts', $event.target.checked)"
-                :value="form.additional.denyPermissionPrompts"
+                :checked="form.additional.denyPermissionPrompts"
               />
             </template>
 
@@ -116,7 +116,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('additional.disableHighresTimer', $event.target.checked)"
-                :value="form.additional.disableHighresTimer"
+                :checked="form.additional.disableHighresTimer"
               />
             </template>
 
@@ -137,7 +137,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('additional.disablePushstateThrottle', $event.target.checked)"
-                :value="form.additional.disablePushstateThrottle"
+                :checked="form.additional.disablePushstateThrottle"
               />
             </template>
 
@@ -158,7 +158,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('additional.disableAutoReload', $event.target.checked)"
-                :value="form.additional.disableAutoReload"
+                :checked="form.additional.disableAutoReload"
               />
             </template>
 
@@ -179,7 +179,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('additional.disableBackForwardCache', $event.target.checked)"
-                :value="form.additional.disableBackForwardCache"
+                :checked="form.additional.disableBackForwardCache"
               />
             </template>
 
@@ -200,7 +200,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('additional.disableBackgroundNetworking', $event.target.checked)"
-                :value="form.additional.disableBackgroundNetworking"
+                :checked="form.additional.disableBackgroundNetworking"
               />
             </template>
 
@@ -222,7 +222,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('additional.disableBackgroundTimerThrottling', $event.target.checked)"
-                :value="form.additional.disableBackgroundTimerThrottling"
+                :checked="form.additional.disableBackgroundTimerThrottling"
               />
             </template>
 

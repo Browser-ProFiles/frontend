@@ -54,7 +54,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('screen.touchDevices', $event.target.checked)"
-                :value="form.screen.touchDevices"
+                :checked="form.screen.touchDevices"
               />
             </template>
 
@@ -73,7 +73,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('screen.touchEvents', $event.target.checked)"
-                :value="form.screen.touchEvents"
+                :checked="form.screen.touchEvents"
               />
             </template>
 

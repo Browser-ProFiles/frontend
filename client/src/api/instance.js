@@ -9,3 +9,5 @@ export const createInstance = (params) => api.post('/instance/create', params)
 export const editInstance = (name, params) => api.patch(`/instance/edit/${name}`, params)
 
 export const deleteInstance = (name) => api.delete(`/instance/remove/${name}`)
+
+export const generateFingerprint = (form) => api.post('/generate/fingerprint', form)

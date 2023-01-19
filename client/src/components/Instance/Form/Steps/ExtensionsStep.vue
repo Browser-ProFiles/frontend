@@ -11,7 +11,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('extensions.disableExtensions', $event.target.checked)"
-                :value="form.extensions.disableExtensions"
+                :checked="form.extensions.disableExtensions"
               />
             </template>
           </base-input-group>
@@ -46,7 +46,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('extensions.disableExtensionsFileAccessCheck', $event.target.checked)"
-                :value="form.extensions.disableExtensionsFileAccessCheck"
+                :checked="form.extensions.disableExtensionsFileAccessCheck"
               />
             </template>
 
@@ -68,7 +68,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('extensions.disableExtensionsHttpThrottling', $event.target.checked)"
-                :value="form.extensions.disableExtensionsHttpThrottling"
+                :checked="form.extensions.disableExtensionsHttpThrottling"
               />
             </template>
 
@@ -110,7 +110,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('extensions.disableDefaultApps', $event.target.checked)"
-                :value="form.extensions.disableDefaultApps"
+                :checked="form.extensions.disableDefaultApps"
               />
             </template>
 
@@ -132,7 +132,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('extensions.disableComponentExtensionsWidthBackgroundPages', $event.target.checked)"
-                :value="form.extensions.disableComponentExtensionsWidthBackgroundPages"
+                :checked="form.extensions.disableComponentExtensionsWidthBackgroundPages"
               />
             </template>
 
@@ -154,7 +154,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('extensions.enableExperimentalExtensionApis', $event.target.checked)"
-                :value="form.extensions.enableExperimentalExtensionApis"
+                :checked="form.extensions.enableExperimentalExtensionApis"
               />
             </template>
 

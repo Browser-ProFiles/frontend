@@ -11,7 +11,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('canvas.enabled2DLayers', $event.target.checked)"
-                :value="form.canvas.enabled2DLayers"
+                :checked="form.canvas.enabled2DLayers"
               />
             </template>
 
@@ -32,7 +32,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('canvas.disableCanvasAa', $event.target.checked)"
-                :value="form.canvas.disableCanvasAa"
+                :checked="form.canvas.disableCanvasAa"
               />
             </template>
 
@@ -53,7 +53,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('canvas.disabled2DCanvasClipAa', $event.target.checked)"
-                :value="form.canvas.disabled2DCanvasClipAa"
+                :checked="form.canvas.disabled2DCanvasClipAa"
               />
             </template>
 
@@ -74,7 +74,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('canvas.disabled2DCanvasImageChromium', $event.target.checked)"
-                :value="form.canvas.disabled2DCanvasImageChromium"
+                :checked="form.canvas.disabled2DCanvasImageChromium"
               />
             </template>
 
@@ -95,7 +95,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('canvas.disableReadingFromCanvas', $event.target.checked)"
-                :value="form.canvas.disableReadingFromCanvas"
+                :checked="form.canvas.disableReadingFromCanvas"
               />
             </template>
 
@@ -116,7 +116,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('canvas.disabledAccelerated2DCanvas', $event.target.checked)"
-                :value="form.canvas.disabledAccelerated2DCanvas"
+                :checked="form.canvas.disabledAccelerated2DCanvas"
               />
             </template>
 
@@ -137,7 +137,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('canvas.disabledAccelerated2DCanvas', $event.target.checked)"
-                :value="form.canvas.disabledAccelerated2DCanvas"
+                :checked="form.canvas.disabledAccelerated2DCanvas"
               />
             </template>
 

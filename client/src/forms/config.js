@@ -24,6 +24,14 @@ export const CONFIG_INSTANCE_FORM = () => ({
         proxyUsername: null,
         proxyPassword: null,
     },
+    fingerprint: {
+        fingerprintEnabled: true,
+        fingerprintDevice: 'desktop',
+        fingerprintOs: 'windows',
+        fingerprintBrowser: 'chrome',
+        fingerprintBrowserVersion: 108,
+        fingerprintResult: null,
+    },
     identity: {
         // A string used to override the default user agent with a custom one.
         userAgent: null, // --user-agent

@@ -11,7 +11,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('javascript.disableJavascriptHarmonyShipping', $event.target.checked)"
-                :value="form.javascript.disableJavascriptHarmonyShipping"
+                :checked="form.javascript.disableJavascriptHarmonyShipping"
               />
             </template>
 
@@ -32,7 +32,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('javascript.javascriptHarmony', $event.target.checked)"
-                :value="form.javascript.javascriptHarmony"
+                :checked="form.javascript.javascriptHarmony"
               />
             </template>
 

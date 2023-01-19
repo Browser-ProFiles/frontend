@@ -13,7 +13,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.pepper.disablePepper3d', $event.target.checked)"
-                :value="form.render.pepper.disablePepper3d"
+                :checked="form.render.pepper.disablePepper3d"
               />
             </template>
           </base-input-group>
@@ -30,7 +30,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.pepper.disablePepper3dImageChromium', $event.target.checked)"
-                :value="form.render.pepper.disablePepper3dImageChromium"
+                :checked="form.render.pepper.disablePepper3dImageChromium"
               />
             </template>
 
@@ -51,7 +51,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.pepper.disableUseMojoVideoDecoderForPepper', $event.target.checked)"
-                :value="form.render.pepper.disableUseMojoVideoDecoderForPepper"
+                :checked="form.render.pepper.disableUseMojoVideoDecoderForPepper"
               />
             </template>
 
@@ -78,7 +78,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.decode.disableAcceleratedMjpegDecode', $event.target.checked)"
-                :value="form.render.decode.disableAcceleratedMjpegDecode"
+                :checked="form.render.decode.disableAcceleratedMjpegDecode"
               />
             </template>
 
@@ -99,7 +99,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.decode.disableAcceleratedVideoDecode', $event.target.checked)"
-                :value="form.render.decode.disableAcceleratedVideoDecode"
+                :checked="form.render.decode.disableAcceleratedVideoDecode"
               />
             </template>
 
@@ -120,7 +120,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.decode.disableAcceleratedVideoEncode', $event.target.checked)"
-                :value="form.render.decode.disableAcceleratedVideoEncode"
+                :checked="form.render.decode.disableAcceleratedVideoEncode"
               />
             </template>
 
@@ -145,7 +145,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.gpu.disableGpu', $event.target.checked)"
-                :value="form.render.gpu.disableGpu"
+                :checked="form.render.gpu.disableGpu"
               />
             </template>
 
@@ -167,7 +167,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.gpu.disableGpuCompositing', $event.target.checked)"
-                :value="form.render.gpu.disableGpuCompositing"
+                :checked="form.render.gpu.disableGpuCompositing"
               />
             </template>
 
@@ -188,7 +188,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.gpu.disableGpuDriverBugWorkarounds', $event.target.checked)"
-                :value="form.render.gpu.disableGpuDriverBugWorkarounds"
+                :checked="form.render.gpu.disableGpuDriverBugWorkarounds"
               />
             </template>
 
@@ -209,7 +209,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.gpu.disableGpuEarlyInit', $event.target.checked)"
-                :value="form.render.gpu.disableGpuEarlyInit"
+                :checked="form.render.gpu.disableGpuEarlyInit"
               />
             </template>
 
@@ -230,7 +230,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.gpu.disableGpuMemoryBufferCompositorResources', $event.target.checked)"
-                :value="form.render.gpu.disableGpuMemoryBufferCompositorResources"
+                :checked="form.render.gpu.disableGpuMemoryBufferCompositorResources"
               />
             </template>
 
@@ -251,7 +251,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.gpu.disableGpuMemoryBufferVideoFrames', $event.target.checked)"
-                :value="form.render.gpu.disableGpuMemoryBufferVideoFrames"
+                :checked="form.render.gpu.disableGpuMemoryBufferVideoFrames"
               />
             </template>
 
@@ -272,7 +272,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.gpu.disableGpuProcessCrashLimit', $event.target.checked)"
-                :value="form.render.gpu.disableGpuProcessCrashLimit"
+                :checked="form.render.gpu.disableGpuProcessCrashLimit"
               />
             </template>
 
@@ -293,7 +293,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.gpu.disableGpuProcessForDx12InfoCollection', $event.target.checked)"
-                :value="form.render.gpu.disableGpuProcessForDx12InfoCollection"
+                :checked="form.render.gpu.disableGpuProcessForDx12InfoCollection"
               />
             </template>
 
@@ -314,7 +314,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.gpu.disableGpuProgramCache', $event.target.checked)"
-                :value="form.render.gpu.disableGpuProgramCache"
+                :checked="form.render.gpu.disableGpuProgramCache"
               />
             </template>
 
@@ -335,7 +335,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.gpu.disableGpuRasterization', $event.target.checked)"
-                :value="form.render.gpu.disableGpuRasterization"
+                :checked="form.render.gpu.disableGpuRasterization"
               />
             </template>
 
@@ -357,7 +357,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.gpu.disableGpuSandbox', $event.target.checked)"
-                :value="form.render.gpu.disableGpuSandbox"
+                :checked="form.render.gpu.disableGpuSandbox"
               />
             </template>
 
@@ -378,7 +378,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.gpu.disableGpuShaderDiskCache', $event.target.checked)"
-                :value="form.render.gpu.disableGpuShaderDiskCache"
+                :checked="form.render.gpu.disableGpuShaderDiskCache"
               />
             </template>
 
@@ -399,7 +399,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.gpu.disableGpuVsync', $event.target.checked)"
-                :value="form.render.gpu.disableGpuVsync"
+                :checked="form.render.gpu.disableGpuVsync"
               />
             </template>
 
@@ -420,7 +420,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.gpu.disableGpuWatchdog', $event.target.checked)"
-                :value="form.render.gpu.disableGpuWatchdog"
+                :checked="form.render.gpu.disableGpuWatchdog"
               />
             </template>
 
@@ -576,7 +576,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.gpu.gpuSandboxAllowSysvShm', $event.target.checked)"
-                :value="form.render.gpu.gpuSandboxAllowSysvShm"
+                :checked="form.render.gpu.gpuSandboxAllowSysvShm"
               />
             </template>
 
@@ -597,7 +597,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.gpu.gpuSandboxStartEarly', $event.target.checked)"
-                :value="form.render.gpu.gpuSandboxStartEarly"
+                :checked="form.render.gpu.gpuSandboxStartEarly"
               />
             </template>
 
@@ -618,7 +618,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.gpu.gpuStartupDialog', $event.target.checked)"
-                :value="form.render.gpu.gpuStartupDialog"
+                :checked="form.render.gpu.gpuStartupDialog"
               />
             </template>
 
@@ -639,7 +639,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.gpu.gpuSubSystemId', $event.target.checked)"
-                :value="form.render.gpu.gpuSubSystemId"
+                :checked="form.render.gpu.gpuSubSystemId"
               />
             </template>
 
@@ -660,7 +660,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.gpu.gpuVendorId', $event.target.checked)"
-                :value="form.render.gpu.gpuVendorId"
+                :checked="form.render.gpu.gpuVendorId"
               />
             </template>
 
@@ -681,7 +681,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.gpu.inProcessGpu', $event.target.checked)"
-                :value="form.render.gpu.inProcessGpu"
+                :checked="form.render.gpu.inProcessGpu"
               />
             </template>
 
@@ -706,7 +706,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.webgl.disableWebgl', $event.target.checked)"
-                :value="form.render.webgl.disableWebgl"
+                :checked="form.render.webgl.disableWebgl"
               />
             </template>
 
@@ -727,7 +727,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.webgl.disableWebglImageChromium', $event.target.checked)"
-                :value="form.render.webgl.disableWebglImageChromium"
+                :checked="form.render.webgl.disableWebglImageChromium"
               />
             </template>
 
@@ -748,7 +748,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.webgl.disableWebgl2', $event.target.checked)"
-                :value="form.render.webgl.disableWebgl2"
+                :checked="form.render.webgl.disableWebgl2"
               />
             </template>
 
@@ -769,7 +769,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.webgl.webglAntialiasingMode', $event.target.checked)"
-                :value="form.render.webgl.webglAntialiasingMode"
+                :checked="form.render.webgl.webglAntialiasingMode"
               />
             </template>
 
@@ -790,7 +790,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.webgl.webglMsaaSampleCount', $event.target.checked)"
-                :value="form.render.webgl.webglMsaaSampleCount"
+                :checked="form.render.webgl.webglMsaaSampleCount"
               />
             </template>
 
@@ -815,7 +815,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.gl.disableGlDrawingForTests', $event.target.checked)"
-                :value="form.render.gl.disableGlDrawingForTests"
+                :checked="form.render.gl.disableGlDrawingForTests"
               />
             </template>
 
@@ -857,7 +857,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.gl.disableGlslTranslator', $event.target.checked)"
-                :value="form.render.gl.disableGlslTranslator"
+                :checked="form.render.gl.disableGlslTranslator"
               />
             </template>
 
@@ -882,7 +882,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.webview.webviewDisableAppRecovery', $event.target.checked)"
-                :value="form.render.webview.webviewDisableAppRecovery"
+                :checked="form.render.webview.webviewDisableAppRecovery"
               />
             </template>
 
@@ -903,7 +903,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.webview.webviewDisablePackageAllowlistThrottling', $event.target.checked)"
-                :value="form.render.webview.webviewDisablePackageAllowlistThrottling"
+                :checked="form.render.webview.webviewDisablePackageAllowlistThrottling"
               />
             </template>
 
@@ -924,7 +924,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.webview.webviewDisableSafebrowsingSupport', $event.target.checked)"
-                :value="form.render.webview.webviewDisableSafebrowsingSupport"
+                :checked="form.render.webview.webviewDisableSafebrowsingSupport"
               />
             </template>
 
@@ -945,7 +945,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.webview.webviewEnableAppRecovery', $event.target.checked)"
-                :value="form.render.webview.webviewEnableAppRecovery"
+                :checked="form.render.webview.webviewEnableAppRecovery"
               />
             </template>
 
@@ -966,7 +966,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.webview.webviewEnableModernCookieSameSite', $event.target.checked)"
-                :value="form.render.webview.webviewEnableModernCookieSameSite"
+                :checked="form.render.webview.webviewEnableModernCookieSameSite"
               />
             </template>
 
@@ -990,7 +990,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.webview.webviewMparchFencedFrames', $event.target.checked)"
-                :value="form.render.webview.webviewMparchFencedFrames"
+                :checked="form.render.webview.webviewMparchFencedFrames"
               />
             </template>
 
@@ -1011,7 +1011,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.webview.webviewSafebrowsingBlockAllResources', $event.target.checked)"
-                :value="form.render.webview.webviewSafebrowsingBlockAllResources"
+                :checked="form.render.webview.webviewSafebrowsingBlockAllResources"
               />
             </template>
 
@@ -1032,7 +1032,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.webview.webviewSandboxedRenderer', $event.target.checked)"
-                :value="form.render.webview.webviewSandboxedRenderer"
+                :checked="form.render.webview.webviewSandboxedRenderer"
               />
             </template>
           </base-input-group>
@@ -1049,7 +1049,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.webview.webviewShadowDomFencedFrames', $event.target.checked)"
-                :value="form.render.webview.webviewShadowDomFencedFrames"
+                :checked="form.render.webview.webviewShadowDomFencedFrames"
               />
             </template>
 
@@ -1074,7 +1074,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.webrtc.disableWebrtcEncryption', $event.target.checked)"
-                :value="form.render.webrtc.disableWebrtcEncryption"
+                :checked="form.render.webrtc.disableWebrtcEncryption"
               />
             </template>
 
@@ -1096,7 +1096,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.webrtc.disableWebrtcHwDecoding', $event.target.checked)"
-                :value="form.render.webrtc.disableWebrtcHwDecoding"
+                :checked="form.render.webrtc.disableWebrtcHwDecoding"
               />
             </template>
 
@@ -1117,7 +1117,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.webrtc.disableWebrtcHwEncoding', $event.target.checked)"
-                :value="form.render.webrtc.disableWebrtcHwEncoding"
+                :checked="form.render.webrtc.disableWebrtcHwEncoding"
               />
             </template>
 
@@ -1268,7 +1268,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.disableCompositedAntialiasing', $event.target.checked)"
-                :value="form.render.disableCompositedAntialiasing"
+                :checked="form.render.disableCompositedAntialiasing"
               />
             </template>
 
@@ -1289,7 +1289,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.disableD3d11', $event.target.checked)"
-                :value="form.render.disableD3d11"
+                :checked="form.render.disableD3d11"
               />
             </template>
 
@@ -1310,7 +1310,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.disableDirectComposition', $event.target.checked)"
-                :value="form.render.disableDirectComposition"
+                :checked="form.render.disableDirectComposition"
               />
             </template>
 
@@ -1331,7 +1331,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.disableDirectCompositionVideoOverlays', $event.target.checked)"
-                :value="form.render.disableDirectCompositionVideoOverlays"
+                :checked="form.render.disableDirectCompositionVideoOverlays"
               />
             </template>
 
@@ -1352,7 +1352,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.disableFrameRateLimit', $event.target.checked)"
-                :value="form.render.disableFrameRateLimit"
+                :checked="form.render.disableFrameRateLimit"
               />
             </template>
 
@@ -1374,7 +1374,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.disableRendererAccessibility', $event.target.checked)"
-                :value="form.render.disableRendererAccessibility"
+                :checked="form.render.disableRendererAccessibility"
               />
             </template>
 
@@ -1395,7 +1395,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.disableRendererBackgrounding', $event.target.checked)"
-                :value="form.render.disableRendererBackgrounding"
+                :checked="form.render.disableRendererBackgrounding"
               />
             </template>
 
@@ -1416,7 +1416,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.disableMetalShaderCache', $event.target.checked)"
-                :value="form.render.disableMetalShaderCache"
+                :checked="form.render.disableMetalShaderCache"
               />
             </template>
 
@@ -1437,7 +1437,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.disableNewContentRenderingTimeout', $event.target.checked)"
-                :value="form.render.disableNewContentRenderingTimeout"
+                :checked="form.render.disableNewContentRenderingTimeout"
               />
             </template>
 
@@ -1459,7 +1459,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.disableImageAnimationResync', $event.target.checked)"
-                :value="form.render.disableImageAnimationResync"
+                :checked="form.render.disableImageAnimationResync"
               />
             </template>
 
@@ -1481,7 +1481,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.disableNv12DxgiVideo', $event.target.checked)"
-                :value="form.render.disableNv12DxgiVideo"
+                :checked="form.render.disableNv12DxgiVideo"
               />
             </template>
 
@@ -1502,7 +1502,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.disablePartialRaster', $event.target.checked)"
-                :value="form.render.disablePartialRaster"
+                :checked="form.render.disablePartialRaster"
               />
             </template>
 
@@ -1524,7 +1524,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.disableRgba4444Textures', $event.target.checked)"
-                :value="form.render.disableRgba4444Textures"
+                :checked="form.render.disableRgba4444Textures"
               />
             </template>
 
@@ -1545,7 +1545,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.disableRtcSmoothnessAlgorithm', $event.target.checked)"
-                :value="form.render.disableRtcSmoothnessAlgorithm"
+                :checked="form.render.disableRtcSmoothnessAlgorithm"
               />
             </template>
 
@@ -1566,7 +1566,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.disableShaderNameHashing', $event.target.checked)"
-                :value="form.render.disableShaderNameHashing"
+                :checked="form.render.disableShaderNameHashing"
               />
             </template>
 
@@ -1587,7 +1587,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.disableSkiaRuntimeOpts', $event.target.checked)"
-                :value="form.render.disableSkiaRuntimeOpts"
+                :checked="form.render.disableSkiaRuntimeOpts"
               />
             </template>
 
@@ -1609,7 +1609,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.disableSmoothScrolling', $event.target.checked)"
-                :value="form.render.disableSmoothScrolling"
+                :checked="form.render.disableSmoothScrolling"
               />
             </template>
 
@@ -1630,7 +1630,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.disableSoftwareCompositingFallback', $event.target.checked)"
-                :value="form.render.disableSoftwareCompositingFallback"
+                :checked="form.render.disableSoftwareCompositingFallback"
               />
             </template>
 
@@ -1652,7 +1652,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.disableSoftwareRasterizer', $event.target.checked)"
-                :value="form.render.disableSoftwareRasterizer"
+                :checked="form.render.disableSoftwareRasterizer"
               />
             </template>
 
@@ -1673,7 +1673,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('render.disableAngleFeatures', $event.target.checked)"
-                :value="form.render.disableAngleFeatures"
+                :checked="form.render.disableAngleFeatures"
               />
             </template>
 

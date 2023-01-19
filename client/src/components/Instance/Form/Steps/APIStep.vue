@@ -11,7 +11,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('api.disableFileSystem', $event.target.checked)"
-                :value="form.api.disableFileSystem"
+                :checked="form.api.disableFileSystem"
               />
             </template>
           </base-input-group>
@@ -43,7 +43,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('api.disableNotifications', $event.target.checked)"
-                :value="form.api.disableNotifications"
+                :checked="form.api.disableNotifications"
               />
             </template>
           </base-input-group>
@@ -60,7 +60,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('api.disablePermissionsApi', $event.target.checked)"
-                :value="form.api.disablePermissionsApi"
+                :checked="form.api.disablePermissionsApi"
               />
             </template>
           </base-input-group>
@@ -77,7 +77,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('api.disablePresentationApi', $event.target.checked)"
-                :value="form.api.disablePresentationApi"
+                :checked="form.api.disablePresentationApi"
               />
             </template>
           </base-input-group>
@@ -94,7 +94,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('api.disableRemotePlaybackApi', $event.target.checked)"
-                :value="form.api.disableRemotePlaybackApi"
+                :checked="form.api.disableRemotePlaybackApi"
               />
             </template>
           </base-input-group>
@@ -111,7 +111,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('api.disableScreenOrientationLock', $event.target.checked)"
-                :value="form.api.disableScreenOrientationLock"
+                :checked="form.api.disableScreenOrientationLock"
               />
             </template>
           </base-input-group>
@@ -128,7 +128,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('api.disableSharedWorkers', $event.target.checked)"
-                :value="form.api.disableSharedWorkers"
+                :checked="form.api.disableSharedWorkers"
               />
             </template>
           </base-input-group>
@@ -145,7 +145,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('api.disableSpeechApi', $event.target.checked)"
-                :value="form.api.disableSpeechApi"
+                :checked="form.api.disableSpeechApi"
               />
             </template>
           </base-input-group>
@@ -162,7 +162,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('api.disableSpeechSynthesisApi', $event.target.checked)"
-                :value="form.api.disableSpeechSynthesisApi"
+                :checked="form.api.disableSpeechSynthesisApi"
               />
             </template>
           </base-input-group>
@@ -179,7 +179,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('api.disabled3DApis', $event.target.checked)"
-                :value="form.api.disabled3DApis"
+                :checked="form.api.disabled3DApis"
               />
             </template>
 
@@ -203,7 +203,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('api.disableTouchDragDrop', $event.target.checked)"
-                :value="form.api.disableTouchDragDrop"
+                :checked="form.api.disableTouchDragDrop"
               />
             </template>
 
@@ -224,7 +224,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('api.disableSystemFontCheck', $event.target.checked)"
-                :value="form.api.disableSystemFontCheck"
+                :checked="form.api.disableSystemFontCheck"
               />
             </template>
           </base-input-group>
@@ -241,7 +241,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('api.enableExperimentalWebPlatformFeatures', $event.target.checked)"
-                :value="form.api.enableExperimentalWebPlatformFeatures"
+                :checked="form.api.enableExperimentalWebPlatformFeatures"
               />
             </template>
           </base-input-group>
@@ -258,7 +258,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('api.enableExperimentalWebassemblyFeatures', $event.target.checked)"
-                :value="form.api.enableExperimentalWebassemblyFeatures"
+                :checked="form.api.enableExperimentalWebassemblyFeatures"
               />
             </template>
           </base-input-group>
@@ -275,7 +275,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('api.enableExperimentalWebassemblyStackSwitching', $event.target.checked)"
-                :value="form.api.enableExperimentalWebassemblyStackSwitching"
+                :checked="form.api.enableExperimentalWebassemblyStackSwitching"
               />
             </template>
           </base-input-group>
@@ -292,7 +292,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('api.enablePrivacySandboxAdsApis', $event.target.checked)"
-                :value="form.api.enablePrivacySandboxAdsApis"
+                :checked="form.api.enablePrivacySandboxAdsApis"
               />
             </template>
 
@@ -314,7 +314,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('api.enableUsermediaScreenCapturing', $event.target.checked)"
-                :value="form.api.enableUsermediaScreenCapturing"
+                :checked="form.api.enableUsermediaScreenCapturing"
               />
             </template>
 
@@ -354,7 +354,7 @@
             <template #default>
               <base-checkbox
                 @change="onChangeField('api.blinkSettings', $event.target.checked)"
-                :value="form.api.blinkSettings"
+                :checked="form.api.blinkSettings"
               />
             </template>
 
