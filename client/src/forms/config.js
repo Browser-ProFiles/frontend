@@ -25,6 +25,7 @@ export const CONFIG_INSTANCE_FORM = () => ({
         proxyPassword: null,
     },
     fingerprint: {
+        hideWebRtcLeak: true,
         fingerprintEnabled: false,
         fingerprintDevice: 'desktop',
         fingerprintOs: 'windows',

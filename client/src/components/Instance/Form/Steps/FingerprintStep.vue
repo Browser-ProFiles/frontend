@@ -4,6 +4,23 @@
       <a-row class="row">
         <a-col span="24">
           <base-input-group
+            name="hideWebRtcLeak"
+            label="Hide WebRTC leak (recommended)"
+          >
+            <template #afterLabel>
+              <base-checkbox
+                class="checkbox"
+                @change="onChangeField('fingerprint.hideWebRtcLeak', $event)"
+                :checked="form.fingerprint.hideWebRtcLeak"
+              />
+            </template>
+          </base-input-group>
+        </a-col>
+      </a-row>
+
+      <a-row class="row">
+        <a-col span="24">
+          <base-input-group
             name="fingerprintEnabled"
             label="Enable fake fingerprint (recommended)"
           >
