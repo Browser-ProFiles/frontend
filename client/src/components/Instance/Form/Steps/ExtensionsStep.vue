@@ -6,6 +6,7 @@
           <base-input-group
             name="disableExtensions"
             label="Disable extensions"
+            advanced
           >
             <template #afterLabel>
               <base-checkbox
@@ -23,6 +24,7 @@
           <base-input-group
             name="disableExtensionsExcept"
             label="Disable extensions except"
+            advanced
           >
             <base-input
               @change="onChangeField('extensions.disableExtensionsExcept', $event.target.value)"
@@ -41,6 +43,7 @@
           <base-input-group
             name="disableExtensionsFileAccessCheck"
             label="Disable extensions file access check"
+            advanced
           >
             <template #afterLabel>
               <base-checkbox
@@ -63,6 +66,7 @@
           <base-input-group
             name="disableExtensionsHttpThrottling"
             label="Disable extensions HTTP throttling"
+            advanced
           >
             <template #afterLabel>
               <base-checkbox
@@ -84,6 +88,7 @@
           <base-input-group
             name="disableFeatures"
             label="Disable features"
+            advanced
           >
             <template #default>
               <base-input
@@ -105,6 +110,7 @@
           <base-input-group
             name="disableDefaultApps"
             label="Disable default apps"
+            advanced
           >
             <template #afterLabel>
               <base-checkbox
@@ -127,6 +133,7 @@
           <base-input-group
             name="disableComponentExtensionsWidthBackgroundPages"
             label="Disable component extensions width background pages"
+            advanced
           >
             <template #afterLabel>
               <base-checkbox
@@ -149,6 +156,7 @@
           <base-input-group
             name="enableExperimentalExtensionApis"
             label="Enable experimental extension APIs"
+            advanced
           >
             <template #afterLabel>
               <base-checkbox
@@ -170,6 +178,7 @@
           <base-input-group
             name="listApps"
             label="List apps"
+            advanced
           >
             <template #default>
               <base-input
@@ -192,6 +201,7 @@
           <base-input-group
             name="listAudioDevices"
             label="List audio devices"
+            advanced
           >
             <template #default>
               <base-input
@@ -208,6 +218,7 @@
           <base-input-group
             name="loadApps"
             label="Load apps"
+            advanced
           >
             <template #default>
               <base-input
@@ -228,6 +239,7 @@
           <base-input-group
             name="loadExtension"
             label="Load extension"
+            advanced
           >
             <template #default>
               <base-input

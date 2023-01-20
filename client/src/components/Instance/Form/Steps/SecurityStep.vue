@@ -8,6 +8,7 @@
           <base-input-group
             name="sslVersionMax"
             label="SSL Version max"
+            advanced
           >
             <template #afterLabel>
               <base-input
@@ -26,6 +27,7 @@
           <base-input-group
             name="sslVersionMin"
             label="SSL Version min"
+            advanced
           >
             <template #afterLabel>
               <base-input

@@ -6,6 +6,7 @@
           <base-input-group
             name="qsAddFakeBluetoothDevices"
             label="Qs add fake bluetooth devices"
+            advanced
           >
             <template #default>
               <base-input
@@ -26,6 +27,7 @@
           <base-input-group
             name="qsAddFakeCastDevices"
             label="Qs add fake cast devices"
+            advanced
           >
             <template #default>
               <base-input

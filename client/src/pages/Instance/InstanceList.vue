@@ -3,7 +3,7 @@
     <template #sider-wrapper></template>
     <template #default>
       <a-button type="submit" role="link">
-        <router-link to="/profile/new">New Profile</router-link>
+        <router-link to="/profile/new">New Browser Profile</router-link>
       </a-button>
 
       <p class="note">
@@ -43,6 +43,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import Avatar from 'vue-boring-avatars'
+import { useToast } from 'vue-toastification'
 
 import { getInstanceList, deleteInstance } from '@/api/instance.js'
 
@@ -50,6 +51,7 @@ import MainLayout from '@/layouts/MainLayout.vue'
 
 const loading = ref(false)
 const list = ref([])
+const toast = useToast()
 
 const fetchInstances = async () => {
   try {
@@ -58,6 +60,7 @@ const fetchInstances = async () => {
     list.value = data?.profiles
   } catch (e) {
     console.error(e)
+    toast.error(`Failed to fetch profiles: ${e.response?.data?.message || e.message}`)
   } finally {
     loading.value = false
   }
@@ -68,8 +71,10 @@ const removeInstance = async (name) => {
     loading.value = true
     await deleteInstance(name)
     list.value = list.value.filter((item) => item.name !== name)
+    toast.success(`Successfully removed profile: ${name}`)
   } catch (e) {
     console.error(e)
+    toast.error(`Failed to remove profile: ${e.response?.data?.message || e.message}`)
   } finally {
     loading.value = false
   }

@@ -1,7 +1,7 @@
 <template>
   <div class="screen-step">
     <div class="section">
-      <h2 class="title"><label for="name">Name (required)</label></h2>
+      <h2 class="title"><label for="name">Name <span class="required">*</span></label></h2>
       <base-input
         show-count
         type="text"
@@ -49,6 +49,7 @@
           <base-input-group
             name="touchDevices"
             label="Touch devices"
+            advanced
           >
             <template #afterLabel>
               <base-checkbox
@@ -68,6 +69,7 @@
           <base-input-group
             name="touchEvents"
             label="Touch events"
+            advanced
           >
             <template #afterLabel>
               <base-checkbox

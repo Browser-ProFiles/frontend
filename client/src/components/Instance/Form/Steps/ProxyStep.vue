@@ -65,13 +65,14 @@
               min="1"
               max="65535"
               @change="onChangeField('proxy.proxyPort', $event)"
+              :parser="(value) => Number(value)"
               :value="form.proxy.proxyPort"
             />
           </base-input-group>
         </a-col>
       </a-row>
 
-      <a-row v-if="form.proxy.proxyAuthEnabled" class="row" :gutter="20">
+      <a-row v-if="form.proxy.proxyEnabled && form.proxy.proxyAuthEnabled" class="row" :gutter="20">
         <a-col span="12">
           <base-input-group name="proxyUsername" label="Username">
             <base-input

@@ -17,7 +17,7 @@ export const CONFIG_INSTANCE_FORM = () => ({
     proxy: {
         // --proxy-server (manual)
         proxyEnabled: false,
-        proxyType: 'http',
+        proxyType: 'socks5',
         proxyHost: null,
         proxyPort: null,
         proxyAuthEnabled: false,
@@ -25,7 +25,7 @@ export const CONFIG_INSTANCE_FORM = () => ({
         proxyPassword: null,
     },
     fingerprint: {
-        fingerprintEnabled: true,
+        fingerprintEnabled: false,
         fingerprintDevice: 'desktop',
         fingerprintOs: 'windows',
         fingerprintBrowser: 'chrome',
@@ -54,7 +54,7 @@ export const CONFIG_INSTANCE_FORM = () => ({
     system: {
         timezone: {
             // TZ (manual)
-            timezone: 'Europe/Warsaw',
+            timezone: null,
 
             // Disables fine grained time zone detection.
             disableFineGrainedTimeZoneDetection: false, // --disable-fine-grained-time-zone-detection

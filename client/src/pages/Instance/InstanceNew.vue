@@ -1,11 +1,21 @@
 <template>
-  <main-layout :title="`New Profile - ${steps[step].title}`">
+  <main-layout>
+    <template #header>
+      <div class="title">
+        New Browser Profile - {{ steps[step].title }}
+      </div>
+      <base-input-group group="row" name="advancedSettings" label="Advanced settings">
+        <a-switch class="switch" :checked="advancedSettings" @change="toggleAdvancedSettings" />
+      </base-input-group>
+      <div class="mock" />
+    </template>
     <template #sider>
       <a-button class="back">
         <router-link to="/profiles">Back</router-link>
       </a-button>
+
       <a-steps @change="onChangeStep" :current="step" direction="vertical">
-        <a-step v-for="item in steps" :key="item.title" :title="item.title" />
+        <a-step v-for="item in filteredSteps" :key="item.title" :title="item.title" />
       </a-steps>
     </template>
     <template #default>
@@ -16,7 +26,7 @@
           <a-button v-if="step > 0" type="danger" @click="prevStep">Previous</a-button>
 
           <a-button
-            v-if="step === steps.length - 1"
+            v-if="step === filteredSteps.length - 1"
             :disabled="loading"
             type="primary"
             @click="onSendForm"
@@ -24,23 +34,25 @@
             Done
           </a-button>
 
-          <a-button v-if="step < steps.length - 1" type="primary" @click="nextStep">Next</a-button>
+          <a-button v-if="step < filteredSteps.length - 1" type="primary" @click="nextStep">Next</a-button>
 
-          <a-button v-if="step !== steps.length - 1" type="dashed" @click="lastStep">&gt;&gt;</a-button>
+          <a-button v-if="step !== filteredSteps.length - 1" type="dashed" @click="lastStep">&gt;&gt;</a-button>
         </div>
 
-        <component :is="steps[step].content" />
+        <component :is="filteredSteps[step].content" />
       </form>
     </template>
   </main-layout>
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
+import { onMounted, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { storeToRefs } from 'pinia'
 
 import { useInstanceFormStore } from '@/stores/instanceFormStore.js'
+
+import BaseInputGroup from '~/components/Base/Form/BaseInputGroup.vue'
 
 import MainLayout from '~/layouts/MainLayout.vue'
 import ScreenStep from '~/components/Instance/Form/Steps/ScreenStep.vue'
@@ -60,68 +72,86 @@ import AdditionalStep from '~/components/Instance/Form/Steps/AdditionalStep.vue'
 
 const router = useRouter()
 const store = useInstanceFormStore()
-const { step, loading } = storeToRefs(store)
+const { step, loading, advancedSettings } = storeToRefs(store)
 
-const { clearEditName, sendForm, nextStep, prevStep, firstStep, changeStep } = store
+const { clearEditName, sendForm, nextStep, prevStep, firstStep, changeStep, toggleAdvancedSettings } = store
 
 const steps = [
   {
     title: 'Screen',
     content: ScreenStep,
+    advanced: false,
   },
   {
     title: 'Proxy',
     content: ProxyStep,
+    advanced: false,
   },
   {
     title: 'Fingerprint',
     content: FingerprintStep,
+    advanced: false,
   },
   {
     title: 'Identity',
     content: IdentityStep,
+    advanced: false,
   },
   {
     title: 'System',
     content: SystemStep,
+    advanced: false,
   },
   {
     title: 'Fonts',
     content: FontsStep,
+    advanced: true,
   },
   {
     title: 'JavaScript',
     content: JavaScriptStep,
+    advanced: true,
   },
   {
     title: 'Extensions',
     content: ExtensionsStep,
+    advanced: true,
   },
   {
     title: 'API',
     content: APIStep,
+    advanced: true,
   },
   {
     title: 'Devices',
     content: DevicesStep,
+    advanced: true,
   },
   {
     title: 'Security',
     content: SecurityStep,
+    advanced: true,
   },
   {
     title: 'Render',
     content: RenderStep,
+    advanced: true,
   },
   {
     title: 'Canvas',
     content: CanvasStep,
+    advanced: true,
   },
   {
     title: 'Additional',
     content: AdditionalStep,
+    advanced: true,
   },
 ]
+
+const filteredSteps = computed(() => {
+  return steps.filter((step) => !step.advanced || advancedSettings.value)
+})
 
 const onChangeStep = (step) => changeStep(Math.max(0, Math.min(steps.length - 1, step)))
 

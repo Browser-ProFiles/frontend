@@ -6,6 +6,7 @@
           <base-input-group
             name="disableFileSystem"
             label="Disable File System API"
+            advanced
           >
             <template #afterLabel>
               <base-checkbox
@@ -23,12 +24,15 @@
           <base-input-group
             name="disableMediaSessionApi"
             label="Disable Media Session API"
+            advanced
           >
-            <base-checkbox
-              class="checkbox"
-              @change="onChangeField('api.disableMediaSessionApi', $event.target.checked)"
-              :value="form.api.disableMediaSessionApi"
-            />
+            <template #afterLabel>
+              <base-checkbox
+                class="checkbox"
+                @change="onChangeField('api.disableMediaSessionApi', $event.target.checked)"
+                :value="form.api.disableMediaSessionApi"
+              />
+            </template>
           </base-input-group>
         </a-col>
       </a-row>
@@ -38,6 +42,7 @@
           <base-input-group
             name="disableNotifications"
             label="Disable notifications API"
+            advanced
           >
             <template #afterLabel>
               <base-checkbox
@@ -55,6 +60,7 @@
           <base-input-group
             name="disablePermissionsApi"
             label="Disable Permissions API"
+            advanced
           >
             <template #afterLabel>
               <base-checkbox
@@ -72,6 +78,7 @@
           <base-input-group
             name="disablePresentationApi"
             label="Disable Presentation API"
+            advanced
           >
             <template #afterLabel>
               <base-checkbox
@@ -89,6 +96,7 @@
           <base-input-group
             name="disableRemotePlaybackApi"
             label="Disable Remote Playback API"
+            advanced
           >
             <template #afterLabel>
               <base-checkbox
@@ -106,6 +114,7 @@
           <base-input-group
             name="disableScreenOrientationLock"
             label="Disable Screen Orientation API"
+            advanced
           >
             <template #afterLabel>
               <base-checkbox
@@ -123,6 +132,7 @@
           <base-input-group
             name="disableSharedWorkers"
             label="Disable Shared Workers"
+            advanced
           >
             <template #afterLabel>
               <base-checkbox
@@ -140,6 +150,7 @@
           <base-input-group
             name="disableSpeechApi"
             label="Disable Web Speech API"
+            advanced
           >
             <template #afterLabel>
               <base-checkbox
@@ -157,6 +168,7 @@
           <base-input-group
             name="disableSpeechSynthesisApi"
             label="Disable the speech synthesis part of Web Speech API"
+            advanced
           >
             <template #afterLabel>
               <base-checkbox
@@ -174,6 +186,7 @@
           <base-input-group
             name="disabled3DApis"
             label="Disable 3D APIs"
+            advanced
           >
             <template #afterLabel>
               <base-checkbox
@@ -198,6 +211,7 @@
           <base-input-group
             name="disableTouchDragDrop"
             label="Disable Touch Drag drop"
+            advanced
           >
             <template #afterLabel>
               <base-checkbox
@@ -219,6 +233,7 @@
           <base-input-group
             name="disableSystemFontCheck"
             label="Disable system font check"
+            advanced
           >
             <template #afterLabel>
               <base-checkbox
@@ -236,6 +251,7 @@
           <base-input-group
             name="enableExperimentalWebPlatformFeatures"
             label="Enable Experimental Web Platform Features"
+            advanced
           >
             <template #afterLabel>
               <base-checkbox
@@ -253,6 +269,7 @@
           <base-input-group
             name="enableExperimentalWebassemblyFeatures"
             label="Enable Experimental Webassembly Features"
+            advanced
           >
             <template #afterLabel>
               <base-checkbox
@@ -270,6 +287,7 @@
           <base-input-group
             name="enableExperimentalWebassemblyStackSwitching"
             label="Enable Experimental Webassembly Stack Switching"
+            advanced
           >
             <template #afterLabel>
               <base-checkbox
@@ -287,6 +305,7 @@
           <base-input-group
             name="enablePrivacySandboxAdsApis"
             label="Enable Privacy Sandbox Ads APIs"
+            advanced
           >
             <template #afterLabel>
               <base-checkbox
@@ -309,6 +328,7 @@
           <base-input-group
             name="enableUsermediaScreenCapturing"
             label="Enable Usermedia Screen Capturing"
+            advanced
           >
             <template #afterLabel>
               <base-checkbox
@@ -330,6 +350,7 @@
           <base-input-group
             name="disableBlinkFeatures"
             label="Disable blink features"
+            advanced
           >
             <template #default>
               <base-input
@@ -345,13 +366,16 @@
             </template>
           </base-input-group>
         </a-col>
+      </a-row>
 
+      <a-row class="row">
         <a-col span="24">
           <base-input-group
             name="blinkSettings"
             label="Blink settings"
+            advanced
           >
-            <template #default>
+            <template #afterLabel>
               <base-checkbox
                 @change="onChangeField('api.blinkSettings', $event.target.checked)"
                 :checked="form.api.blinkSettings"

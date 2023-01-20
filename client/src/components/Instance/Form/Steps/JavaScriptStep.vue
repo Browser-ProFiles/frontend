@@ -6,6 +6,7 @@
           <base-input-group
             name="disableJavascriptHarmonyShipping"
             label="Disable JavaScript harmony shipping"
+            advanced
           >
             <template #afterLabel>
               <base-checkbox
@@ -27,6 +28,7 @@
           <base-input-group
             name="javascriptHarmony"
             label="JavaScript harmony"
+            advanced
           >
             <template #afterLabel>
               <base-checkbox
@@ -48,6 +50,7 @@
           <base-input-group
             name="jsFlags"
             label="JavaScript flags"
+            advanced
           >
             <base-input
               @change="onChangeField('javascript.jsFlags', $event.target.value)"

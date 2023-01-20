@@ -11,7 +11,11 @@
               <base-input
                 @change="onChangeField('identity.userAgent', $event.target.value)"
                 :value="form.identity.userAgent"
+                :disabled="form.fingerprint.fingerprintEnabled"
               />
+            </template>
+            <template v-if="form.fingerprint.fingerprintEnabled" #description>
+              Fingerprint generating is enabled. Don't change this value.
             </template>
           </base-input-group>
 
@@ -24,6 +28,7 @@
           <base-input-group
             name="useMobileUserAgent"
             label="Use mobile user agent"
+            advanced
           >
             <template #afterLabel>
               <base-checkbox
@@ -45,6 +50,7 @@
           <base-input-group
             name="reduceUserAgentMinorVersion"
             label="Reduce user agent minor version"
+            advanced
           >
             <template #afterLabel>
               <base-checkbox
@@ -69,6 +75,7 @@
           <base-input-group
             name="reduceUserAgentPlatformOscpu"
             label="Reduce user agent platform oscpu"
+            advanced
           >
             <template #afterLabel>
               <base-checkbox
@@ -106,7 +113,7 @@ const store = useInstanceFormStore()
 const { onChangeField } = store
 const { form } = storeToRefs(store)
 
-onMounted(() => {
-  onChangeField('identity.userAgent', ua.chrome({ version: '109' }))
-})
+/*onMounted(() => {
+  onChangeField('identity.userAgent', ua.chrome({ version: '108' }))
+})*/
 </script>

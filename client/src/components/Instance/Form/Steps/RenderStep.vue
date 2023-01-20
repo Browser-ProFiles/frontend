@@ -8,6 +8,7 @@
           <base-input-group
             name="disablePepper3d"
             label="Disable Pepper 3D"
+            advanced
           >
             <template #afterLabel>
               <base-checkbox

@@ -15,7 +15,15 @@ export const useInstanceFormStore = defineStore('instanceForm', () => {
     const step = ref(DEFAULT_STEP)
     const editProfileName = ref(null)
     const loading = ref(false)
+    const advancedSettings = ref(false)
     const form = reactive(CONFIG_INSTANCE_FORM())
+
+    const toggleAdvancedSettings = () => {
+        advancedSettings.value = !advancedSettings.value
+        if (!advancedSettings.value) {
+            step.value = Math.min(4, step.value)
+        }
+    }
 
     const sendForm = async () => {
         try {
@@ -61,7 +69,10 @@ export const useInstanceFormStore = defineStore('instanceForm', () => {
         step.value = DEFAULT_STEP
     }
 
-    const onChangeField = (path, value) => set(form, path, value instanceof Event ? value?.target?.value : value)
+    const onChangeField = (path, value, parser) => {
+        const result = value instanceof Event ? value?.target?.value : value
+        set(form, path, parser ? parser(result) : result)
+    }
 
     const nextStep = () => step.value += 1
     const prevStep = () => step.value -= 1
@@ -81,6 +92,9 @@ export const useInstanceFormStore = defineStore('instanceForm', () => {
         sendEditForm,
 
         onChangeField,
+
+        advancedSettings,
+        toggleAdvancedSettings,
 
         step,
         nextStep,

@@ -5,12 +5,17 @@
       <a-row class="row" :gutter="20">
         <a-col span="24">
           <base-input-group name="timezone" label="Timezone">
-            <base-select
-              :items="TIMEZONES"
-              @change="onChangeField('system.timezone.timezone', $event)"
-              :value="form.system.timezone.timezone"
-              show-search
-            />
+            <template #default>
+              <base-select
+                :items="TIMEZONES"
+                @change="onChangeField('system.timezone.timezone', $event)"
+                :value="form.system.timezone.timezone"
+                show-search
+              />
+            </template>
+            <template v-if="form.proxy.proxyEnabled" #description>
+              You enabled proxy. If you want to be more secured, please select appropriate timezone.
+            </template>
           </base-input-group>
         </a-col>
       </a-row>
@@ -20,6 +25,7 @@
           <base-input-group
             name="disableFineGrainedTimeZoneDetection"
             label="Disable fine grained time zone detection"
+            advanced
           >
             <template #afterLabel>
               <base-checkbox
@@ -38,6 +44,7 @@
           <base-input-group
             name="disablePerUserTimezone"
             label="Disable per user timezone"
+            advanced
           >
             <template #afterLabel>
               <base-checkbox
@@ -56,13 +63,18 @@
 
       <a-row class="row" :gutter="20">
         <a-col span="24">
-          <base-input-group name="timeZoneForTesting" label="Timezone for testing">
+          <base-input-group
+            name="timeZoneForTesting"
+            label="Timezone for testing"
+            advanced
+          >
             <template #default>
               <base-select
                 :items="TIMEZONES"
                 @change="onChangeField('system.timezone.timeZoneForTesting', $event)"
                 :value="form.system.timezone.timeZoneForTesting"
                 show-search
+                advanced
               />
             </template>
 
@@ -78,15 +90,23 @@
       <h2 class="title">Language</h2>
 
       <a-row class="row" :gutter="20">
-        <a-col span="4">
-          <base-input-group name="acceptLang" label="Accept lang">
-            <base-select
-              :items="LANGUAGES"
-              @change="onChangeField('system.language.acceptLang', $event)"
-              :value="form.system.language.acceptLang"
-              show-search
-            />
+        <a-col span="24">
+          <base-input-group name="acceptLang" label="Language">
+            <template #default>
+              <base-select
+                :items="LANGUAGES"
+                @change="onChangeField('system.language.acceptLang', $event, (value) => value.join(','))"
+                :value="form.system.language.acceptLang.split(',')"
+                mode="multiple"
+                show-search
+              />
+            </template>
+            <template v-if="form.proxy.proxyEnabled" #description>
+              You enabled proxy. If you want to be more secured, please select appropriate language.
+            </template>
           </base-input-group>
+
+          <p>Accept-Lang: {{ form.system.language.acceptLang }}</p>
         </a-col>
       </a-row>
 
@@ -95,6 +115,7 @@
           <base-input-group
             name="reduceAcceptLanguage"
             label="Reduce accept language"
+            advanced
           >
             <template #afterLabel>
               <base-checkbox
@@ -114,6 +135,7 @@
           <base-input-group
             name="defaultCountryCode"
             label="Default country code"
+            advanced
           >
             <template #afterLabel>
               <base-checkbox

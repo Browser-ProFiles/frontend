@@ -5,12 +5,12 @@
         <a-col span="24">
           <base-input-group
             name="fingerprintEnabled"
-            label="Enable fake fingerprint"
+            label="Enable fake fingerprint (recommended)"
           >
             <template #afterLabel>
               <base-checkbox
                 class="checkbox"
-                @change="onChangeField('fingerprint.fingerprintEnabled', $event.target.checked)"
+                @change="onChangeEnabled($event.target.checked)"
                 :checked="form.fingerprint.fingerprintEnabled"
               />
             </template>
@@ -20,10 +20,11 @@
 
       <template v-if="form.fingerprint.fingerprintEnabled">
         <div class="error">
-          <p>
+          <div class="danger">
             <b>WARNING: You need to choose exactly from what device you will log in to this profile</b>
-          </p>
-          <p>Otherwise anti-fraud systems will detect you</p>
+            <div>Otherwise anti-fraud systems will detect you</div>
+            <div>Click <a href="#generate">"Generate"</a> button to fake fingerprint</div>
+          </div>
         </div>
 
         <a-row class="row" :gutter="20">
@@ -85,7 +86,7 @@
         </a-row>
 
         <a-row class="row">
-          <a-button @click="generateFingerprint" type="primary">Generate</a-button>
+          <a-button @click="generateFingerprint" id="generate" type="primary">Generate</a-button>
         </a-row>
 
         <a-row class="row">
@@ -124,6 +125,16 @@ const { form } = storeToRefs(store)
 
 const generating = ref(false)
 const fingerprintResult = ref({})
+
+const onChangeEnabled = (enabled) => {
+  if (enabled) {
+    onChangeField('fingerprint.fingerprintEnabled', true)
+    onChangeField('identity.userAgent', null)
+    generateFingerprint()
+  } else {
+    onChangeField('fingerprint.fingerprintEnabled', false)
+  }
+}
 
 const generateFingerprint = async () => {
   try {

@@ -6,6 +6,7 @@
           <base-input-group
             name="disableRemoteFonts"
             label="Disable remote fonts"
+            advanced
           >
             <template #afterLabel>
               <base-checkbox
@@ -27,6 +28,7 @@
           <base-input-group
             name="disableFontSubpixelPositioning"
             label="Disable font subpixel positioning"
+            advanced
           >
             <template #afterLabel>
               <base-checkbox
@@ -49,6 +51,7 @@
           <base-input-group
             name="disableLcdText"
             label="Disable LCD text"
+            advanced
           >
             <template #afterLabel>
               <base-checkbox
@@ -70,6 +73,7 @@
           <base-input-group
             name="disablePreferCompositingToLcdText"
             label="Disable prefer compositing to LCD text"
+            advanced
           >
             <template #afterLabel>
               <base-checkbox
@@ -91,6 +95,7 @@
           <base-input-group
             name="disableScrollToTextFragment"
             label="Disable scroll to text fragment"
+            advanced
           >
             <template #afterLabel>
               <base-checkbox
@@ -112,6 +117,7 @@
           <base-input-group
             name="enableFontAntialiasing"
             label="Enable font antialiasing"
+            advanced
           >
             <template #afterLabel>
               <base-checkbox
