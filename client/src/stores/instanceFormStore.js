@@ -30,8 +30,10 @@ export const useInstanceFormStore = defineStore('instanceForm', () => {
             loading.value = true
             await createInstance(form)
             step.value = DEFAULT_STEP
+            return true
         } catch (e) {
             toast.error(e.response?.data?.message || e.message)
+            return false
         } finally {
             loading.value = false
         }
@@ -42,8 +44,10 @@ export const useInstanceFormStore = defineStore('instanceForm', () => {
             loading.value = true
             await editInstance(editProfileName.value, form)
             step.value = DEFAULT_STEP
+            return true
         } catch (e) {
             toast.error(e.response?.data?.message || e.message)
+            return false
         } finally {
             loading.value = false
         }

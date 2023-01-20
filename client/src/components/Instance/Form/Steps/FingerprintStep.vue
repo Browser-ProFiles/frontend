@@ -92,7 +92,7 @@
         <a-row class="row">
           <a-col span="24">
             <h3 class="title">Generated fingerprint</h3>
-            <pre>{{ form.fingerprint.fingerprintResult }}</pre>
+            <pre>{{ form.fingerprint.fingerprintResult ? JSON.parse(form.fingerprint.fingerprintResult) : 'None' }}</pre>
           </a-col>
         </a-row>
       </template>
@@ -141,7 +141,7 @@ const generateFingerprint = async () => {
     generating.value = true
     const { data } = await generateFingerprintRequest(form.value.fingerprint)
     fingerprintResult.value = data.fingerprint
-    onChangeField('fingerprint.fingerprintResult', data.fingerprint)
+    onChangeField('fingerprint.fingerprintResult', JSON.stringify(data.fingerprint))
   } catch (e) {
     console.error(e)
     toast.error(e.response?.data?.message || e.message)

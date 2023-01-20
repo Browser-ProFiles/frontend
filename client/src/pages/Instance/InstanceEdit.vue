@@ -71,10 +71,6 @@ import RenderStep from '~/components/Instance/Form/Steps/RenderStep.vue'
 import CanvasStep from '~/components/Instance/Form/Steps/CanvasStep.vue'
 import AdditionalStep from '~/components/Instance/Form/Steps/AdditionalStep.vue'
 
-const store = useInstanceFormStore()
-const { step, editProfileName, loading, advancedSettings } = storeToRefs(store)
-const { sendEditForm, setEditName, nextStep, prevStep, firstStep, changeStep, toggleAdvancedSettings } = store
-
 const steps = [
   {
     title: 'Screen',
@@ -152,16 +148,20 @@ const filteredSteps = computed(() => {
   return steps.filter((step) => !step.advanced || advancedSettings.value)
 })
 
+const store = useInstanceFormStore()
+const { step, editProfileName, loading, advancedSettings } = storeToRefs(store)
+const { sendEditForm, setEditName, nextStep, prevStep, firstStep, changeStep, toggleAdvancedSettings } = store
+
 const route = useRoute()
 const router = useRouter()
 
-const onChangeStep = (step) => changeStep(Math.max(0, Math.min(steps.length - 1, step)))
+const onChangeStep = (step) => changeStep(Math.max(0, Math.min(filteredSteps.value.length - 1, step)))
 
-const lastStep = () => changeStep(steps.length - 1)
+const lastStep = () => changeStep(filteredSteps.value.length - 1)
 
 const onSendForm = async () => {
-  await sendEditForm()
-  router.push('/')
+  const sent = await sendEditForm()
+  sent && router.push('/')
 }
 
 onMounted(() => {

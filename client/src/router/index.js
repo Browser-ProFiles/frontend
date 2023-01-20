@@ -33,7 +33,6 @@ router.beforeEach((to, from, next) => {
     }
 
     if (to.matched.some((record) => record.meta.onlyAuth)) {
-        console.log('only auth')
         if (isAuth()) {
             next()
         } else {
