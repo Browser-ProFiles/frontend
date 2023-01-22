@@ -10,7 +10,7 @@
             <template #afterLabel>
               <base-checkbox
                 class="checkbox"
-                @change="onChangeField('fingerprint.hideWebRtcLeak', $event)"
+                @change="onChangeField('fingerprint.hideWebRtcLeak', $event.target.checked)"
                 :checked="form.fingerprint.hideWebRtcLeak"
               />
             </template>
@@ -90,7 +90,7 @@
           <a-col span="12">
             <base-input-group
               name="fingerprintBrowserVersion"
-              label="Browser"
+              label="Browser Version"
             >
               <base-select
                 :items="CHROME_VERSIONS"
@@ -103,13 +103,20 @@
         </a-row>
 
         <a-row class="row">
-          <a-button @click="generateFingerprint" id="generate" type="primary">Generate</a-button>
+          <a-button
+            @click="generateFingerprint"
+            class="generate-button"
+            id="generate"
+            type="primary"
+          >
+            Generate
+          </a-button>
         </a-row>
 
         <a-row class="row">
           <a-col span="24">
             <h3 class="title">Generated fingerprint</h3>
-            <pre>{{ form.fingerprint.fingerprintResult ? JSON.parse(form.fingerprint.fingerprintResult) : 'None' }}</pre>
+            <pre>{{ generatedFingerprint }}</pre>
           </a-col>
         </a-row>
       </template>
@@ -118,7 +125,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import { storeToRefs } from 'pinia'
 import { useToast } from 'vue-toastification'
 
@@ -142,6 +149,23 @@ const { form } = storeToRefs(store)
 
 const generating = ref(false)
 const fingerprintResult = ref({})
+
+const generatedFingerprint = computed(() => {
+  try {
+    console.log('form', form.value)
+    if (!form.value?.fingerprint?.fingerprintResult) {
+      return 'None'
+    }
+
+    const result = JSON.parse(form.value.fingerprint.fingerprintResult);
+    result.fingerprint?.screen && delete result.fingerprint.screen;
+
+    return result
+  } catch (e) {
+    console.error(e)
+    return 'None'
+  }
+})
 
 const onChangeEnabled = (enabled) => {
   if (enabled) {
@@ -167,3 +191,9 @@ const generateFingerprint = async () => {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.generate-button {
+  margin-bottom: 10px;
+}
+</style>

@@ -103,6 +103,11 @@ const steps = [
     advanced: true,
   },
   {
+    title: 'Security',
+    content: SecurityStep,
+    advanced: false,
+  },
+  {
     title: 'JavaScript',
     content: JavaScriptStep,
     advanced: true,
@@ -120,11 +125,6 @@ const steps = [
   {
     title: 'Devices',
     content: DevicesStep,
-    advanced: true,
-  },
-  {
-    title: 'Security',
-    content: SecurityStep,
     advanced: true,
   },
   {

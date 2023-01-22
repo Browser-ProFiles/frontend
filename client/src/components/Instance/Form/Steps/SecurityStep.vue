@@ -64,7 +64,7 @@
             <template #description>
               Enable the "Process Per Site" process model for all domains. This mode consolidates same-site pages so that
               they share a single process. More details here: - https://www.chromium.org/developers/design-documents/process-models
-              The class comment in site_instance.h, listing the supported process models.
+              The class comment in site_instance.h, listing the supported process models. <br>
               <b>IMPORTANT</b>: This isn't to be confused with --site-per-process (which is about isolation, not consolidation).
               You probably want the other one.
             </template>
@@ -94,8 +94,8 @@
               whenever the src=is cross-site. More details here: -
               https://www.chromium.org/developers/design-documents/site-isolation -
               https://www.chromium.org/developers/design-documents/process-models -
-              The class comment in site_instance.h, listing the supported process models.
-              IMPORTANT: this isn't to be confused with --process-per-site (which is about process consolidation, not isolation).
+              The class comment in site_instance.h, listing the supported process models. <br>
+              <b>IMPORTANT</b>: this isn't to be confused with --process-per-site (which is about process consolidation, not isolation).
               You probably want this one.
             </template>
           </base-input-group>
@@ -151,6 +151,7 @@
           <base-input-group
             name="isolateOrigins"
             label="Isolate Origins"
+            advanced
           >
             <template #default>
               <base-input
@@ -171,6 +172,7 @@
           <base-input-group
             name="isolatedAppOrigins"
             label="Isolated App Origins"
+            advanced
           >
             <template #afterLabel>
               <base-input
@@ -192,6 +194,7 @@
           <base-input-group
             name="isolatedContextOrigin"
             label="Isolated Context Origin"
+            advanced
           >
             <template #afterLabel>
               <base-input
@@ -234,6 +237,7 @@
           <base-input-group
             name="disableSiteIsolationForPolicy"
             label="Disable site isolation for policy"
+            advanced
           >
             <template #afterLabel>
               <base-checkbox
@@ -255,6 +259,7 @@
           <base-input-group
             name="disableSiteIsolationTrials"
             label="Disable site isolation trials"
+            advanced
           >
             <template #afterLabel>
               <base-checkbox
@@ -282,6 +287,7 @@
           <base-input-group
             name="disableAutoWptOriginIsolation"
             label="Disable auto wpt origin isolation"
+            advanced
           >
             <template #afterLabel>
               <base-checkbox
@@ -375,6 +381,7 @@
           <base-input-group
             name="useFakeUiForFedcm"
             label="Use fake UI for FedCM"
+            advanced
           >
             <template #afterLabel>
               <base-checkbox
@@ -397,6 +404,7 @@
           <base-input-group
             name="useFakeUiForMediaStream"
             label="Use fake UI for media stream"
+            advanced
           >
             <template #afterLabel>
               <base-checkbox
@@ -419,6 +427,7 @@
           <base-input-group
             name="useFileForFakeAudioCapture"
             label="Use file for fake audio capture"
+            advanced
           >
             <template #afterLabel>
               <base-checkbox
@@ -504,6 +513,7 @@
           <base-input-group
             name="simulateOutdatedNoAu"
             label="Simulate outdated (No AU)"
+            advanced
           >
             <template #afterLabel>
               <base-checkbox
@@ -542,6 +552,7 @@
           <base-input-group
             name="simulateUpdateHresult"
             label="Simulate update hresult"
+            advanced
           >
             <template #afterLabel>
               <base-checkbox
@@ -736,6 +747,7 @@
           <base-input-group
             name="disableDomainReliability"
             label="Disable domain reliability"
+            advanced
           >
             <template #afterLabel>
               <base-checkbox
@@ -757,6 +769,7 @@
           <base-input-group
             name="enablePotentiallyAnnoyingSecurityFeatures"
             label="Enable Potentially Annoying Security Features"
+            advanced
           >
             <template #afterLabel>
               <base-checkbox
@@ -779,6 +792,7 @@
           <base-input-group
             name="disableDomainBlockingFor3dApis"
             label="Disable Domain Blocking For 3d APIs"
+            advanced
           >
             <template #afterLabel>
               <base-checkbox
@@ -801,6 +815,7 @@
           <base-input-group
             name="disablePopupBlocking"
             label="Disable Popup Blocking"
+            advanced
           >
             <template #afterLabel>
               <base-checkbox
@@ -823,6 +838,7 @@
           <base-input-group
             name="disableGaiaServices"
             label="Disable Gaia Services"
+            advanced
           >
             <template #afterLabel>
               <base-checkbox
@@ -845,6 +861,7 @@
           <base-input-group
             name="disableV8IdleTasks"
             label="Disable V8 Idle tasks"
+            advanced
           >
             <template #afterLabel>
               <base-checkbox
@@ -862,6 +879,7 @@
           <base-input-group
             name="disableHidBlocklist"
             label="Disable HID Blocklist"
+            advanced
           >
             <template #afterLabel>
               <base-checkbox
@@ -880,12 +898,14 @@
         <base-input-group
           name="disableHidDetectionOnOobe"
           label="Disable HID Detection on OOBE"
+          advanced
         >
           <template #afterLabel>
             <base-checkbox
               class="checkbox"
               @change="onChangeField('security.disableHidDetectionOnOobe', $event.target.checked)"
               :value="form.security.disableHidDetectionOnOobe"
+              advanced
             />
           </template>
 
@@ -901,12 +921,14 @@
         <base-input-group
           name="disableUsbKeyboardDetect"
           label="Disable USB keyboard detect"
+          advanced
         >
           <template #afterLabel>
             <base-checkbox
               class="checkbox"
               @change="onChangeField('security.disableUsbKeyboardDetect', $event.target.checked)"
               :value="form.security.disableUsbKeyboardDetect"
+              advanced
             />
           </template>
 
@@ -922,6 +944,7 @@
         <base-input-group
           name="disableSigninScopedDeviceId"
           label="Disable sign in scoped device ID"
+          advanced
         >
           <template #afterLabel>
             <base-checkbox
@@ -943,6 +966,7 @@
         <base-input-group
           name="disableArcCpuRestriction"
           label="Disable Arc CPU Restriction"
+          advanced
         >
           <template #afterLabel>
             <base-checkbox
@@ -965,6 +989,7 @@
         <base-input-group
           name="reportVp9AsAnUnsupportedMimeType"
           label="Report vp9 as an unsupported MIME type"
+          advanced
         >
           <template #afterLabel>
             <base-checkbox
@@ -986,6 +1011,7 @@
         <base-input-group
           name="safebrowsingEnableEnhancedProtection"
           label="Safe browsing enable enhanced protection"
+          advanced
         >
           <template #afterLabel>
             <base-checkbox
@@ -1007,6 +1033,7 @@
         <base-input-group
           name="safebrowsingManualDownloadBlacklist"
           label="Safe browsing manual download black list"
+          advanced
         >
           <template #default>
             <base-input
@@ -1030,6 +1057,7 @@
         <base-input-group
           name="disableAppContentVerification"
           label="Disable App Content Verification"
+          advanced
         >
           <template #afterLabel>
             <base-checkbox
@@ -1051,6 +1079,7 @@
         <base-input-group
           name="disableCheckerImaging"
           label="Disable Checker Imaging"
+          advanced
         >
           <template #afterLabel>
             <base-checkbox

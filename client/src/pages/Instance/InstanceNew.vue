@@ -97,6 +97,11 @@ const steps = [
     advanced: false,
   },
   {
+    title: 'Security',
+    content: SecurityStep,
+    advanced: false,
+  },
+  {
     title: 'Fonts',
     content: FontsStep,
     advanced: true,
@@ -119,11 +124,6 @@ const steps = [
   {
     title: 'Devices',
     content: DevicesStep,
-    advanced: true,
-  },
-  {
-    title: 'Security',
-    content: SecurityStep,
     advanced: true,
   },
   {
@@ -166,10 +166,24 @@ onMounted(() => clearEditName())
 </script>
 
 <style lang="scss">
+.ant-col {
+  &:empty {
+    padding: 0 !important;
+    margin-top: -10px !important;
+    margin-bottom: -10px !important;
+  }
+}
+
 .back {
   width: 100%;
 
   margin-bottom: 15px;
+}
+
+.title {
+  @media screen and (max-width: 869px) {
+    margin-bottom: 10px;
+  }
 }
 
 .steps-action {

@@ -11,6 +11,5 @@
 
 <style lang="scss">
 .base-input {
-
 }
 </style>

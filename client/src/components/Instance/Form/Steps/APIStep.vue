@@ -377,6 +377,7 @@
           >
             <template #afterLabel>
               <base-checkbox
+                class="checkbox"
                 @change="onChangeField('api.blinkSettings', $event.target.checked)"
                 :checked="form.api.blinkSettings"
               />

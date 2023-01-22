@@ -26,7 +26,7 @@
         <slot />
       </a-layout-content>
     </a-layout>
-    <a-layout-footer>
+    <a-layout-footer class="footer">
       <slot name="footer"></slot>
     </a-layout-footer>
   </a-layout>
@@ -38,12 +38,45 @@ import { useRoute } from 'vue-router'
 defineProps({
   title: {
     type: String,
-    default: 'SandBox'
+    default: 'Browser ProFiles'
   }
 })
 
 const route = useRoute()
 </script>
+
+<style lang="scss">
+@media screen and (max-width: 600px) {
+  .ant-layout {
+    flex-direction: column !important;
+    min-height: calc(100vh - 60px) !important;
+  }
+
+  .ant-layout-sider {
+    position: static !important;
+    width: 100vw !important;
+    min-width: 100vw !important;
+    max-width: 100vw !important;
+    flex: unset !important;
+
+    height: auto !important;
+    background-color: inherit !important;
+  }
+
+  .header {
+    margin-left: 0 !important;
+  }
+
+  .ant-layout-content {
+    width: 100% !important;
+    margin-left: 0 !important;
+  }
+
+  .content {
+    min-height: unset !important;
+  }
+}
+</style>
 
 <style lang="scss" scoped>
 .header,
@@ -63,6 +96,17 @@ const route = useRoute()
   font-size: 24px;
 
   background: #f7f7f7;
+
+  @media screen and (max-width: 869px) {
+    flex-direction: column;
+
+    min-height: 60px;
+    height: auto;
+
+    line-height: 1;
+
+    padding: 10px 0;
+  }
 }
 
 .sider {
@@ -83,8 +127,14 @@ const route = useRoute()
 
 .content {
   overflow-y: scroll;
-  min-height: calc(100vh - 60px - 70px);
+  min-height: calc(100vh - 60px);
 
   padding: 15px 50px;
+}
+
+.footer {
+  &:empty {
+    display: none;
+  }
 }
 </style>

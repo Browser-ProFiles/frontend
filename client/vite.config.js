@@ -17,7 +17,7 @@ export default defineConfig({
       Components({
         dirs: ['src'],
         resolvers: [
-          AntDesignVueResolver()
+          AntDesignVueResolver({ importStyle: 'less' })
         ],
       }),
   ],
@@ -25,6 +25,10 @@ export default defineConfig({
     preprocessorOptions: {
       scss: {
         additionalData: `@import "./src/assets/styles/bootstrap";`
+      },
+      less: {
+        javascriptEnabled: true,
+        additionalData: `@import "./src/assets/styles/themes/default/_vars.less";`,
       }
     }
   }

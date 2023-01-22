@@ -1,7 +1,9 @@
 <template>
   <div
-    :hidden="advanced && !advancedSettings"
-    :class="`base-input-group ${group === 'row' ? 'base-input-group_row' : ''}`"
+    v-if="!advanced || advancedSettings"
+    :class="
+      `base-input-group ${group === 'row' ? 'base-input-group_row' : ''}
+    `"
   >
     <label class="label" :for="name">
       <a-tooltip class="danger" v-if="advanced" placement="topLeft">
@@ -53,11 +55,17 @@ defineProps({
   align-items: flex-start;
   gap: 0;
 
+  margin-bottom: 10px;
+
+  &.base-input-group_hidden {
+    display: none;
+  }
+
   &.base-input-group_row {
     flex-direction: row;
     align-items: center;
     gap: 10px;
-    margin-top: 3px;
+    margin-top: 13px;
 
     .label {
       margin-bottom: 0;
@@ -66,8 +74,6 @@ defineProps({
 
   .label {
     width: 100%;
-
-    margin-bottom: 10px;
 
     font-size: 16px;
   }

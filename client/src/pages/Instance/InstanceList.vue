@@ -11,25 +11,31 @@
         Download it <router-link to="/download">here</router-link>.
       </p>
 
-      <a-list :loading="loading" :data-source="list" class="list" item-layout="horizontal">
+      <a-list
+        :loading="loading"
+        :data-source="list"
+        :pagination="{
+          pageSize: 5,
+          showSizeChanger: false
+        }"
+        class="list"
+        item-layout="horizontal"
+      >
         <template #renderItem="{ item }">
           <a-list-item>
             <a-list-item-meta
               :description="item.description || 'No description'"
             >
               <template #title>
-                <router-link :to="`/profile/edit/${item.name}`">{{ item.name }}</router-link>
-              </template>
-              <template #avatar>
-                <Avatar :size="45" :name="item.name" />
+                <router-link class="title" :to="`/profile/edit/${item.name}`">{{ item.name }}</router-link>
               </template>
             </a-list-item-meta>
 
             <template #actions>
-              <a-button type="primary">
+              <a-button class="action-button" type="primary">
                 <router-link :to="`/profile/edit/${item.name}`">Edit</router-link>
               </a-button>
-              <a-button @click="removeInstance(item.name)" type="danger">
+              <a-button class="action-button" @click="removeInstance(item.name)" type="danger">
                 Delete
               </a-button>
             </template>
@@ -42,7 +48,6 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import Avatar from 'vue-boring-avatars'
 import { useToast } from 'vue-toastification'
 
 import { getInstanceList, deleteInstance } from '@/api/instance.js'
@@ -83,9 +88,30 @@ const removeInstance = async (name) => {
 onMounted(() => fetchInstances())
 </script>
 
+<style lang="scss">
+.ant-list-item-meta-title {
+  .title {
+    line-break: anywhere;
+  }
+}
+
+.ant-list-item-action {
+  @media screen and (max-width: 600px) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+  }
+}
+</style>
+
 <style lang="scss" scoped>
 .note {
   margin-top: 10px;
   margin-bottom: 15px;
+}
+
+.title {
+  font-size: 20px;
 }
 </style>

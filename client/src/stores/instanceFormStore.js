@@ -8,6 +8,7 @@ import { createInstance, editInstance, getInstanceSingle } from '~/api/instance.
 import { CONFIG_INSTANCE_FORM } from '~/forms/config.js'
 
 const DEFAULT_STEP = 0
+const BASE_STEPS_COUNT = 6
 
 const toast = useToast()
 
@@ -21,7 +22,7 @@ export const useInstanceFormStore = defineStore('instanceForm', () => {
     const toggleAdvancedSettings = () => {
         advancedSettings.value = !advancedSettings.value
         if (!advancedSettings.value) {
-            step.value = Math.min(4, step.value)
+            step.value = Math.min(BASE_STEPS_COUNT - 1, step.value)
         }
     }
 

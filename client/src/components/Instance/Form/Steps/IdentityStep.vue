@@ -81,7 +81,7 @@
               <base-checkbox
                 class="checkbox"
                 @change="onChangeField('identity.reduceUserAgentPlatformOscpu', $event.target.checked)"
-                :checked="form.identity.useMobileUserAgent"
+                :checked="form.identity.reduceUserAgentPlatformOscpu"
               />
             </template>
 
