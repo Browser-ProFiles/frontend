@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@zougt/vite-plugin-theme-preprocessor": "^1.4.8",
     "ant-design-vue": "^3.3.0-beta.4",
     "axios": "^1.2.2",
     "less": "^4.1.3",

@@ -23,11 +23,20 @@
       >
         <template #renderItem="{ item }">
           <a-list-item>
-            <a-list-item-meta
-              :description="item.description || 'No description'"
-            >
+            <a-list-item-meta>
               <template #title>
                 <router-link class="title" :to="`/profile/edit/${item.name}`">{{ item.name }}</router-link>
+              </template>
+              <template #description>
+                <div v-if="item.form.fingerprint?.fingerprintEnabled">
+                  Generated fingerprint platform: {{ item.form.fingerprint?.fingerprintOs }}
+                </div>
+                <div v-if="item.form.system?.timezone?.timezone">
+                  Timezone: {{ item.form.system?.timezone?.timezone }}
+                </div>
+                <div v-if="item.form.proxy?.proxyEnabled">
+                  Proxy: {{ item.form.proxy?.proxyHost }}:{{ item.form.proxy?.proxyPort }}
+                </div>
               </template>
             </a-list-item-meta>
 
@@ -62,7 +71,10 @@ const fetchInstances = async () => {
   try {
     loading.value = true
     const { data } = await getInstanceList()
-    list.value = data?.profiles
+    list.value = data?.profiles.map((profile) => ({
+      ...profile,
+      form: profile.form ? JSON.parse(profile.form) : {},
+    }))
   } catch (e) {
     console.error(e)
     toast.error(`Failed to fetch profiles: ${e.response?.data?.message || e.message}`)

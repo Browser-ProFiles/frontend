@@ -13,7 +13,6 @@
         v-if="route.meta.hasSidebar"
         class="sider"
         :width="250"
-        theme="light"
       >
         <slot name="sider" />
       </a-layout-sider>
@@ -95,7 +94,7 @@ const route = useRoute()
 
   font-size: 24px;
 
-  background: #f7f7f7;
+  /*background: #f7f7f7;*/
 
   @media screen and (max-width: 869px) {
     flex-direction: column;
