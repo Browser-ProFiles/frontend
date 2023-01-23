@@ -98,14 +98,14 @@ const steps = [
     advanced: false,
   },
   {
-    title: 'Fonts',
-    content: FontsStep,
-    advanced: true,
-  },
-  {
     title: 'Security',
     content: SecurityStep,
     advanced: false,
+  },
+  {
+    title: 'Fonts',
+    content: FontsStep,
+    advanced: true,
   },
   {
     title: 'JavaScript',
