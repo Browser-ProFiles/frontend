@@ -5,35 +5,46 @@
 
       <p class="note">
         Don't have an account?
-        <router-link to="/auth/sign-up">Sign In</router-link>
+        <router-link to="/auth/sign-up">Sign Up</router-link>
       </p>
 
-      <base-input-group
-        class="group"
-        name="username"
-        label="Username"
-      >
-        <template #default>
-          <base-input
-            @change="onChangeField('username', $event.target.value)"
-            :value="form.username"
-          />
-        </template>
-      </base-input-group>
+      <a-row class="row">
+        <a-col span="24">
+          <base-input-group
+            class="group"
+            name="username"
+            label="Username"
+          >
+            <template #default>
+              <base-input
+                @change="onChangeField('username', $event.target.value)"
+                :value="form.username"
+                :minLength="4"
+                :maxLength="255"
+                required
+              />
+            </template>
+          </base-input-group>
+        </a-col>
 
-      <base-input-group
-        class="group"
-        name="password"
-        label="Password"
-      >
-        <template #default>
-          <base-input
-            type="password"
-            @change="onChangeField('password', $event.target.value)"
-            :value="form.password"
-          />
-        </template>
-      </base-input-group>
+        <a-col span="24">
+          <base-input-group
+            class="group"
+            name="password"
+            label="Password"
+          >
+            <template #default>
+              <base-input-password
+                @change="onChangeField('password', $event.target.value)"
+                :value="form.password"
+                :minLength="4"
+                :maxLength="255"
+                required
+              />
+            </template>
+          </base-input-group>
+        </a-col>
+      </a-row>
 
       <a-button
         :disabled="submitting"
@@ -57,6 +68,7 @@ import { login } from '~/api/auth.js'
 import { setAuthToken } from '~/helpers/auth.js';
 
 import BaseInput from '~/components/Base/Form/BaseInput.vue'
+import BaseInputPassword from '~/components/Base/Form/BaseInputPassword.vue'
 import BaseInputGroup from '~/components/Base/Form/BaseInputGroup.vue'
 
 const router = useRouter()
@@ -80,7 +92,7 @@ const onSubmit = async () => {
     })
     .catch((e) => {
       console.error(e.response.data.message)
-      toast.error(e.response?.data?.message)
+      toast.error(`Failed to log in: ${e.response?.data?.message || e.message}`)
     })
     .finally(() => submitting.value = false)
 }
@@ -95,6 +107,18 @@ const onChangeField = (name, value) => form[name] = value
   align-self: center;
 
   height: 100vh;
+
+  .row {
+    width: 300px;
+
+    @media screen and (max-width: 600px) {
+      width: 60vw;
+    }
+
+    @media screen and (max-width: 400px) {
+      width: 80vw;
+    }
+  }
 
   .form {
     align-self: center;

@@ -83,7 +83,7 @@
         </a-col>
         <a-col span="12">
           <base-input-group name="proxyPassword" label="Password">
-            <base-input
+            <base-input-password
               type="password"
               @change="onChangeField('proxy.proxyPassword', $event)"
               :value="form.proxy.proxyPassword"
@@ -100,6 +100,7 @@ import { storeToRefs } from 'pinia'
 import { useInstanceFormStore } from '@/stores/instanceFormStore.js'
 
 import BaseInput from '~/components/Base/Form/BaseInput.vue'
+import BaseInputPassword from '~/components/Base/Form/BaseInputPassword.vue'
 import BaseSelect from '~/components/Base/Form/BaseSelect.vue'
 import BaseInputNumber from '~/components/Base/Form/BaseInputNumber.vue'
 import BaseCheckbox from '~/components/Base/Form/BaseCheckbox.vue'

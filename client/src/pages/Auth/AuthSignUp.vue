@@ -8,32 +8,41 @@
         <router-link to="/auth/login">Log In</router-link>
       </p>
 
-      <base-input-group
-        class="group"
-        name="username"
-        label="Username"
-      >
-        <template #default>
-          <base-input
-            @change="onChangeField('username', $event.target.value)"
-            :value="form.username"
-          />
-        </template>
-      </base-input-group>
+      <a-row class="row">
+        <a-col span="24">
+          <base-input-group
+            class="group"
+            name="username"
+            label="Username"
+          >
+            <template #default>
+              <base-input
+                @change="onChangeField('username', $event.target.value)"
+                :value="form.username"
+                :minLength="4"
+                :maxLength="255"
+                required
+              />
+            </template>
+          </base-input-group>
 
-      <base-input-group
-        class="group"
-        name="email"
-        label="Email"
-      >
-        <template #default>
-          <base-input
-            type="email"
-            @change="onChangeField('email', $event.target.value)"
-            :value="form.email"
-          />
-        </template>
-      </base-input-group>
+          <base-input-group
+            class="group"
+            name="email"
+            label="Email (only gmail)"
+          >
+            <template #default>
+              <base-input
+                type="email"
+                @change="onChangeField('email', $event.target.value)"
+                :value="form.email"
+                :maxLength="128"
+                required
+              />
+            </template>
+          </base-input-group>
+        </a-col>
+      </a-row>
 
       <base-input-group
         class="group"
@@ -41,10 +50,12 @@
         label="Password"
       >
         <template #default>
-          <base-input
-            type="password"
+          <base-input-password
             @change="onChangeField('password', $event.target.value)"
             :value="form.password"
+            :minLength="4"
+            :maxLength="255"
+            required
           />
         </template>
       </base-input-group>
@@ -64,13 +75,16 @@
 <script setup>
 import { reactive, ref } from 'vue'
 import { useRouter } from 'vue-router'
+import { useToast } from 'vue-toastification'
 
 import { signUp } from '~/api/auth.js'
 
 import BaseInput from '~/components/Base/Form/BaseInput.vue'
+import BaseInputPassword from '~/components/Base/Form/BaseInputPassword.vue'
 import BaseInputGroup from '~/components/Base/Form/BaseInputGroup.vue'
 
 const router = useRouter()
+const toast = useToast()
 
 const submitting = ref(false)
 
@@ -87,6 +101,7 @@ const onSubmit = async () => {
     router.push('/auth/login')
   } catch (e) {
     console.error(e)
+    toast.error(`Failed to sign up: ${e.response?.data?.message || e.message}`)
   } finally {
     submitting.value = false
   }
@@ -102,6 +117,18 @@ const onChangeField = (name, value) => form[name] = value
   align-self: center;
 
   height: 100vh;
+
+  .row {
+    width: 300px;
+
+    @media screen and (max-width: 600px) {
+      width: 60vw;
+    }
+
+    @media screen and (max-width: 400px) {
+      width: 80vw;
+    }
+  }
 
   .form {
     align-self: center;
