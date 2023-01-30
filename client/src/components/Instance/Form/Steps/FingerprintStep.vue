@@ -152,7 +152,6 @@ const fingerprintResult = ref({})
 
 const generatedFingerprint = computed(() => {
   try {
-    console.log('form', form.value)
     if (!form.value?.fingerprint?.fingerprintResult) {
       return 'None'
     }

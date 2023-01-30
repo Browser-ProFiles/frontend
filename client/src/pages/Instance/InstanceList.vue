@@ -31,6 +31,7 @@
                 <div v-if="item.form.fingerprint?.fingerprintEnabled">
                   Fingerprint: {{ item.form.fingerprint?.fingerprintOs }} / {{ item.form.fingerprint?.fingerprintBrowser }} {{ item.form.fingerprint?.fingerprintBrowserVersion }}
                 </div>
+                <div v-else>No fingerprint</div>
                 <div v-if="item.form.system?.timezone?.timezone">
                   Timezone: {{ item.form.system?.timezone?.timezone }}
                 </div>

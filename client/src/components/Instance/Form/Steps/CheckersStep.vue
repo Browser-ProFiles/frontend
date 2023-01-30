@@ -12,7 +12,7 @@
               />
             </template>
             <template #description>
-              <a href="https://whoer.net/" class="link">https://whoer.net/</a>
+              <a href="https://whoer.net/" target="_blank" class="link">https://whoer.net/</a>
             </template>
           </base-input-group>
         </a-col>
@@ -29,7 +29,7 @@
               />
             </template>
             <template #description>
-              <a href="https://iphey.com/" class="link">https://iphey.com/</a>
+              <a href="https://iphey.com/" target="_blank" class="link">https://iphey.com/</a>
             </template>
           </base-input-group>
         </a-col>
@@ -46,7 +46,7 @@
               />
             </template>
             <template #description>
-              <a href="https://abrahamjuliot.github.io/creepjs/" class="link">https://abrahamjuliot.github.io/creepjs/</a>
+              <a href="https://abrahamjuliot.github.io/creepjs/" target="_blank" class="link">https://abrahamjuliot.github.io/creepjs/</a>
             </template>
           </base-input-group>
         </a-col>
@@ -54,7 +54,7 @@
 
       <a-row class="row">
         <a-col colspan="24">
-          <base-input-group name="checkersBotDetection" label="Open bot detection test">
+          <base-input-group name="checkersBotDetection" label="Open bot detection test on launch">
             <template #afterLabel>
               <base-checkbox
                 class="checkbox"
@@ -63,7 +63,7 @@
               />
             </template>
             <template #description>
-              <a href="https://bot.sannysoft.com/" class="link">https://bot.sannysoft.com/</a>
+              <a href="https://bot.sannysoft.com/" target="_blank" class="link">https://bot.sannysoft.com/</a>
             </template>
           </base-input-group>
         </a-col>
@@ -80,7 +80,7 @@
               />
             </template>
             <template #description>
-              <a href="https://whoer.net/dns-leak-test" class="link">https://whoer.net/dns-leak-test</a>
+              <a href="https://whoer.net/dns-leak-test" target="_blank" class="link">https://whoer.net/dns-leak-test</a>
             </template>
           </base-input-group>
         </a-col>
@@ -97,7 +97,7 @@
               />
             </template>
             <template #description>
-              <a href="https://browserleaks.com/webrtc" class="link">https://browserleaks.com/webrtc</a>
+              <a href="https://browserleaks.com/webrtc" target="_blank" class="link">https://browserleaks.com/webrtc</a>
             </template>
           </base-input-group>
         </a-col>
@@ -114,7 +114,7 @@
               />
             </template>
             <template #description>
-              <a href="https://fingerprint.com/" class="link">https://fingerprint.com/</a>
+              <a href="https://fingerprintjs.github.io/fingerprintjs/" target="_blank" class="link">https://fingerprintjs.github.io/fingerprintjs/</a>
             </template>
           </base-input-group>
         </a-col>
@@ -131,7 +131,7 @@
               />
             </template>
             <template #description>
-              <a href="chrome://settings/security" class="link">chrome://settings/security</a>
+              <a href="chrome://settings/security" target="_blank" class="link">chrome://settings/security</a>
             </template>
           </base-input-group>
         </a-col>
