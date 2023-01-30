@@ -66,6 +66,7 @@ import ExtensionsStep from '~/components/Instance/Form/Steps/ExtensionsStep.vue'
 import APIStep from '~/components/Instance/Form/Steps/APIStep.vue'
 import DevicesStep from '~/components/Instance/Form/Steps/DevicesStep.vue'
 import SecurityStep from '~/components/Instance/Form/Steps/SecurityStep.vue'
+import CheckersStep from '~/components/Instance/Form/Steps/CheckersStep.vue'
 import RenderStep from '~/components/Instance/Form/Steps/RenderStep.vue'
 import CanvasStep from '~/components/Instance/Form/Steps/CanvasStep.vue'
 import AdditionalStep from '~/components/Instance/Form/Steps/AdditionalStep.vue'
@@ -99,6 +100,11 @@ const steps = [
   {
     title: 'Security',
     content: SecurityStep,
+    advanced: false,
+  },
+  {
+    title: 'Checkers',
+    content: CheckersStep,
     advanced: false,
   },
   {

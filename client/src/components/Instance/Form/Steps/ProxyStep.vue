@@ -10,7 +10,7 @@
             <template #afterLabel>
               <base-checkbox
                 class="checkbox"
-                @change="onChangeField('proxy.proxyEnabled', $event.target.checked)"
+                @change="onChangeProxyEnabled($event)"
                 :checked="form.proxy.proxyEnabled"
               />
             </template>
@@ -91,6 +91,20 @@
           </base-input-group>
         </a-col>
       </a-row>
+      
+      <template v-if="form.proxy.proxyEnabled">
+        <h3 class="note">It is recommended to secure DNS when using proxy.</h3>
+        <p>
+          When your browser launched, the page with chrome security settings (chrome://settings/security) will be opened.
+          <br>
+          Set custom DNS or choose one from list
+        </p>
+        <a-image
+          class="image"
+          :src="secureDnsImage"
+        />
+        <p>Then you can check it on dns scanners, for example <a href="https://whoer.net/dns-leak-test">whoer</a></p>
+      </template>
     </div>
   </div>
 </template>
@@ -98,6 +112,7 @@
 <script setup>
 import { storeToRefs } from 'pinia'
 import { useInstanceFormStore } from '@/stores/instanceFormStore.js'
+import secureDnsImage from '@/assets/img/dns/1.jpg';
 
 import BaseInput from '~/components/Base/Form/BaseInput.vue'
 import BaseInputPassword from '~/components/Base/Form/BaseInputPassword.vue'
@@ -109,4 +124,30 @@ import BaseInputGroup from '~/components/Base/Form/BaseInputGroup.vue'
 const store = useInstanceFormStore()
 const { onChangeField } = store
 const { form } = storeToRefs(store)
+
+const onChangeProxyEnabled = (event) => {
+  console.log('event', event)
+  if (event.target.checked) {
+    onChangeField('proxy.proxyEnabled', true);
+    onChangeField('checkers.chromeSecurity', true);
+  } else {
+    onChangeField('proxy.proxyEnabled', false);
+  }
+}
 </script>
+
+<style lang="scss">
+.proxy-step {
+  .ant-image {
+    width: 70%;
+
+    @media screen and (max-width: 768px) {
+      width: 90%;
+    }
+
+    @media screen and (max-width: 400px) {
+      width: 100%;
+    }
+  }
+}
+</style>

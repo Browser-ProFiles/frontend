@@ -239,6 +239,16 @@ export const CONFIG_INSTANCE_FORM = () => ({
         */
         blinkSettings: 'imagesEnabled=true', // --blink-settings
     },
+    checkers: {
+        whoer: false,
+        iphey: true,
+        creepjs: false,
+        botDetection: false,
+        dnsLeak: false,
+        webrtcLeak: false,
+        fingerprintCom: false,
+        chromeSecurity: false,
+    },
     devices: {
         // Adds fake Bluetooth devices to the quick settings menu.
         qsAddFakeBluetoothDevices: null, // --qs-add-fake-bluetooth-devices
@@ -844,5 +854,5 @@ export const CONFIG_INSTANCE_FORM = () => ({
 
         // Disable task throttling of timer tasks from background pages.
         disableBackgroundTimerThrottling: false, // --disable-background-timer-throttling
-    }
+    },
 })

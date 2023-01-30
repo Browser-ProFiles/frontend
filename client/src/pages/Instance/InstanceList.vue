@@ -28,12 +28,9 @@
                 <router-link class="title" :to="`/profile/edit/${item.name}`">{{ item.name }}</router-link>
               </template>
               <template #description>
-                <template v-if="item.form.fingerprint?.fingerprintEnabled">
-                  <div>Generated fingerprint platform: {{ item.form.fingerprint?.fingerprintOs }}</div>
-                  <div>
-                    Fingerprint Browser: {{ item.form.fingerprint?.fingerprintBrowser }} {{ item.form.fingerprint?.fingerprintBrowserVersion }}
-                  </div>
-                </template>
+                <div v-if="item.form.fingerprint?.fingerprintEnabled">
+                  Fingerprint: {{ item.form.fingerprint?.fingerprintOs }} / {{ item.form.fingerprint?.fingerprintBrowser }} {{ item.form.fingerprint?.fingerprintBrowserVersion }}
+                </div>
                 <div v-if="item.form.system?.timezone?.timezone">
                   Timezone: {{ item.form.system?.timezone?.timezone }}
                 </div>
