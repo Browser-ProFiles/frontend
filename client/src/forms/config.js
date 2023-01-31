@@ -246,7 +246,6 @@ export const CONFIG_INSTANCE_FORM = () => ({
         botDetection: false,
         dnsLeak: false,
         webrtcLeak: false,
-        fingerprintCom: false,
         chromeSecurity: false,
     },
     devices: {

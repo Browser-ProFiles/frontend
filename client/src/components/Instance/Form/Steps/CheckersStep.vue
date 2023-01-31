@@ -105,23 +105,6 @@
 
       <a-row class="row">
         <a-col colspan="24">
-          <base-input-group name="checkersFingerprintCom" label="Open fingerprint.com on launch">
-            <template #afterLabel>
-              <base-checkbox
-                class="checkbox"
-                @change="onChangeField('checkers.fingerprintCom', $event.target.checked)"
-                :checked="form.checkers.fingerprintCom"
-              />
-            </template>
-            <template #description>
-              <a href="https://fingerprintjs.github.io/fingerprintjs/" target="_blank" class="link">https://fingerprintjs.github.io/fingerprintjs/</a>
-            </template>
-          </base-input-group>
-        </a-col>
-      </a-row>
-
-      <a-row class="row">
-        <a-col colspan="24">
           <base-input-group name="checkersChromeSecurity" label="Open chrome security setting on launch">
             <template #afterLabel>
               <base-checkbox
