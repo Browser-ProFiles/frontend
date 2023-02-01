@@ -2,26 +2,32 @@
   <main-layout title="Subscriptions">
     <div class="subscriptions">
       <div class="subscriptions__current">
-        Current subscription: {{ user?.subscription?.name }}
+        Current subscription: <b>{{ user?.subscription?.name }}</b>
       </div>
 
       <ul class="subscriptions__list">
-        <li v-for="item in list" class="subscriptions__item subscription">
-          <h3
-            class="subscription__name"
-            :class="{
-              'subscription__name_current': user?.subscription?.name === item.name
+        <li
+          v-for="item in list"
+          class="subscriptions__item subscription"
+          :class="{
+              'subscription_current': user?.subscription?.name === item.name
             }"
-          >
+        >
+          <h3 class="subscription__name">
             {{ item.name }}
+            <template v-if="user?.subscription?.name === item.name">
+              (current)
+            </template>
           </h3>
           <div class="subscription__price">
-            <span class="subscription__value">{{ item.price }}</span>
             <span class="subscription__currency">$</span>
+            <span class="subscription__value">{{ item.price }}</span>
           </div>
+          <div class="subscription__term">/ month</div>
+
           <ul class="subscription__features features">
             <li class="features__item feature">
-              Max profiles: {{ item.maxProfiles }}
+              Max profiles: <b>{{ item.maxProfiles }}</b>
             </li>
             <li class="features__item feature">
               <template v-if="item.maxProfiles > 25">
@@ -35,13 +41,21 @@
               </template>
             </li>
           </ul>
-          <a-button :disabled="user?.subscription?.name === item.name" class="subscription__buy">
-            <template v-if="user?.subscription?.name === item.name">
-              Current
+
+          <a-popconfirm
+            v-if="user?.subscription?.name === item.name"
+            placement="topLeft"
+            ok-text="Yes"
+            cancel-text="No"
+            @confirm="onCancel"
+          >
+            <template #title>
+              Are you sure?
             </template>
-            <template v-else>
-              Switch
-            </template>
+            <a-button>Cancel</a-button>
+          </a-popconfirm>
+          <a-button @click="onSwitch" v-else>
+            Switch
           </a-button>
         </li>
       </ul>
@@ -70,6 +84,10 @@ const fetchSubscriptions = async () => {
   list.value = data.filter((item) => item.price > 0)
 }
 
+const onSwitch = () => {}
+
+const onCancel = () => {}
+
 onMounted(() => {
   fetchUser()
   fetchSubscriptions()
@@ -95,40 +113,74 @@ onMounted(() => {
       grid-template-columns: repeat(2, 1fr);
       gap: 30px;
     }
+
+    @media screen and (max-width: 550px) {
+      grid-template-columns: repeat(1, 1fr);
+      justify-content: center;
+    }
   }
 
   .subscription {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
-
-    min-height: 500px;
 
     padding: 20px;
 
     border-radius: 20px;
 
     background: #fff;
+    border: 1px solid lighten(#000, 80%);
 
     transition: all 0.4s;
 
+    &_current,
     &:hover {
-      transform: translateY(-25px) scale(1.04);
+      transform: translateY(-15px) scale(1.04);
+
+      box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.08);
+
+      border: 1px solid lighten(#000, 90%);
     }
 
     &__name {
-      font-size: 30px;
+      margin-bottom: 5px;
+
+      font-size: 40px;
       font-weight: 600;
+      line-height: 1;
 
       &_current {
-        font-size: 31px;
+        font-size: 41px;
         font-weight: 700;
       }
     }
 
+    &__price,
+    &__term {
+      line-height: 1;
+    }
+
+    &__value {
+      font-size: 27px;
+    }
+
+    &__currency {
+      font-size: 25px;
+    }
+
+    &__term {
+      margin-bottom: 30px;
+
+      font-size: 20px;
+    }
+
     .features {
+      margin-bottom: 20px;
+
       list-style: none;
+
+      font-size: 20px;
     }
   }
 }
