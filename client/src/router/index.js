@@ -7,6 +7,7 @@ import AuthLogin from '~/pages/Auth/AuthLogin.vue'
 import AuthSignUp from '~/pages/Auth/AuthSignUp.vue'
 
 import UserCabinet from '~/pages/User/Cabinet.vue'
+import UserSubscriptions from '~/pages/User/Subscriptions.vue'
 
 import InstanceList from '~/pages/Instance/InstanceList.vue'
 import InstanceNew from '~/pages/Instance/InstanceNew.vue'
@@ -19,6 +20,7 @@ const routes = [
     { path: '/auth/sign-up', component: AuthSignUp, meta: { hasSidebar: true, onlyGuest: true, } },
     { path: '/', redirect: '/cabinet', meta: { hasSidebar: false, onlyAuth: true, } },
     { path: '/cabinet', component: UserCabinet, meta: { hasSidebar: false, onlyAuth: true, } },
+    { path: '/cabinet/subscriptions', component: UserSubscriptions, meta: { hasSidebar: false, onlyAuth: true, } },
     { path: '/profiles', component: InstanceList, meta: { hasSidebar: false, onlyAuth: true, } },
     { path: '/profile/new', component: InstanceNew, meta: { hasSidebar: true, onlyAuth: true, } },
     { path: '/profile/edit/:name', component: InstanceEdit, meta: { hasSidebar: true, onlyAuth: true, } },

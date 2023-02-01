@@ -19,7 +19,7 @@
 
         <div class="cabinet__actions">
           <a-button>
-            <router-link to="/cabinet/subscription/buy">Get new subscription</router-link>
+            <router-link to="/cabinet/subscriptions">Manage subscriptions</router-link>
           </a-button>
         </div>
 
