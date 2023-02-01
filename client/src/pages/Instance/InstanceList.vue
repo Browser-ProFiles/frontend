@@ -2,11 +2,21 @@
   <main-layout title="Profiles">
     <template #sider-wrapper></template>
     <template #default>
-      <a-button type="submit" role="link">
-        <router-link to="/profile/new">New Browser Profile</router-link>
+      <a-button
+        :disabled="user?.subscription?.maxProfiles <= list.length"
+        type="submit"
+        role="link"
+      >
+        <router-link to="/profile/new">
+          New Browser Profile ({{ realLength }} / {{ user?.subscription?.maxProfiles }})
+        </router-link>
       </a-button>
 
       <p class="note">
+        <template v-if="realLength > user?.subscription?.maxProfiles">
+          <b>You need to revenue subscription to see all {{ realLength }} profiles.</b>
+          <br>
+        </template>
         <b>Note: You can launch profiles only from desktop application.</b>
         Download it <router-link to="/download">here</router-link>.
       </p>
@@ -59,14 +69,21 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { useToast } from 'vue-toastification'
+import { storeToRefs } from 'pinia'
 
 import { getInstanceList, deleteInstance } from '@/api/instance.js'
 
 import MainLayout from '@/layouts/MainLayout.vue'
+import { useUserStore } from '@/stores/userStore.js'
 
 const loading = ref(false)
+const realLength = ref(0)
 const list = ref([])
 const toast = useToast()
+
+const userStore = useUserStore()
+const { fetchUser } = userStore
+const { user } = storeToRefs(userStore)
 
 const fetchInstances = async () => {
   try {
@@ -76,6 +93,7 @@ const fetchInstances = async () => {
       ...profile,
       form: profile.form ? JSON.parse(profile.form) : {},
     }))
+    realLength.value = data.realLength
   } catch (e) {
     console.error(e)
     toast.error(`Failed to fetch profiles: ${e.response?.data?.message || e.message}`)
@@ -89,6 +107,7 @@ const removeInstance = async (name) => {
     loading.value = true
     await deleteInstance(name)
     list.value = list.value.filter((item) => item.name !== name)
+    realLength.value -= 1
     toast.success(`Successfully removed profile: ${name}`)
   } catch (e) {
     console.error(e)
@@ -98,7 +117,10 @@ const removeInstance = async (name) => {
   }
 }
 
-onMounted(() => fetchInstances())
+onMounted(() => {
+  fetchUser()
+  fetchInstances()
+})
 </script>
 
 <style lang="scss">

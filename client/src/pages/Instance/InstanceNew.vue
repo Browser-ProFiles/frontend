@@ -165,7 +165,7 @@ const lastStep = () => changeStep(filteredSteps.value.length - 1)
 
 const onSendForm = async () => {
   const sent = await sendForm()
-  sent && router.push('/')
+  sent && router.push('/profiles')
 }
 
 onMounted(() => clearEditName())

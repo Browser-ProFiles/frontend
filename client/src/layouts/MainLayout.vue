@@ -6,11 +6,29 @@
       }"
       class="header"
     >
-      <slot name="header">{{ title }}</slot>
+      <slot name="header">
+        <h2 class="header__title">
+          {{ title }}
+        </h2>
+        <nav class="header__menu menu">
+          <ul class="menu__list">
+            <li class="menu__item">
+              <router-link class="menu__item-link" to="/cabinet">My Account</router-link>
+            </li>
+            <li class="menu__item">
+              <router-link class="menu__item-link" to="/profiles">Profiles list</router-link>
+            </li>
+            <li @click="onLogout" class="menu__item">
+              Log Out
+            </li>
+          </ul>
+        </nav>
+      </slot>
     </a-layout-header>
     <a-layout>
       <a-layout-sider
         v-if="route.meta.hasSidebar"
+        theme="light"
         class="sider"
         :width="250"
       >
@@ -32,7 +50,8 @@
 </template>
 
 <script setup>
-import { useRoute } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
+import { clearAuthToken } from '@/helpers/auth.js'
 
 defineProps({
   title: {
@@ -41,7 +60,13 @@ defineProps({
   }
 })
 
+const router = useRouter()
 const route = useRoute()
+
+const onLogout = () => {
+  clearAuthToken()
+  router.push('/')
+}
 </script>
 
 <style lang="scss">
@@ -94,7 +119,15 @@ const route = useRoute()
 
   font-size: 24px;
 
+  // TODO: Light theme
+  background: #fff;
+
   /*background: #f7f7f7;*/
+
+  &__title {
+    font-size: 24px;
+    line-height: 1;
+  }
 
   @media screen and (max-width: 869px) {
     flex-direction: column;
@@ -105,6 +138,44 @@ const route = useRoute()
     line-height: 1;
 
     padding: 10px 0;
+  }
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+
+  @media screen and (max-width: 767px) {
+    margin: 5px 0;
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    text-transform: uppercase;
+
+    list-style: none;
+
+    font-size: 18px;
+
+    @media screen and (max-width: 400px) {
+      gap: 10px;
+    }
+  }
+
+  &__item,
+  &__item-link {
+    color: #000;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__item-link.active {
+    color: #1aa7da;
   }
 }
 
@@ -129,6 +200,10 @@ const route = useRoute()
   min-height: calc(100vh - 60px);
 
   padding: 15px 50px;
+
+  @media screen and (max-width: 400px) {
+    padding: 15px 20px;
+  }
 }
 
 .footer {

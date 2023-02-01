@@ -126,7 +126,6 @@ const { onChangeField } = store
 const { form } = storeToRefs(store)
 
 const onChangeProxyEnabled = (event) => {
-  console.log('event', event)
   if (event.target.checked) {
     onChangeField('proxy.proxyEnabled', true);
     onChangeField('checkers.chromeSecurity', true);

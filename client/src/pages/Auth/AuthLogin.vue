@@ -77,7 +77,7 @@ const toast = useToast()
 const submitting = ref(false)
 
 const form = reactive({
-  login: '',
+  username: '',
   password: '',
 })
 

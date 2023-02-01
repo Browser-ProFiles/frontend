@@ -167,12 +167,12 @@ const lastStep = () => changeStep(filteredSteps.value.length - 1)
 
 const onSendForm = async () => {
   const sent = await sendEditForm()
-  sent && router.push('/')
+  sent && router.push('/profiles')
 }
 
 onMounted(() => {
   if (!route.params.name) {
-    router.push('/')
+    router.push('/profiles')
   }
 
   setEditName(route.params.name)

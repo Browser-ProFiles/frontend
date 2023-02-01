@@ -29,3 +29,15 @@
 .danger {
     color: #DC143C;
 }
+
+// TODO: Light theme
+.ant-btn.ant-btn-danger {
+    &,
+    &:hover {
+        color: #DC143C;
+    }
+
+    &:hover {
+        background: lighten(#DC143C, 51%);
+    }
+}
