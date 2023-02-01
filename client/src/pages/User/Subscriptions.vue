@@ -5,7 +5,8 @@
         Current subscription: <b>{{ user?.subscription?.name }}</b>
       </div>
 
-      <ul class="subscriptions__list">
+      <a-spin :delay="350" :spinning="loading" tip="Loading...">
+        <ul class="subscriptions__list">
         <li
           v-for="item in list"
           class="subscriptions__item subscription"
@@ -59,6 +60,7 @@
           </a-button>
         </li>
       </ul>
+      </a-spin>
     </div>
   </main-layout>
 </template>
@@ -75,13 +77,22 @@ import { getSubscriptions } from '@/api/user.js'
 
 const userStore = useUserStore()
 const list = ref([])
+const loading = ref(false)
 
 const { fetchUser } = userStore
 const { user } = storeToRefs(userStore)
 
 const fetchSubscriptions = async () => {
-  const { data } = await getSubscriptions()
-  list.value = data.filter((item) => item.price > 0)
+  try {
+    loading.value = true
+    const { data } = await getSubscriptions()
+    list.value = data.filter((item) => item.price > 0)
+  } catch (e) {
+    console.error(e)
+    toast.error(e.response?.data?.message || e.message)
+  } finally {
+    loading.value = false
+  }
 }
 
 const onSwitch = () => {}
