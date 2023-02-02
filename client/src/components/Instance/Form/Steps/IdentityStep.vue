@@ -99,9 +99,7 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
 import { storeToRefs } from 'pinia'
-import ua from 'useragent-generator'
 
 import { useInstanceFormStore } from '@/stores/instanceFormStore.js'
 

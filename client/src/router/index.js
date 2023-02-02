@@ -35,7 +35,6 @@ export const router = new createRouter({
 
 router.beforeEach((to, from, next) => {
     if (to.matched.some((record) => record.meta.onlyGuest)) {
-        console.log('only guest')
         isAuth() ? next('/') : next()
     }
 

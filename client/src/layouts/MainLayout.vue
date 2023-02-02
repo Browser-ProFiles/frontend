@@ -7,9 +7,17 @@
       class="header"
     >
       <slot name="header">
-        <h2 class="header__title">
-          {{ title }}
-        </h2>
+        <div class="header__title-wrapper">
+          <h2 class="header__title">{{ title }}</h2>
+          <div class="header__theme" @click="toggleMode">
+            <template v-if="theme === THEME_DEFAULT">
+              <img class="header__theme-toggle" :src="DarkThemeIcon" alt="">
+            </template>
+            <template v-if="theme === THEME_DARK">
+              <img class="header__theme-toggle" :src="DefaultThemeIcon" alt="">
+            </template>
+          </div>
+        </div>
         <nav class="header__menu menu">
           <ul class="menu__list">
             <li class="menu__item">
@@ -28,7 +36,7 @@
     <a-layout>
       <a-layout-sider
         v-if="route.meta.hasSidebar"
-        theme="light"
+        :theme="theme === THEME_DEFAULT ? 'light' : 'dark'"
         class="sider"
         :width="250"
       >
@@ -50,8 +58,16 @@
 </template>
 
 <script setup>
+import { onMounted } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
+import { storeToRefs } from 'pinia'
+
+import { THEME_DEFAULT, THEME_DARK, useAppStore } from '@/stores/appStore.js'
+
 import { clearAuthToken } from '@/helpers/auth.js'
+
+import DefaultThemeIcon from '@/assets/img/themes/default.svg'
+import DarkThemeIcon from '@/assets/img/themes/dark.svg'
 
 defineProps({
   title: {
@@ -63,10 +79,16 @@ defineProps({
 const router = useRouter()
 const route = useRoute()
 
+const store = useAppStore()
+const { theme } = storeToRefs(store)
+const { toggleMode, initMode } = store
+
 const onLogout = () => {
   clearAuthToken()
   router.push('/')
 }
+
+onMounted(() => initMode())
 </script>
 
 <style lang="scss">
@@ -100,6 +122,21 @@ const onLogout = () => {
     min-height: unset !important;
   }
 }
+
+.default {
+  .header {
+    background: #fff;
+  }
+}
+
+.dark {
+  .menu__item,
+  .menu__item-link {
+    &:not(.active) {
+      color: #fff !important;
+    }
+  }
+}
 </style>
 
 <style lang="scss" scoped>
@@ -119,14 +156,36 @@ const onLogout = () => {
 
   font-size: 24px;
 
-  // TODO: Light theme
-  background: #fff;
-
   /*background: #f7f7f7;*/
 
   &__title {
     font-size: 24px;
     line-height: 1;
+
+    &-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      @media screen and (max-width: 870px) {
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  &__theme {
+    display: flex;
+    align-items: center;
+
+    &-toggle {
+      width: 18px;
+
+      margin-bottom: 2px;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
   }
 
   @media screen and (max-width: 869px) {

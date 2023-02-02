@@ -5,7 +5,6 @@ import Components from 'unplugin-vue-components/vite'
 import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers'
 import {
   themePreprocessorPlugin,
-  themePreprocessorHmrPlugin,
 } from '@zougt/vite-plugin-theme-preprocessor'
 
 // https://vitejs.dev/config/
@@ -26,12 +25,15 @@ export default defineConfig({
     }),
     themePreprocessorPlugin({
       less: {
-        arbitraryMode: true,
-        defaultPrimaryColor: "#512da7",
+        arbitraryMode: false,
         multipleScopeVars: [
           {
-            scopeName: "theme-light",
-            path: path.resolve("src/assets/styles/theme/default/vars.less"),
+            scopeName: "default",
+            path: path.resolve("src/assets/styles/theme/default.less"),
+          },
+          {
+            scopeName: "dark",
+            path: path.resolve("src/assets/styles/theme/dark.less"),
           },
         ],
         includeStyleWithColors: [
@@ -39,9 +41,15 @@ export default defineConfig({
             color: "#ffffff",
           },
         ],
+        defaultScopeName: "",
+        extract: true,
+        outputDir: "",
+        themeLinkTagId: "theme-link-tag",
+        themeLinkTagInjectTo: "head",
+        removeCssScopeName: false,
+        customThemeCssFileName: (scopeName) => scopeName,
       }
     }),
-    themePreprocessorHmrPlugin(),
   ],
   css: {
     preprocessorOptions: {

@@ -50,6 +50,7 @@
 import { computed, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { storeToRefs } from 'pinia'
+import { useToast } from 'vue-toastification'
 
 import { useInstanceFormStore } from '@/stores/instanceFormStore.js'
 
@@ -160,6 +161,7 @@ const { sendEditForm, setEditName, nextStep, prevStep, firstStep, changeStep, to
 
 const route = useRoute()
 const router = useRouter()
+const toast = useToast()
 
 const onChangeStep = (step) => changeStep(Math.max(0, Math.min(filteredSteps.value.length - 1, step)))
 
@@ -167,6 +169,7 @@ const lastStep = () => changeStep(filteredSteps.value.length - 1)
 
 const onSendForm = async () => {
   const sent = await sendEditForm()
+  toast.success('Profile successfully created')
   sent && router.push('/profiles')
 }
 

@@ -28,11 +28,11 @@
           <div class="download__subtitle">You can launch profiles only from desktop client</div>
           <div class="download__platforms platforms">
             <div class="platforms__item platform">
-              <img :src="windowsIcon" class="platform__icon" alt="Windows" />
+              <img :src="theme === THEME_DEFAULT ? windowsIcon : windowsLightIcon" class="platform__icon" alt="Windows" />
               <a-button @click="downloadFile('windows')" class="platform__download">Download (v1.0)</a-button>
             </div>
             <div class="platforms__item platform">
-              <img :src="macosIcon" class="platform__icon" alt="MacOS" />
+              <img :src="theme === THEME_DEFAULT ? macosIcon : macosLightIcon" class="platform__icon" alt="MacOS" />
               <a-button @click="downloadFile('macosIntel')"  class="platform__download">
                 Download (Intel) (v1.0)
               </a-button>
@@ -41,7 +41,7 @@
               </a-button>
             </div>
             <div class="platforms__item platform">
-              <img :src="linuxIcon" class="platform__icon" alt="Linux" />
+              <img :src="theme === THEME_DEFAULT ? linuxIcon : linuxLightIcon" class="platform__icon" alt="Linux" />
               <a-button @click="downloadFile('linux')"  class="platform__download">Download (v1.0)</a-button>
             </div>
           </div>
@@ -57,24 +57,45 @@ import { storeToRefs } from 'pinia'
 import { useToast } from 'vue-toastification'
 
 import { useUserStore } from '@/stores/userStore.js'
+import { THEME_DEFAULT, useAppStore } from '@/stores/appStore.js'
 
 import { downloadFile } from '@/helpers/download.js'
 
 import windowsIcon from '@/assets/img/platform/windows.svg'
+import windowsLightIcon from '@/assets/img/platform/windows_light.svg'
 import macosIcon from '@/assets/img/platform/macos.svg'
+import macosLightIcon from '@/assets/img/platform/macos_light.svg'
 import linuxIcon from '@/assets/img/platform/linux.svg'
+import linuxLightIcon from '@/assets/img/platform/linux_light.svg'
 
 import MainLayout from '@/layouts/MainLayout.vue'
 
 const userStore = useUserStore()
+const appStore = useAppStore()
 const { fetchUser } = userStore
 const { loading, user, subscriptionUntilDate } = storeToRefs(userStore)
+const { theme } = storeToRefs(appStore)
 const toast = useToast()
 
 onMounted(() => {
   fetchUser()
 })
 </script>
+
+<style lang="scss">
+.dark {
+  .download {
+    background: #000 !important;
+    color: #fff !important;
+  }
+}
+
+.default {
+  .download {
+    background: #fff !important;
+  }
+}
+</style>
 
 <style lang="scss" scoped>
 .cabinet {
@@ -113,8 +134,6 @@ onMounted(() => {
   padding: 30px 40px;
 
   border-radius: 10px;
-
-  background: #fff;
 
   @media screen and (max-width: 400px) {
     padding: 30px 20px;
