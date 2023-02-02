@@ -53,9 +53,9 @@
             <template #title>
               Are you sure?
             </template>
-            <a-button>Cancel</a-button>
+            <a-button class="subscription__switch">Cancel</a-button>
           </a-popconfirm>
-          <a-button @click="onSwitch" v-else>
+          <a-button class="subscription__switch" @click="onSwitch" v-else>
             Switch
           </a-button>
         </li>
@@ -104,6 +104,23 @@ onMounted(() => {
   fetchSubscriptions()
 })
 </script>
+
+<style lang="scss">
+.dark {
+  .subscriptions {
+    .subscription {
+      background: #000 !important;
+      color: #fff;
+      border: 1px solid darken(#fff, 80%);
+
+      &_current,
+      &:hover {
+        box-shadow: 5px 5px 5px 0 rgba(255, 255, 255, 0.35) !important;
+      }
+    }
+  }
+}
+</style>
 
 <style lang="scss" scoped>
 .subscriptions {
@@ -184,6 +201,11 @@ onMounted(() => {
       margin-bottom: 30px;
 
       font-size: 20px;
+    }
+
+    &__switch {
+      width: 100px;
+      height: 32px;
     }
 
     .features {
