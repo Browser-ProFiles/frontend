@@ -1,12 +1,12 @@
 <template>
   <div class="page">
     <form class="form" @submit.prevent="onSubmit">
-        <a-spin :delay="350" :spinning="submitting" tip="Loading...">
-        <h2 class="title">Log In</h2>
+        <a-spin :delay="350" :spinning="submitting" :tip="$t('utils.loading')">
+        <h2 class="title">{{ $t('auth.login') }}</h2>
 
         <p class="note">
-          Don't have an account?
-          <router-link to="/auth/sign-up">Sign Up</router-link>
+          {{ $t('auth.noAccount') }}
+          <router-link to="/auth/sign-up">{{ $t('auth.signUpAction') }}</router-link>
         </p>
 
         <a-row class="row">
@@ -14,7 +14,7 @@
             <base-input-group
               class="group"
               name="username"
-              label="Username"
+              :label="$t('user.username')"
             >
               <template #default>
                 <base-input
@@ -32,7 +32,7 @@
             <base-input-group
               class="group"
               name="password"
-              label="Password"
+              :label="$t('user.password')"
             >
               <template #default>
                 <base-input-password
@@ -53,7 +53,7 @@
           type="primary"
           html-type="submit"
         >
-          Submit
+          {{ $t('auth.loginAction') }}
         </a-button>
       </a-spin>
     </form>

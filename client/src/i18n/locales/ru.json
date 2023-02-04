@@ -21,6 +21,16 @@
     "canvas": "Canvas",
     "additional": "Прочее"
   },
+  "auth": {
+    "login": "Вход",
+    "noAccount": "Нет аккаунта?",
+    "signUpAction": "Вы можете создать новый",
+    "loginAction": "Войти",
+    "signUp": "Регистрация",
+    "alreadyHaveAccount": "Уже есть аккаунт?",
+    "loginAlreadyAccount": "Войдите в него",
+    "signUpSubmit": "Зарегистрироваться"
+  },
   "profiles": {
     "title": "Браузерные профили",
     "new": "Создать новый профиль",
@@ -35,6 +45,8 @@
   "user": {
     "username": "Логин",
     "email": "E-mail",
+    "emailOnlyGmail": "E-mail (только gmail)",
+    "password": "Пароль",
     "subscription": "Подписка"
   },
   "download": {
