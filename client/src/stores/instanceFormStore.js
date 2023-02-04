@@ -31,6 +31,7 @@ export const useInstanceFormStore = defineStore('instanceForm', () => {
             loading.value = true
             await createInstance(form)
             step.value = DEFAULT_STEP
+            toast.success('Profile successfully created')
             return true
         } catch (e) {
             toast.error(e.response?.data?.message || e.message)
