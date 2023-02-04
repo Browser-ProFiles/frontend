@@ -42,6 +42,7 @@ export default defineConfig({
           },
         ],
         defaultScopeName: "",
+        defaultPrimaryColor: "#da431a",
         extract: true,
         outputDir: "",
         themeLinkTagId: "theme-link-tag",

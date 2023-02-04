@@ -32,13 +32,8 @@
 
 .default {
     .ant-btn {
-        &,
         &:hover {
-            color: #000;
-        }
-
-        &:hover {
-            background: lighten(#DC143C, 51%);
+            background: lighten(#DC143C, 7%);
         }
     }
 
@@ -58,7 +53,7 @@
         }
 
         &:hover {
-            background: lighten(#DC143C, 51%);
+            background: lighten(#DC143C, 7%);
         }
     }
 }
