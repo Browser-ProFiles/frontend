@@ -1,0 +1,20 @@
+{
+  "cabinet": {
+    "title": "Личный кабинет",
+    "subscriptionInfo":"Подписка <b>\"{subscriptionName}\"</b> активирована до {subscriptionUntilDate}<br>Вы можете создавать до <b>{subscriptionMaxProfiles}</b> профилей.",
+    "manageSubscription": "Управлять подпиской"
+  },
+  "user": {
+    "username": "Логин",
+    "email": "E-mail",
+    "subscription": "Подписка"
+  },
+  "download": {
+    "title": "Download application",
+    "description": "You can launch profiles only from desktop client"
+  },
+  "utils": {
+    "loading": "Загрузка...",
+    "download": "Загрузить"
+  }
+}

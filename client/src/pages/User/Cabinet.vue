@@ -1,48 +1,50 @@
 <template>
-  <main-layout title="Cabinet">
+  <main-layout :title="$t('cabinet.title')">
     <div class="cabinet">
-      <a-spin :delay="350" :spinning="loading" tip="Loading...">
+      <a-spin :delay="350" :spinning="loading" :tip="$t('utils.loading')">
         <template v-if="!loading && user">
           <div class="cabinet__field">
-            <span class="cabinet__field-title">Username:</span> {{ user.username }}
+            <span class="cabinet__field-title">{{ $t('user.username') }}:</span> {{ user.username }}
           </div>
           <div class="cabinet__field">
-            <span class="cabinet__field-title">Email:</span> {{ user.email }}
+            <span class="cabinet__field-title">{{ $t('user.email') }}:</span> {{ user.email }}
           </div>
           <div v-if="user.subscription" class="cabinet__field cabinet__field-spaced">
-            <span class="cabinet__field-title">Subscription</span> <br>
-            Plan <b>"{{ user.subscription.name }}"</b> is activated until
-            {{ subscriptionUntilDate }} <br>
-            You can create up to <b>{{ user.subscription.maxProfiles }}</b> profiles
+            <span class="cabinet__field-title">{{ $t('user.subscription') }}</span> <br>
+            <span v-html="$t('cabinet.subscriptionInfo', {
+              subscriptionName: user?.subscription?.name,
+              subscriptionMaxProfiles: user?.subscription?.maxProfiles,
+              subscriptionUntilDate: subscriptionUntilDate,
+            })"></span>
           </div>
         </template>
 
         <div class="cabinet__actions">
           <a-button>
-            <router-link to="/cabinet/subscriptions">Manage subscriptions</router-link>
+            <router-link to="/cabinet/subscriptions">{{ $t('cabinet.manageSubscription') }}</router-link>
           </a-button>
         </div>
 
         <div class="cabinet__download download">
-          <h3 class="download__title">Download application</h3>
-          <div class="download__subtitle">You can launch profiles only from desktop client</div>
+          <h3 class="download__title">{{ $t('download.title') }}</h3>
+          <div class="download__subtitle">{{ $t('download.description') }}</div>
           <div class="download__platforms platforms">
             <div class="platforms__item platform">
               <img :src="theme === THEME_DEFAULT ? windowsIcon : windowsLightIcon" class="platform__icon" alt="Windows" />
-              <a-button @click="downloadFile('windows')" class="platform__download">Download (v1.0)</a-button>
+              <a-button @click="downloadFile('windows')" class="platform__download">{{ $t('utils.download') }} (v1.0)</a-button>
             </div>
             <div class="platforms__item platform">
               <img :src="theme === THEME_DEFAULT ? macosIcon : macosLightIcon" class="platform__icon" alt="MacOS" />
               <a-button @click="downloadFile('macosIntel')"  class="platform__download">
-                Download (Intel) (v1.0)
+                {{ $t('utils.download') }} (Intel) (v1.0)
               </a-button>
               <a-button @click="downloadFile('macosApple')"  class="platform__download">
-                Download (Apple Processor) (v1.0)
+                {{ $t('utils.download') }} (Apple Processor) (v1.0)
               </a-button>
             </div>
             <div class="platforms__item platform">
               <img :src="theme === THEME_DEFAULT ? linuxIcon : linuxLightIcon" class="platform__icon" alt="Linux" />
-              <a-button @click="downloadFile('linux')"  class="platform__download">Download (v1.0)</a-button>
+              <a-button @click="downloadFile('linux')"  class="platform__download">{{ $t('utils.download') }} (v1.0)</a-button>
             </div>
           </div>
         </div>

@@ -1,0 +1,15 @@
+{
+  "cabinet": {
+    "title": "Cabinet"
+  },
+  "user": {
+    "username": "Username",
+    "email": "E-mail",
+    "subscription": "Subscription",
+    "subscriptionInfo":"Plan <b>\"{subscriptionName}\"</b> is activated until {subscriptionUntilDate}<br>You can create up to <b>{subscriptionMaxProfiles}</b> profiles.",
+    "manageSubscription": "Manage Subscriptions"
+  },
+  "utils": {
+    "loading": "Загрузка..."
+  }
+}
