@@ -72,16 +72,21 @@
 import { ref, onMounted } from 'vue'
 import { useToast } from 'vue-toastification'
 import { storeToRefs } from 'pinia'
+import { useI18n } from 'vue-i18n'
 
 import { getInstanceList, deleteInstance } from '@/api/instance.js'
 
 import MainLayout from '@/layouts/MainLayout.vue'
 import { useUserStore } from '@/stores/userStore.js'
 
+const toast = useToast()
+const i18n = useI18n()
+
+const { t } = i18n
+
 const loading = ref(false)
 const realLength = ref(0)
 const list = ref([])
-const toast = useToast()
 
 const userStore = useUserStore()
 const { fetchUser } = userStore
@@ -98,7 +103,7 @@ const fetchInstances = async () => {
     realLength.value = data.realLength
   } catch (e) {
     console.error(e)
-    toast.error(`Failed to fetch profiles: ${e.response?.data?.message || e.message}`)
+    toast.error(`${t('messages.error.profiles')}: ${e.response?.data?.message || e.message}`)
   } finally {
     loading.value = false
   }
@@ -110,10 +115,10 @@ const removeInstance = async (name) => {
     await deleteInstance(name)
     list.value = list.value.filter((item) => item.name !== name)
     realLength.value -= 1
-    toast.success(`Successfully removed profile: ${name}`)
+    toast.success(`${t('messages.success.instanceRemove')}: ${name}`)
   } catch (e) {
     console.error(e)
-    toast.error(`Failed to remove profile: ${e.response?.data?.message || e.message}`)
+    toast.error(`${t('messages.error.instanceRemove')}: ${e.response?.data?.message || e.message}`)
   } finally {
     loading.value = false
   }

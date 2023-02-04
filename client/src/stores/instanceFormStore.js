@@ -1,6 +1,7 @@
 import { reactive, ref } from 'vue'
 import { defineStore } from 'pinia'
 import { useToast } from 'vue-toastification'
+import { useI18n } from 'vue-i18n'
 
 import { set } from '~/helpers/obj.js'
 
@@ -18,6 +19,9 @@ export const useInstanceFormStore = defineStore('instanceForm', () => {
     const loading = ref(false)
     const advancedSettings = ref(false)
     const form = reactive(CONFIG_INSTANCE_FORM())
+    const i18n = useI18n()
+
+    const { t } = i18n
 
     const toggleAdvancedSettings = () => {
         advancedSettings.value = !advancedSettings.value
@@ -31,7 +35,7 @@ export const useInstanceFormStore = defineStore('instanceForm', () => {
             loading.value = true
             await createInstance(form)
             step.value = DEFAULT_STEP
-            toast.success('Profile successfully created')
+            toast.success(t('messages.success.instanceCreate'))
             return true
         } catch (e) {
             toast.error(e.response?.data?.message || e.message)
@@ -46,6 +50,7 @@ export const useInstanceFormStore = defineStore('instanceForm', () => {
             loading.value = true
             await editInstance(editProfileName.value, form)
             step.value = DEFAULT_STEP
+            toast.success(t('messages.success.instanceEdit'))
             return true
         } catch (e) {
             toast.error(e.response?.data?.message || e.message)

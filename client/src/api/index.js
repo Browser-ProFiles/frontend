@@ -26,6 +26,7 @@ instance.interceptors.response.use(response => response, async error => {
         return Promise.reject(error)
     }
 
+    // TODO: ?
     toast.error('Authentication required');
     clearAuthToken();
     await router.push('/auth/login');

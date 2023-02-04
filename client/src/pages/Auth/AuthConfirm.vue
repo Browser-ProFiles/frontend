@@ -7,12 +7,16 @@
 import { onMounted, ref } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { useToast } from 'vue-toastification'
+import { useI18n } from 'vue-i18n'
 
 import { confirmSignUp } from '~/api/auth.js'
 
 const router = useRouter()
 const route = useRoute()
 const toast = useToast()
+const i18n = useI18n()
+
+const { t } = i18n
 
 const loading = ref(false)
 
@@ -21,12 +25,12 @@ const checkToken = async () => {
   try {
     const { data } = await confirmSignUp({ token: route.params.token ?? '', });
     if (data.status !== 'success') {
-      throw new Error('Email confirm error.');
+      throw new Error(t('messages.error.emailConfirm'));
     }
-    toast.success('Account confirmed successfully')
+    toast.success(t('messages.success.signUpConfirm'))
   } catch (e) {
     console.error(e)
-    toast.error(`Failed to confirm: ${e.response?.data?.message || e.message}`)
+    toast.error(`${t('messages.error.signUpConfirm')}: ${e.response?.data?.message || e.message}`)
   } finally {
     loading.value = false
     router.push('/auth/login')

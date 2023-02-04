@@ -78,6 +78,7 @@
 import { reactive, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useToast } from 'vue-toastification'
+import { useI18n } from 'vue-i18n'
 
 import { signUp } from '~/api/auth.js'
 
@@ -87,6 +88,9 @@ import BaseInputGroup from '~/components/Base/Form/BaseInputGroup.vue'
 
 const router = useRouter()
 const toast = useToast()
+const i18n = useI18n()
+
+const { t } = i18n
 
 const submitting = ref(false)
 
@@ -100,11 +104,11 @@ const onSubmit = async () => {
   submitting.value = true
   try {
     await signUp(form)
-    toast.success('Check your email to confirm sign-up.')
+    toast.success(t('messages.success.signUpRequest'))
     router.push('/auth/login')
   } catch (e) {
     console.error(e)
-    toast.error(`Failed to sign up: ${e.response?.data?.message || e.message}`)
+    toast.error(`${t('messages.error.signUpRequest')}: ${e.response?.data?.message || e.message}`)
   } finally {
     submitting.value = false
   }

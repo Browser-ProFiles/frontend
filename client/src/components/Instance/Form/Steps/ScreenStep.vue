@@ -1,7 +1,7 @@
 <template>
   <div class="screen-step">
     <div class="section">
-      <h2 class="title"><label for="name">Name <span class="required">*</span></label></h2>
+      <h2 class="title"><label for="name">{{ $t('form.fields.name') }} <span class="required">*</span></label></h2>
       <base-input
         show-count
         type="text"
@@ -12,7 +12,7 @@
     </div>
 
     <div class="section">
-      <h2 class="title">Screen</h2>
+      <h2 class="title">{{ $t('form.fields.screen') }}</h2>
       <a-row class="row" :gutter="20">
         <a-col span="12">
           <base-input-group name="width" label="Width">

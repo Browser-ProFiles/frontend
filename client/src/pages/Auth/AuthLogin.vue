@@ -64,6 +64,7 @@
 import { reactive, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useToast } from 'vue-toastification'
+import { useI18n } from 'vue-i18n'
 
 import { login } from '~/api/auth.js'
 
@@ -75,6 +76,9 @@ import BaseInputGroup from '~/components/Base/Form/BaseInputGroup.vue'
 
 const router = useRouter()
 const toast = useToast()
+const i18n = useI18n()
+
+const { t } = i18n
 
 const submitting = ref(false)
 
@@ -89,12 +93,12 @@ const onSubmit = async () => {
   login(form)
     .then(({ data }) => {
       setAuthToken(data.token)
-      toast.success('Successfully authenticated')
+      toast.success(t('messages.success.auth'))
       router.push('/')
     })
     .catch((e) => {
       console.error(e.response.data.message)
-      toast.error(`Failed to log in: ${e.response?.data?.message || e.message}`)
+      toast.error(`${t('messages.error.auth')}: ${e.response?.data?.message || e.message}`)
     })
     .finally(() => submitting.value = false)
 }

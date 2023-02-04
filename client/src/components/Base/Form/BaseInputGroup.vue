@@ -11,10 +11,10 @@
           <p class="danger-light">Be careful with advanced features!</p>
           <p>They can break browser profile or replace generated fingerprint, which can add you fraud scores</p>
         </template>
-        {{ label }} <slot name="afterLabel" />
+        {{ $t(label) }} <slot name="afterLabel" />
       </a-tooltip>
       <span v-else>
-        {{ label }} <slot name="afterLabel" />
+        {{ $t(label) }} <slot name="afterLabel" />
       </span>
     </label>
     <p class="description"><slot name="description"></slot></p>
