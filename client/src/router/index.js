@@ -5,6 +5,7 @@ import { isAuth } from '~/helpers/auth.js'
 
 import AuthLogin from '~/pages/Auth/AuthLogin.vue'
 import AuthSignUp from '~/pages/Auth/AuthSignUp.vue'
+import AuthConfirm from '~/pages/Auth/AuthConfirm.vue'
 
 import UserCabinet from '~/pages/User/Cabinet.vue'
 import UserSubscriptions from '~/pages/User/Subscriptions.vue'
@@ -18,6 +19,7 @@ const toast = useToast()
 const routes = [
     { path: '/auth/login', component: AuthLogin, meta: { hasSidebar: true, onlyGuest: true, } },
     { path: '/auth/sign-up', component: AuthSignUp, meta: { hasSidebar: true, onlyGuest: true, } },
+    { path: '/auth/confirm/:token', component: AuthConfirm, meta: { hasSidebar: true, onlyGuest: true, } },
     { path: '/', redirect: '/cabinet', meta: { hasSidebar: false, onlyAuth: true, } },
     { path: '/cabinet', component: UserCabinet, meta: { hasSidebar: false, onlyAuth: true, } },
     { path: '/cabinet/subscriptions', component: UserSubscriptions, meta: { hasSidebar: false, onlyAuth: true, } },

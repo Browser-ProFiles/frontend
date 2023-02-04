@@ -1,73 +1,75 @@
 <template>
   <div class="page">
     <form class="form" @submit.prevent="onSubmit">
-      <h2 class="title">Sign Up</h2>
+      <a-spin :delay="350" :spinning="submitting" tip="Loading...">
+        <h2 class="title">Sign Up</h2>
 
-      <p class="note">
-        Already signed up?
-        <router-link to="/auth/login">Log In</router-link>
-      </p>
+        <p class="note">
+          Already signed up?
+          <router-link to="/auth/login">Log In</router-link>
+        </p>
 
-      <a-row class="row">
-        <a-col span="24">
-          <base-input-group
-            class="group"
-            name="username"
-            label="Username"
-          >
-            <template #default>
-              <base-input
-                @change="onChangeField('username', $event.target.value)"
-                :value="form.username"
-                :minLength="4"
-                :maxLength="255"
-                required
-              />
-            </template>
-          </base-input-group>
+        <a-row class="row">
+          <a-col span="24">
+            <base-input-group
+              class="group"
+              name="username"
+              label="Username"
+            >
+              <template #default>
+                <base-input
+                  @change="onChangeField('username', $event.target.value)"
+                  :value="form.username"
+                  :minLength="4"
+                  :maxLength="255"
+                  required
+                />
+              </template>
+            </base-input-group>
 
-          <base-input-group
-            class="group"
-            name="email"
-            label="Email (only gmail)"
-          >
-            <template #default>
-              <base-input
-                type="email"
-                @change="onChangeField('email', $event.target.value)"
-                :value="form.email"
-                :maxLength="128"
-                required
-              />
-            </template>
-          </base-input-group>
-        </a-col>
-      </a-row>
+            <base-input-group
+              class="group"
+              name="email"
+              label="Email (only gmail)"
+            >
+              <template #default>
+                <base-input
+                  type="email"
+                  @change="onChangeField('email', $event.target.value)"
+                  :value="form.email"
+                  :maxLength="128"
+                  required
+                />
+              </template>
+            </base-input-group>
+          </a-col>
+        </a-row>
 
-      <base-input-group
-        class="group"
-        name="password"
-        label="Password"
-      >
-        <template #default>
-          <base-input-password
-            @change="onChangeField('password', $event.target.value)"
-            :value="form.password"
-            :minLength="4"
-            :maxLength="255"
-            required
-          />
-        </template>
-      </base-input-group>
+        <base-input-group
+          class="group"
+          name="password"
+          label="Password"
+        >
+          <template #default>
+            <base-input-password
+              @change="onChangeField('password', $event.target.value)"
+              :value="form.password"
+              :minLength="4"
+              :maxLength="255"
+              required
+            />
+          </template>
+        </base-input-group>
 
-      <a-button
-        :disabled="submitting"
-        class="submit"
-        type="primary"
-        html-type="submit"
-      >
-        Submit
-      </a-button>
+        <a-button
+          :disabled="submitting"
+          class="submit"
+          type="primary"
+          html-type="submit"
+        >
+          Submit
+        </a-button>
+      </a-spin>
     </form>
   </div>
 </template>
@@ -98,6 +100,7 @@ const onSubmit = async () => {
   submitting.value = true
   try {
     await signUp(form)
+    toast.success('Check your email to confirm sign-up.')
     router.push('/auth/login')
   } catch (e) {
     console.error(e)

@@ -85,7 +85,7 @@ const { toggleMode, initMode } = store
 
 const onLogout = () => {
   clearAuthToken()
-  router.push('/')
+  router.push('/auth/login')
 }
 
 onMounted(() => initMode())
