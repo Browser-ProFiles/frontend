@@ -21,13 +21,13 @@
         <nav class="header__menu menu">
           <ul class="menu__list">
             <li class="menu__item">
-              <router-link class="menu__item-link" to="/cabinet">My Account</router-link>
+              <router-link class="menu__item-link" to="/cabinet">{{ $t('menu.myAccount') }}</router-link>
             </li>
             <li class="menu__item">
-              <router-link class="menu__item-link" to="/profiles">Profiles list</router-link>
+              <router-link class="menu__item-link" to="/profiles">{{ $t('menu.profilesList') }}</router-link>
             </li>
             <li @click="onLogout" class="menu__item">
-              Log Out
+              {{ $t('menu.logout') }}
             </li>
           </ul>
         </nav>
@@ -167,7 +167,7 @@ onMounted(() => initMode())
       align-items: center;
       gap: 10px;
 
-      @media screen and (max-width: 870px) {
+      @media screen and (max-width: 1053px) {
         margin-bottom: 10px;
       }
     }
@@ -188,7 +188,7 @@ onMounted(() => initMode())
     }
   }
 
-  @media screen and (max-width: 869px) {
+  @media screen and (max-width: 1053px) {
     flex-direction: column;
 
     min-height: 60px;
@@ -259,6 +259,10 @@ onMounted(() => initMode())
   min-height: calc(100vh - 60px);
 
   padding: 15px 50px;
+
+  @media screen and (max-width: 1053px) {
+    min-height: calc(100vh - 100px);
+  }
 
   @media screen and (max-width: 400px) {
     padding: 15px 20px;

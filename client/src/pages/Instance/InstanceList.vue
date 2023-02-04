@@ -1,5 +1,5 @@
 <template>
-  <main-layout title="Profiles">
+  <main-layout :title="$t('profiles.title')">
     <template #sider-wrapper></template>
     <template #default>
       <a-button
@@ -8,17 +8,19 @@
         role="link"
       >
         <router-link to="/profile/new">
-          New Browser Profile ({{ realLength }} / {{ user?.subscription?.maxProfiles }})
+          {{ $t('profiles.new') }} ({{ realLength }} / {{ user?.subscription?.maxProfiles }})
         </router-link>
       </a-button>
 
       <p class="note">
         <template v-if="realLength > user?.subscription?.maxProfiles">
-          <b>You need to revenue subscription to see all {{ realLength }} profiles.</b>
+          <b>{{ $t('subscriptions.revenue', {
+            realLength,
+          }) }}</b>
           <br>
         </template>
-        <b>Note: You can launch profiles only from desktop application.</b>
-        Download it <router-link to="/download">here</router-link>.
+        <b>{{ $t('utils.note') }}: {{ $t('download.description') }}</b>
+        {{ $t('utils.downloadIt') }} <router-link to="/cabinet">{{ $t('utils.here') }}</router-link>.
       </p>
 
       <a-list
@@ -39,24 +41,24 @@
               </template>
               <template #description>
                 <div v-if="item.form.fingerprint?.fingerprintEnabled">
-                  Fingerprint: {{ item.form.fingerprint?.fingerprintOs }} / {{ item.form.fingerprint?.fingerprintBrowser }} {{ item.form.fingerprint?.fingerprintBrowserVersion }}
+                  {{ $t('domainTerms.fingerprint') }}: {{ item.form.fingerprint?.fingerprintOs }} / {{ item.form.fingerprint?.fingerprintBrowser }} {{ item.form.fingerprint?.fingerprintBrowserVersion }}
                 </div>
-                <div v-else>No fingerprint</div>
+                <div v-else>{{ $t('domainTerms.noFingerprint') }}</div>
                 <div v-if="item.form.system?.timezone?.timezone">
-                  Timezone: {{ item.form.system?.timezone?.timezone }}
+                  {{ $t('domainTerms.timezone') }}: {{ item.form.system?.timezone?.timezone }}
                 </div>
                 <div v-if="item.form.proxy?.proxyEnabled">
-                  Proxy: {{ item.form.proxy?.proxyHost }}:{{ item.form.proxy?.proxyPort }}
+                  {{ $t('domainTerms.proxy') }}: {{ item.form.proxy?.proxyHost }}:{{ item.form.proxy?.proxyPort }}
                 </div>
               </template>
             </a-list-item-meta>
 
             <template #actions>
               <a-button class="action-button" type="primary">
-                <router-link :to="`/profile/edit/${item.name}`">Edit</router-link>
+                <router-link :to="`/profile/edit/${item.name}`">{{ $t('utils.edit') }}</router-link>
               </a-button>
               <a-button class="action-button" @click="removeInstance(item.name)" type="danger">
-                Delete
+                {{ $t('utils.delete') }}
               </a-button>
             </template>
           </a-list-item>

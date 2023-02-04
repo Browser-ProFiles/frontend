@@ -2,28 +2,28 @@
   <main-layout>
     <template #header>
       <div class="title">
-        Edit {{ editProfileName ?? '' }} - {{ filteredSteps[step].title }}
+        {{ $t('utils.editing') }}: {{ editProfileName ?? '' }} - {{ filteredSteps[step].title }}
       </div>
-      <base-input-group group="row" name="advancedSettings" label="Advanced settings">
+      <base-input-group group="row" name="advancedSettings" :label="$t('utils.advancedSettings')">
         <a-switch class="switch" :checked="advancedSettings" @change="toggleAdvancedSettings" />
       </base-input-group>
       <div class="mock" />
     </template>
     <template #sider>
       <a-button class="back">
-        <router-link to="/profiles">Back</router-link>
+        <router-link to="/profiles">{{ $t('utils.back') }}</router-link>
       </a-button>
       <a-steps @change="onChangeStep" :current="step" direction="vertical">
         <a-step v-for="item in filteredSteps" :key="item.title" :title="item.title" />
       </a-steps>
     </template>
     <template #default>
-      <a-spin :delay="350" :spinning="loading" tip="Loading...">
+      <a-spin :delay="350" :spinning="loading" :tip="$t('utils.loading')">
         <form @submit.prevent="onSendForm">
           <div class="steps-action">
             <a-button v-if="step !== 0" type="dashed" @click="firstStep">&lt;&lt;</a-button>
 
-            <a-button v-if="step > 0" type="danger" @click="prevStep">Previous</a-button>
+            <a-button v-if="step > 0" type="danger" @click="prevStep">{{ $t('pagination.prev') }}</a-button>
 
             <a-button
               v-if="step === filteredSteps.length - 1"
@@ -31,10 +31,10 @@
               type="primary"
               @click="onSendForm"
             >
-              Done Editing
+              {{ $t('utils.doneEditing') }}
             </a-button>
 
-            <a-button v-if="step < filteredSteps.length - 1" type="primary" @click="nextStep">Next</a-button>
+            <a-button v-if="step < filteredSteps.length - 1" type="primary" @click="nextStep">{{ $t('pagination.next') }}</a-button>
 
             <a-button v-if="step !== filteredSteps.length - 1" type="dashed" @click="lastStep">&gt;&gt;</a-button>
           </div>
@@ -51,6 +51,7 @@ import { computed, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { useToast } from 'vue-toastification'
+import { useI18n } from 'vue-i18n'
 
 import { useInstanceFormStore } from '@/stores/instanceFormStore.js'
 
@@ -73,79 +74,83 @@ import RenderStep from '~/components/Instance/Form/Steps/RenderStep.vue'
 import CanvasStep from '~/components/Instance/Form/Steps/CanvasStep.vue'
 import AdditionalStep from '~/components/Instance/Form/Steps/AdditionalStep.vue'
 
+const i18n = useI18n()
+
+const { t } = i18n
+
 const steps = [
   {
-    title: 'Screen',
+    title: t('stepsSider.screen'),
     content: ScreenStep,
     advanced: false,
   },
   {
-    title: 'Proxy',
+    title: t('stepsSider.proxy'),
     content: ProxyStep,
     advanced: false,
   },
   {
-    title: 'Fingerprint',
+    title: t('stepsSider.fingerprint'),
     content: FingerprintStep,
     advanced: false,
   },
   {
-    title: 'Identity',
+    title: t('stepsSider.identity'),
     content: IdentityStep,
     advanced: false,
   },
   {
-    title: 'System',
+    title: t('stepsSider.system'),
     content: SystemStep,
     advanced: false,
   },
   {
-    title: 'Security',
+    title: t('stepsSider.security'),
     content: SecurityStep,
     advanced: false,
   },
   {
-    title: 'Checkers',
+    title: t('stepsSider.checkers'),
     content: CheckersStep,
     advanced: false,
   },
   {
-    title: 'Fonts',
+    title: t('stepsSider.fonts'),
     content: FontsStep,
     advanced: true,
   },
   {
-    title: 'JavaScript',
+    title: t('stepsSider.javascript'),
     content: JavaScriptStep,
     advanced: true,
   },
   {
-    title: 'Extensions',
+    title: t('stepsSider.extensions'),
     content: ExtensionsStep,
     advanced: true,
   },
   {
-    title: 'API',
+    title: t('stepsSider.api'),
     content: APIStep,
     advanced: true,
   },
   {
-    title: 'Devices',
+    title: t('stepsSider.devices'),
     content: DevicesStep,
     advanced: true,
   },
   {
-    title: 'Render',
+    title: t('stepsSider.render'),
     content: RenderStep,
     advanced: true,
   },
   {
-    title: 'Canvas',
+    title: t('stepsSider.canvas'),
     content: CanvasStep,
     advanced: true,
   },
   {
-    title: 'Additional',
+    title: t('stepsSider.additional'),
     content: AdditionalStep,
     advanced: true,
   },
@@ -183,6 +188,25 @@ onMounted(() => {
 </script>
 
 <style lang="scss">
+.ant-steps {
+  .ant-steps-item {
+    .ant-steps-item-content {
+      .ant-steps-item-title {
+        line-height: 1.2;
+      }
+    }
+  }
+}
+</style>
+
+<style lang="scss" scoped>
+.title {
+  @media screen and (max-width: 1053px) {
+    padding: 0 20px;
+
+    text-align: center;
+  }
+}
 .back {
   width: 100%;
 

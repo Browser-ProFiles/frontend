@@ -1,4 +1,32 @@
 {
+  "menu": {
+    "myAccount": "Аккаунт",
+    "profilesList": "Профили",
+    "logout": "Выйти"
+  },
+  "stepsSider": {
+    "screen": "Экран",
+    "proxy": "Прокси",
+    "fingerprint": "Цифровой отпечаток",
+    "identity": "Идентичность",
+    "system": "Система",
+    "security": "Безопасность",
+    "checkers": "Проверки",
+    "fonts": "Шрифты",
+    "javascript": "JavaScript",
+    "extensions": "Расширения",
+    "api": "API",
+    "devices": "Устройства",
+    "render": "Отрисовка",
+    "canvas": "Canvas",
+    "additional": "Прочее"
+  },
+  "profiles": {
+    "title": "Браузерные профили",
+    "new": "Создать новый профиль",
+    "creating": "Создание нового профиля",
+    "note": "Примечание: Вы можете запуск."
+  },
   "cabinet": {
     "title": "Личный кабинет",
     "subscriptionInfo":"Подписка <b>\"{subscriptionName}\"</b> активирована до {subscriptionUntilDate}<br>Вы можете создавать до <b>{subscriptionMaxProfiles}</b> профилей.",
@@ -10,11 +38,46 @@
     "subscription": "Подписка"
   },
   "download": {
-    "title": "Download application",
-    "description": "You can launch profiles only from desktop client"
+    "title": "Установить приложение",
+    "description": "Вы можете запускать браузерные профили только через десктопное приложение"
+  },
+  "subscriptions": {
+    "current": "Текущая подписка",
+    "maxProfiles": "Браузерных профилей",
+    "revenue": "Вам необходимо продлить свою подписку чтобы увидеть все {realLength} профилей.",
+    "support": {
+      "no": "Отсутствие поддержки",
+      "basic": "Базовый уровень поддержки",
+      "priority": "Приоритетная поддержка"
+    }
+  },
+  "pagination": {
+    "prev": "Назад",
+    "next": "Дальше"
+  },
+  "domainTerms": {
+    "fingerprint": "Цифровой отпечаток",
+    "noFingerprint": "Не установлен цифровой отпечаток",
+    "timezone": "Часовой пояс",
+    "proxy": "Proxy"
   },
   "utils": {
     "loading": "Загрузка...",
-    "download": "Загрузить"
+    "back": "Назад",
+    "download": "Загрузить",
+    "current": "текущий",
+    "month": "месяц",
+    "areYouSure": "Вы уверены?",
+    "switch": "Подключить",
+    "cancel": "Отменить",
+    "downloadIt": "Скачать можно ",
+    "here": "здесь",
+    "note": "Примечание",
+    "edit": "Редактировать",
+    "editing": "Редактирование",
+    "done" : "Сохранить",
+    "doneEditing" : "Сохранить изменения",
+    "advancedSettings": "Продвинутые настройки",
+    "delete": "Удалить"
   }
 }

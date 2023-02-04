@@ -2,10 +2,10 @@
   <main-layout title="Subscriptions">
     <div class="subscriptions">
       <div class="subscriptions__current">
-        Current subscription: <b>{{ user?.subscription?.name }}</b>
+        {{ $t('subscriptions.current') }}: <b>{{ user?.subscription?.name }}</b>
       </div>
 
-      <a-spin :delay="350" :spinning="loading" tip="Loading...">
+      <a-spin :delay="350" :spinning="loading" :tip="$t('utils.loading')">
         <ul class="subscriptions__list">
         <li
           v-for="item in list"
@@ -17,28 +17,28 @@
           <h3 class="subscription__name">
             {{ item.name }}
             <template v-if="user?.subscription?.name === item.name">
-              (current)
+              ({{ $t('utils.current') }})
             </template>
           </h3>
           <div class="subscription__price">
             <span class="subscription__currency">$</span>
             <span class="subscription__value">{{ item.price }}</span>
           </div>
-          <div class="subscription__term">/ month</div>
+          <div class="subscription__term">/ {{ $t('utils.month') }}</div>
 
           <ul class="subscription__features features">
             <li class="features__item feature">
-              Max profiles: <b>{{ item.maxProfiles }}</b>
+              {{ $t('subscriptions.maxProfiles') }}: <b>{{ item.maxProfiles }}</b>
             </li>
             <li class="features__item feature">
               <template v-if="item.maxProfiles > 25">
-                Priority Support
+                {{ $t('subscriptions.support.priority') }}
               </template>
               <template v-else-if="item.maxProfiles > 5">
-                Basic Support
+                {{ $t('subscriptions.support.basic') }}
               </template>
               <template v-else-if="item.maxProfiles < 3">
-                No Support
+                {{ $t('subscriptions.support.no') }}
               </template>
             </li>
           </ul>
@@ -51,12 +51,12 @@
             @confirm="onCancel"
           >
             <template #title>
-              Are you sure?
+              {{ $t('utils.areYouSure') }}
             </template>
-            <a-button class="subscription__switch">Cancel</a-button>
+            <a-button class="subscription__switch">{{ $t('utils.cancel') }}</a-button>
           </a-popconfirm>
           <a-button class="subscription__switch" @click="onSwitch" v-else>
-            Switch
+            {{ $t('utils.switch') }}
           </a-button>
         </li>
       </ul>
@@ -68,12 +68,15 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { storeToRefs } from 'pinia'
+import { useToast } from 'vue-toastification'
 
 import MainLayout from '@/layouts/MainLayout.vue'
 
 import { useUserStore } from '@/stores/userStore.js'
 
 import { getSubscriptions } from '@/api/user.js'
+
+const toast = useToast()
 
 const userStore = useUserStore()
 const list = ref([])
@@ -204,7 +207,7 @@ onMounted(() => {
     }
 
     &__switch {
-      width: 100px;
+      width: 150px;
       height: 32px;
     }
 

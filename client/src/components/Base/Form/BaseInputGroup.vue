@@ -76,6 +76,8 @@ defineProps({
     width: 100%;
 
     font-size: 16px;
+
+    line-height: 1.2;
   }
 
   .description {
