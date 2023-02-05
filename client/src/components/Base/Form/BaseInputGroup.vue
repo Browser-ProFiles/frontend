@@ -11,24 +11,29 @@
           <p class="danger-light">Be careful with advanced features!</p>
           <p>They can break browser profile or replace generated fingerprint, which can add you fraud scores</p>
         </template>
-        {{ $t(label) }} <slot name="afterLabel" />
+        {{ $t(`form.fields.${name}`) !== `form.fields.${name}` ? $t(`form.fields.${name}`) : label }} <slot name="afterLabel" />
       </a-tooltip>
       <span v-else>
-        {{ $t(label) }} <slot name="afterLabel" />
+        {{ $t(`form.fields.${name}`) !== `form.fields.${name}` ? $t(`form.fields.${name}`) : label }} <slot name="afterLabel" />
       </span>
     </label>
-    <p class="description"><slot name="description"></slot></p>
+    <p class="description">
+      <slot :name="`${locale}Description`"></slot>
+    </p>
     <slot />
   </div>
 </template>
 
 <script setup>
 import { storeToRefs } from 'pinia'
+import { useI18n } from 'vue-i18n'
 
 import { useInstanceFormStore } from '@/stores/instanceFormStore.js'
 
 const store = useInstanceFormStore()
+const i18n = useI18n()
 
+const { locale } = i18n
 const { advancedSettings } = storeToRefs(store)
 
 defineProps({

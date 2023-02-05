@@ -90,14 +90,65 @@
     "done" : "Сохранить",
     "doneEditing" : "Сохранить изменения",
     "advancedSettings": "Продвинутые настройки",
-    "delete": "Удалить"
+    "delete": "Удалить",
+    "click": "Нажмите",
+    "generate": "Сгенерировать",
+    "generatedFingerprint": "Сгенерированный цифровой отпечаток",
+    "header": "Заголовок",
+    "headerExample": "Пример заголовка"
   },
   "form": {
     "fields": {
+      "advancedSettings": "Продвинутые настройки",
+
       "name": "Название",
       "screen": "Экран",
       "width": "Ширина",
-      "height": "Высота"
+      "height": "Высота",
+
+      "touchDevices": "Сенсорные устройства",
+      "touchEvents": "Сенсорные события",
+
+      "proxyEnabled": "Включить прокси",
+      "proxyAuthEnabled": "Включить авторизацию для прокси",
+      "proxyType": "Тип прокси",
+      "proxyHost": "Хост",
+      "proxyPort": "Порт",
+      "proxyUsername": "Логин",
+      "proxyPassword": "Пароль",
+
+      "hideWebRtcLeak": "Скрыть утечку WebRTC (рекомендуется)",
+      "fingerprintEnabled": "Включить генерацию цифрового отпечатка (рекомендуется)",
+      "fingerprintDevice": "Устройство",
+      "fingerprintOS": "Операционная система",
+      "fingerprintBrowser": "Браузер",
+      "fingerprintBrowserVersion": "Версия браузера",
+
+      "userAgent": "User Agent",
+      "useMobileUserAgent": "Использовать мобильный агент пользователя",
+      "reduceUserAgentMinorVersion": "Уменьшить минорную версию агента пользователя",
+      "reduceUserAgentPlatformOscpu": "Сократить платформу у пользовательского агента oscpu",
+
+      "timezone": "Часовой пояс",
+      "disableFineGrainedTimeZoneDetection": "Отключить мелкозернистое определение часовых поясов",
+      "disablePerUserTimezone": "Отключить часовой пояс для каждого пользователя",
+      "timeZoneForTesting": "Часовой пояс для тестирования",
+
+      "language": "Язык",
+      "acceptLang": "Язык",
+      "reduceAcceptLanguage": "Сократить заголовок accept lang",
+      "defaultCountryCode": "Код страны по умолчанию"
+    },
+    "dns": {
+      "title": "Рекомендуется включить защиту dns при использовании прокси.",
+      "description1": "Когда запустится браузер, автоматически откроется вкладка с настройками chrome (chrome://settings/security).",
+      "description2": "Установите свой DNS или выберите один из списка",
+      "then": "Затем вы можете это проверить это в одном из сканеров, например"
+    },
+    "fingerprintGenerator": {
+      "warning": "ВНИМАНИЕ: Вам нужно выбрать те же настройки что и у браузера через который вы будете заходить в этот профиль",
+      "description1": "Иначе анти-фрод системы смогут вычислить вас",
+      "description2": "кнопку чтобы подменить цифровой отпечаток"
     }
   },
   "messages": {

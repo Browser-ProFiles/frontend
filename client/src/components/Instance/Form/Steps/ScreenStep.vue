@@ -59,9 +59,14 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Tells chrome to interpret events from these devices as touch events.
               Only available with XInput 2 (i.e. X server 1.8 or above). The id's of the devices can be retrieved from 'xinput list'.
+            </template>
+
+            <template #ruDescription>
+              Указывает chrome интерпретировать события от этих устройств как события касания.
+              Доступно только для XInput 2 (т.е. X server 1.8 или выше). Идентификаторы устройств можно получить из 'xinput list'.
             </template>
           </base-input-group>
         </a-col>
@@ -79,8 +84,12 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Enable support for touch event feature detection.
+            </template>
+
+            <template #ruDescription>
+              Включает поддержку обнаружения функций по событию касания.
             </template>
           </base-input-group>
         </a-col>

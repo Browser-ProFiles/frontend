@@ -38,9 +38,9 @@
       <template v-if="form.fingerprint.fingerprintEnabled">
         <div class="error">
           <div class="danger">
-            <b>WARNING: You need to choose exactly from what device you will log in to this profile</b>
-            <div>Otherwise anti-fraud systems will detect you</div>
-            <div>Click <a href="#generate">"Generate"</a> button to fake fingerprint</div>
+            <b>{{ $t('form.fingerprintGenerator.warning') }}</b>
+            <div>{{ $t('form.fingerprintGenerator.description1') }}</div>
+            <div>{{ $t('utils.click') }} <a href="#generate">"{{ $t('utils.generate') }}"</a> {{ $t('form.fingerprintGenerator.description2') }}</div>
           </div>
         </div>
 
@@ -109,13 +109,13 @@
             id="generate"
             type="primary"
           >
-            Generate
+            {{ $t('utils.generate') }}
           </a-button>
         </a-row>
 
         <a-row class="row">
           <a-col span="24">
-            <h3 class="title">Generated fingerprint</h3>
+            <h3 class="title">{{ $t('utils.generatedFingerprint') }}</h3>
             <pre>{{ generatedFingerprint }}</pre>
           </a-col>
         </a-row>
@@ -179,6 +179,7 @@ const onChangeEnabled = (enabled) => {
 const generateFingerprint = async () => {
   try {
     generating.value = true
+    fingerprintResult.value = {}
     const { data } = await generateFingerprintRequest(form.value.fingerprint)
     fingerprintResult.value = data.fingerprint
     onChangeField('fingerprint.fingerprintResult', JSON.stringify(data.fingerprint))

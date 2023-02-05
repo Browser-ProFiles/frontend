@@ -1,7 +1,7 @@
 <template>
   <div class="proxy-step">
     <div class="section">
-      <h2 class="title">Timezone</h2>
+      <h2 class="title">{{ $t('form.fields.timezone') }}</h2>
       <a-row class="row" :gutter="20">
         <a-col span="24">
           <base-input-group name="timezone" label="Timezone">
@@ -13,8 +13,11 @@
                 show-search
               />
             </template>
-            <template v-if="form.proxy.proxyEnabled" #description>
+            <template v-if="form.proxy.proxyEnabled" #enDescription>
               You enabled proxy. If you want to be more secured, please select appropriate timezone.
+            </template>
+            <template v-if="form.proxy.proxyEnabled" #ruDescription>
+              Вы включили прокси-сервер. Если хотите быть более защищенным, пожалуйста, выберите соответствующий часовой пояс.
             </template>
           </base-input-group>
         </a-col>
@@ -34,10 +37,6 @@
                 :checked="form.system.timezone.disableFineGrainedTimeZoneDetection"
               />
             </template>
-
-            <template #description>
-              Disables fine grained time zone detection.
-            </template>
           </base-input-group>
         </a-col>
         <a-col span="24">
@@ -52,10 +51,6 @@
                 @change="onChangeField('system.timezone.disablePerUserTimezone', $event.target.checked)"
                 :checked="form.system.timezone.disablePerUserTimezone"
               />
-            </template>
-
-            <template #description>
-              Disables per-user timezone.
             </template>
           </base-input-group>
         </a-col>
@@ -78,8 +73,11 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               The time zone to use for testing. Passed to renderers and plugins on startup.
+            </template>
+            <template #ruDescription>
+              Часовой пояс, используемый для тестирования. Передается рендерерам и плагинам при запуске.
             </template>
           </base-input-group>
         </a-col>
@@ -87,7 +85,7 @@
     </div>
 
     <div class="section">
-      <h2 class="title">Language</h2>
+      <h2 class="title">{{ $t('form.fields.language') }}</h2>
 
       <a-row class="row" :gutter="20">
         <a-col span="24">
@@ -101,12 +99,15 @@
                 show-search
               />
             </template>
-            <template v-if="form.proxy.proxyEnabled" #description>
+            <template v-if="form.proxy.proxyEnabled" #enDescription>
               You enabled proxy. If you want to be more secured, please select appropriate language.
+            </template>
+            <template v-if="form.proxy.proxyEnabled" #ruDescription>
+              Вы включили прокси-сервер. Если хотите быть более защищенным, выберите соответствующий язык.
             </template>
           </base-input-group>
 
-          <p>Accept-Lang: {{ form.system.language.acceptLang }}</p>
+          <p>{{ $t('utils.headerExample') }} Accept-Lang: {{ form.system.language.acceptLang }}</p>
         </a-col>
       </a-row>
 
@@ -125,9 +126,14 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Reduce the accept-language http header, and only send one language in the request header:
               <a href="https://github.com/Tanych/accept-language." target="_blank">https://github.com/Tanych/accept-language.</a>
+            </template>
+
+            <template #ruDescription>
+              Сократите http-заголовок accept-language и отправляйте только один язык в заголовке запроса:
+              <a href="https://github.com/Tanych/accept-language" target="_blank">https://github.com/Tanych/accept-language</a>.
             </template>
           </base-input-group>
         </a-col>
@@ -145,8 +151,11 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Default country code to be used for search engine localization
+            </template>
+            <template #ruDescription>
+              Код страны по умолчанию, который будет использоваться для локализации поисковой системы
             </template>
           </base-input-group>
         </a-col>

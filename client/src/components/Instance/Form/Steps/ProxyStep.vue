@@ -93,17 +93,17 @@
       </a-row>
       
       <template v-if="form.proxy.proxyEnabled">
-        <h3 class="note">It is recommended to secure DNS when using proxy.</h3>
+        <h3 class="note">{{ $t('form.dns.title') }}</h3>
         <p>
-          When your browser launched, the page with chrome security settings (chrome://settings/security) will be opened.
+          {{ $t('form.dns.description1') }}
           <br>
-          Set custom DNS or choose one from list
+          {{ $t('form.dns.description2') }}
         </p>
         <a-image
           class="image"
           :src="secureDnsImage"
         />
-        <p>Then you can check it on dns scanners, for example <a href="https://whoer.net/dns-leak-test">whoer</a></p>
+        <p>{{ $t('form.dns.then') }} <a href="https://whoer.net/dns-leak-test">whoer</a></p>
       </template>
     </div>
   </div>
