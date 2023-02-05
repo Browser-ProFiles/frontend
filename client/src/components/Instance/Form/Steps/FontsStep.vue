@@ -16,8 +16,14 @@
               />
             </template>
 
-            <template #description>
-              Disables remote web font support. SVG font should always work whether this option is specified or not.
+            <template #enDescription>
+              Disables remote web font support.
+              SVG font should always work whether this option is specified or not.
+            </template>
+
+            <template #ruDescription>
+              Отключает поддержку удаленных веб-шрифтов.
+              Шрифт SVG должен работать всегда, независимо от того, указан этот параметр или нет.
             </template>
           </base-input-group>
         </a-col>
@@ -38,9 +44,14 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Force disables font subpixel positioning.
               This affects the character glyph sharpness, kerning, hinting and layout.
+            </template>
+
+            <template #ruDescription>
+              Принудительно отключает субпиксельное позиционирование шрифта.
+              Это влияет на резкость, кернинг, наводку и расположение глифов.
             </template>
           </base-input-group>
         </a-col>
@@ -61,8 +72,12 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Disables LCD text.
+            </template>
+
+            <template #ruDescription>
+              Отключает текст на ЖК-дисплее.
             </template>
           </base-input-group>
         </a-col>
@@ -83,8 +98,12 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Disable the creation of compositing layers when it would prevent LCD text.
+            </template>
+
+            <template #ruDescription>
+              Отключает создание слоев композитинга, если это помешает отображению ЖК-текста.
             </template>
           </base-input-group>
         </a-col>
@@ -105,8 +124,12 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               This switch disables the ScrollToTextFragment feature.
+            </template>
+
+            <template #ruDescription>
+              Эта настройка отключает функцию ScrollToTextFragment.
             </template>
           </base-input-group>
         </a-col>
@@ -127,8 +150,12 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Enable font antialiasing for pixel tests.
+            </template>
+
+            <template #ruDescription>
+              Включает сглаживание шрифтов для пиксельных тестов.
             </template>
           </base-input-group>
         </a-col>

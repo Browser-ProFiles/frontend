@@ -196,11 +196,18 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Disables client-visible 3D APIs, in particular WebGL and Pepper 3D.
               This is controlled by policy and is kept separate from the other enable/disable
               switches to avoid accidentally regressing the policy support for controlling access
               to these APIs
+            </template>
+
+            <template #ruDescription>
+              Отключает видимые клиентом 3D API, в частности WebGL и Pepper 3D.
+              Это контролируется политикой и хранится отдельно от других переключателей включения/выключения
+              переключателей, чтобы избежать случайной регрессии поддержки политики для контроля доступа
+              к этим API
             </template>
           </base-input-group>
         </a-col>
@@ -221,8 +228,12 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Disables touch event based drag and drop.
+            </template>
+
+            <template #ruDescription>
+              Отключает перетаскивание на основе событий касания.
             </template>
           </base-input-group>
         </a-col>
@@ -315,9 +326,14 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Enables Privacy Sandbox APIs: Attribution Reporting,Fledge, Topics, Fenced Frames,
               Shared Storage, Private Aggregation, and their associated features.
+            </template>
+
+            <template #ruDescription>
+              Включает API "песочницы конфиденциальности": Отчеты об атрибуции, Fledge, темы, огражденные фреймы,
+              совместное хранение, частная агрегация и связанные с ними функции.
             </template>
           </base-input-group>
         </a-col>
@@ -338,8 +354,12 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Enable screen capturing support for MediaStream API.
+            </template>
+
+            <template #ruDescription>
+              Включите поддержку захвата экрана для MediaStream API.
             </template>
           </base-input-group>
         </a-col>
@@ -359,10 +379,16 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Disable one or more Blink runtime-enabled features. Use names from
               runtime_enabled_features.json5, separated by commas.
               Applied after kEnableBlinkFeatures, and after other flags that change these features.
+            </template>
+
+            <template #ruDescription>
+              Отключите одну или несколько функций, поддерживаемых временем выполнения Blink. Используйте имена из файла
+              runtime_enabled_features.json5, разделенные запятыми.
+              Применяется после kEnableBlinkFeatures и после других флагов, изменяющих эти функции.
             </template>
           </base-input-group>
         </a-col>
@@ -383,10 +409,20 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Set blink settings. Format is  &lt;name&gt;[=&lt;value],&lt;name&gt;[=&lt;value&gt;],...
               The names are declared in Settings.json5. For boolean type, use "true", "false", or omit '=&lt;value&gt;' part to set to true.
               For enum type, use the int value of the enum value. Applied after other command line flags and prefs.
+            </template>
+
+            <template #ruDescription>
+              Установка параметров blink.
+              <br>
+              Формат: &lt;name&gt;[=&lt;value],&lt;name&gt;[=&lt;value&gt;],...
+              <br>
+              Имена объявляются в файле Settings.json5. Для типа boolean используйте "true", "false" или опустите часть '=&lt;value&gt;', чтобы установить значение true.
+              <br>
+              Для типа enum используйте значение int для значения enum. Применяется после других флагов командной строки и префов.
             </template>
           </base-input-group>
         </a-col>

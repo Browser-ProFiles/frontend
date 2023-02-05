@@ -15,8 +15,12 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Adds fake Bluetooth devices to the quick settings menu.
+            </template>
+
+            <template #ruDescription>
+              Добавляет поддельные устройства Bluetooth в меню быстрых настроек.
             </template>
           </base-input-group>
         </a-col>
@@ -36,8 +40,12 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Adds fake Cast devices to the quick settings menu
+            </template>
+
+            <template #ruDescription>
+              Добавляет поддельные устройства Cast в меню быстрых настроек
             </template>
           </base-input-group>
         </a-col>

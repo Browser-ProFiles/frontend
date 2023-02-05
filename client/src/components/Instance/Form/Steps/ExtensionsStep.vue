@@ -31,8 +31,12 @@
               :value="form.extensions.disableExtensionsExcept"
             />
 
-            <template #description>
+            <template #enDescription>
               Disable extensions except those specified in a comma-separated list.
+            </template>
+
+            <template #ruDescription>
+              Отключает расширения, кроме указанных в списке, разделенном запятыми.
             </template>
           </base-input-group>
         </a-col>
@@ -53,9 +57,14 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Disable checking for user opt-in for extensions that want to inject script into file URLs (ie, always allow it).
               This is used during automated testing
+            </template>
+
+            <template #ruDescription>
+              Отключает проверку согласия пользователя для расширений, которые хотят внедрить скрипт в URL файлов (т.е. всегда разрешает это).
+              Это используется во время автоматизированного тестирования
             </template>
           </base-input-group>
         </a-col>
@@ -76,8 +85,12 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Disable the net::URLRequestThrottlerManager functionality for requests originating from extensions.
+            </template>
+
+            <template #ruDescription>
+              Отключает функциональность net::URLRequestThrottlerManager для запросов, исходящих от расширений.
             </template>
           </base-input-group>
         </a-col>
@@ -98,8 +111,12 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Comma-separated list of feature names to disable. See also kEnableFeatures.
+            </template>
+
+            <template #ruDescription>
+              Список имен функций для отключения, разделенный запятыми. См. также kEnableFeatures.
             </template>
           </base-input-group>
         </a-col>
@@ -120,9 +137,14 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Disables installation of default apps on first run.
               This is used during automated testing.
+            </template>
+
+            <template #ruDescription>
+              Отключает установку приложений по умолчанию при первом запуске.
+              Это используется во время автоматизированного тестирования.
             </template>
           </base-input-group>
         </a-col>
@@ -143,9 +165,14 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Disable default component extensions with background pages - useful
               for performance tests where these pages may interfere with perf results.
+            </template>
+
+            <template #ruDescription>
+              Отключает расширения компонентов по умолчанию с фоновыми страницами - полезно
+              для тестов производительности, где эти страницы могут мешать результатам перфекта.
             </template>
           </base-input-group>
         </a-col>
@@ -166,8 +193,12 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Enables extension APIs that are in development.
+            </template>
+
+            <template #ruDescription>
+              Включает API расширения, которые находятся в разработке.
             </template>
           </base-input-group>
         </a-col>
@@ -187,10 +218,16 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Writes open and installed web apps for each profile to the specified file without launching a new browser
               window or tab. Pass a absolute file path to specify where to output the information.
               Can be used together with optional --profile-base-name switch to only write information for a given profile.
+            </template>
+
+            <template #ruDescription>
+              Записывает открытые и установленные веб-приложения для каждого профиля в указанный файл без запуска нового окна браузера
+              окна или вкладки. Передайте абсолютный путь к файлу, чтобы указать, куда выводить информацию.
+              Может использоваться вместе с дополнительным ключом --profile-base-name для записи информации только для данного профиля.
             </template>
           </base-input-group>
         </a-col>
@@ -227,8 +264,12 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Comma-separated list of paths to apps to load at startup. The first app in the list will be launched.
+            </template>
+
+            <template #ruDescription>
+              Список путей к приложениям, загружаемым при запуске, разделенный запятыми. Будет запущено первое приложение из списка.
             </template>
           </base-input-group>
         </a-col>
@@ -248,8 +289,12 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Comma-separated list of paths to extensions to load at startup.
+            </template>
+
+            <template #ruDescription>
+              Список путей к расширениям, загружаемым при запуске, разделенный запятыми.
             </template>
           </base-input-group>
         </a-col>

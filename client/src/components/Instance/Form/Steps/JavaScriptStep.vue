@@ -15,10 +15,6 @@
                 :checked="form.javascript.disableJavascriptHarmonyShipping"
               />
             </template>
-
-            <template #description>
-              Disable the latest shipping ECMAScript 6 features.
-            </template>
           </base-input-group>
         </a-col>
       </a-row>
@@ -38,8 +34,12 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Enables experimental Harmony (ECMAScript 6) features
+            </template>
+
+            <template #ruDescription>
+              Включает экспериментальные функции Harmony (ECMAScript 6)
             </template>
           </base-input-group>
         </a-col>
@@ -57,8 +57,12 @@
               :value="form.javascript.jsFlags"
             />
 
-            <template #description>
+            <template #enDescription>
               Specifies the flags passed to JS engine.
+            </template>
+
+            <template #ruDescription>
+              Определяет флаги, передаваемые JS-движку.
             </template>
           </base-input-group>
         </a-col>

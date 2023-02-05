@@ -18,7 +18,9 @@
       </span>
     </label>
     <p class="description">
-      <slot :name="`${locale}Description`"></slot>
+      <slot name="description">
+        <slot :name="`${locale}Description`"></slot>
+      </slot>
     </p>
     <slot />
   </div>
