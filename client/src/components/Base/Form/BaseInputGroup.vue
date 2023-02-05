@@ -8,8 +8,8 @@
     <label class="label" :for="name">
       <a-tooltip class="danger" v-if="advanced" placement="topLeft">
         <template #title>
-          <p class="danger-light">Be careful with advanced features!</p>
-          <p>They can break browser profile or replace generated fingerprint, which can add you fraud scores</p>
+          <p class="danger-light">{{ $t('form.advanced.title') }}</p>
+          <p>{{ $t('form.advanced.description') }}</p>
         </template>
         {{ $t(`form.fields.${name}`) !== `form.fields.${name}` ? $t(`form.fields.${name}`) : label }} <slot name="afterLabel" />
       </a-tooltip>

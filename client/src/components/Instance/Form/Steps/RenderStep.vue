@@ -6,9 +6,9 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="disablePepper3d"
             label="Disable Pepper 3D"
-            advanced
           >
             <template #afterLabel>
               <base-checkbox
@@ -24,6 +24,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="disablePepper3dImageChromium"
             label="Disable Pepper 3D Image Chromium"
           >
@@ -34,10 +35,6 @@
                 :checked="form.render.pepper.disablePepper3dImageChromium"
               />
             </template>
-
-            <template #description>
-              Disable Image Chromium for Pepper 3d.
-            </template>
           </base-input-group>
         </a-col>
       </a-row>
@@ -45,6 +42,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="disableUseMojoVideoDecoderForPepper"
             label="Disable use mojo video decoder for pepper"
           >
@@ -56,10 +54,16 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Disables the code path that makes Pepper use the MojoVideoDecoder for hardware
               accelerated video decoding.
               It overrides the value of the kUseMojoVideoDecoderForPepper feature flag.
+            </template>
+
+            <template #ruDescription>
+              Отключает путь кода, который заставляет Pepper использовать MojoVideoDecoder для аппаратного
+              ускоренного аппаратного декодирования видео.
+              Он переопределяет значение флага функции kUseMojoVideoDecoderForPepper.
             </template>
           </base-input-group>
         </a-col>
@@ -72,6 +76,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="disableAcceleratedMjpegDecode"
             label="Disable accelerated mjpeg decode"
           >
@@ -83,8 +88,11 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Disable hardware acceleration of mjpeg decode for captured frame, where available.
+            </template>
+            <template #ruDescription>
+              Отключите аппаратное ускорение декодирования mjpeg для захваченного кадра, если оно доступно.
             </template>
           </base-input-group>
         </a-col>
@@ -93,6 +101,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="disableAcceleratedVideoDecode"
             label="Disable accelerated video decode"
           >
@@ -104,8 +113,11 @@
               />
             </template>
 
-            <template #description>
-              Disables hardware acceleration of video decode, where available
+            <template #enDescription>
+              Disables hardware acceleration of video decode, where available.
+            </template>
+            <template #ruDescription>
+              Отключает аппаратное ускорение декодирования видео, если оно доступно.
             </template>
           </base-input-group>
         </a-col>
@@ -114,6 +126,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="disableAcceleratedVideoEncode"
             label="Disable accelerated video encode"
           >
@@ -125,8 +138,11 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Disables hardware acceleration of video encode, where available.
+            </template>
+            <template #ruDescription>
+              Отключает аппаратное ускорение кодирования видео, если оно доступно.
             </template>
           </base-input-group>
         </a-col>
@@ -139,6 +155,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="disableGpu"
             label="Disable GPU"
           >
@@ -150,9 +167,13 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Disables GPU hardware acceleration.
               If software renderer is not in place, then the GPU process won't launch.
+            </template>
+            <template #ruDescription>
+              Отключает аппаратное ускорение GPU.
+              Если программный рендерер не установлен, то процесс GPU не запустится.
             </template>
           </base-input-group>
         </a-col>
@@ -161,6 +182,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="disableGpuCompositing"
             label="Disable GPU Compositing"
           >
@@ -172,8 +194,11 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Prevent the compositor from using its GPU implementation.
+            </template>
+            <template #ruDescription>
+              Запрещает compositor использовать свою реализацию GPU.
             </template>
           </base-input-group>
         </a-col>
@@ -182,6 +207,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="disableGpuDriverBugWorkarounds"
             label="Disable GPU driver bug workarounds"
           >
@@ -193,8 +219,11 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Disable workarounds for various GPU driver bugs.
+            </template>
+            <template #ruDescription>
+              Отключает обходные пути для различных ошибок драйверов GPU.
             </template>
           </base-input-group>
         </a-col>
@@ -203,6 +232,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="disableGpuEarlyInit"
             label="Disable GPU early init"
           >
@@ -214,8 +244,11 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Disable proactive early init of GPU process.
+            </template>
+            <template #ruDescription>
+              Отключает проактивный ранний запуск процесса GPU.
             </template>
           </base-input-group>
         </a-col>
@@ -224,6 +257,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="disableGpuMemoryBufferCompositorResources"
             label="Disable GPU memory buffer compositor resources"
           >
@@ -235,8 +269,11 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Do not force that all compositor resources be backed by GPU memory buffers.
+            </template>
+            <template #ruDescription>
+              Не заставляет, чтобы все ресурсы compositor были обеспечены буферами памяти GPU.
             </template>
           </base-input-group>
         </a-col>
@@ -245,6 +282,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="disableGpuMemoryBufferVideoFrames"
             label="Disable GPU memory buffer video frames"
           >
@@ -256,8 +294,11 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Disable GpuMemoryBuffer backed VideoFrames.
+            </template>
+            <template #ruDescription>
+              Отключает GpuMemoryBuffer с поддержкой VideoFrames.
             </template>
           </base-input-group>
         </a-col>
@@ -266,6 +307,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="disableGpuProcessCrashLimit"
             label="Disable GPU process crash limit"
           >
@@ -277,8 +319,11 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               For tests, to disable the limit on the number of times the GPU process may be restarted.
+            </template>
+            <template #ruDescription>
+              Для тестов, чтобы отключить ограничение на количество перезапусков процесса GPU.
             </template>
           </base-input-group>
         </a-col>
@@ -287,6 +332,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="disableGpuProcessForDx12InfoCollection"
             label="Disable GPU process for DX12 info collection"
           >
@@ -298,8 +344,11 @@
               />
             </template>
 
-            <template #description>
-              Disables the non-sandboxed GPU process for DX12 info collection
+            <template #enDescription>
+              Disables the non-sandboxed GPU process for DX12 info collection.
+            </template>
+            <template #ruDescription>
+              Отключает non-sandboxed процесс GPU для сбора информации DX12.
             </template>
           </base-input-group>
         </a-col>
@@ -308,6 +357,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="disableGpuProgramCache"
             label="Disable GPU program cache"
           >
@@ -319,8 +369,11 @@
               />
             </template>
 
-            <template #description>
-              Turn off gpu program caching
+            <template #enDescription>
+              Turn off gpu program caching.
+            </template>
+            <template #ruDescription>
+              Отключите кэширование программ на графическом процессоре.
             </template>
           </base-input-group>
         </a-col>
@@ -329,6 +382,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="disableGpuRasterization"
             label="Disable GPU rasterization"
           >
@@ -340,9 +394,13 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Disable GPU rasterization, i.e. rasterize on the CPU only
               Overrides the kEnableGpuRasterization flag.
+            </template>
+            <template #ruDescription>
+              Отключить растеризацию на GPU, т.е. растеризацию только на CPU.
+              Переопределяет флаг kEnableGpuRasterization.
             </template>
           </base-input-group>
         </a-col>
@@ -351,6 +409,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="disableGpuSandbox"
             label="Disable GPU sandbox"
           >
@@ -362,8 +421,11 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Disables the GPU process sandbox.
+            </template>
+            <template #ruDescription>
+              Отключает "песочницу" процессов GPU.
             </template>
           </base-input-group>
         </a-col>
@@ -372,6 +434,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="disableGpuShaderDiskCache"
             label="Disable GPU shader disk cache"
           >
@@ -383,8 +446,11 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Disables the GPU shader on disk cache.
+            </template>
+            <template #ruDescription>
+              Отключает GPU шейдер на дисковом кэше.
             </template>
           </base-input-group>
         </a-col>
@@ -393,6 +459,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="disableGpuVsync"
             label="Disable GPU vsync"
           >
@@ -404,8 +471,11 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Stop the GPU from synchronizing presentation with vblank.
+            </template>
+            <template #ruDescription>
+              Запрещает GPU синхронизировать презентацию с vblank.
             </template>
           </base-input-group>
         </a-col>
@@ -414,6 +484,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="disableGpuWatchdog"
             label="Disable GPU watchdog"
           >
@@ -425,8 +496,11 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Disable the thread that crashes the GPU process if it stops responding to messages.
+            </template>
+            <template #ruDescription>
+              Отключает поток, который разрушает процесс GPU, если он перестает отвечать на сообщения.
             </template>
           </base-input-group>
         </a-col>
@@ -435,6 +509,7 @@
       <a-row :gutter="20" class="row" align="bottom">
         <a-col span="12">
           <base-input-group
+            advanced
             name="gpuBlocklistTestGroup"
             label="GPU Blocklist test group"
           >
@@ -445,14 +520,18 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Select a different set of GPU blocklist entries with the specified test_group ID.
+            </template>
+            <template #ruDescription>
+              Выберите другой набор записей блок-листа GPU с указанным идентификатором test_group.
             </template>
           </base-input-group>
         </a-col>
 
         <a-col span="12">
           <base-input-group
+            advanced
             name="gpuDeviceId"
             label="GPU Device ID"
           >
@@ -463,8 +542,11 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Passes the active graphics device id from browser process to info collection GPU process.
+            </template>
+            <template #ruDescription>
+              Передает идентификатор активного графического устройства из процесса браузера в процесс GPU сбора информации.
             </template>
           </base-input-group>
         </a-col>
@@ -473,6 +555,7 @@
       <a-row :gutter="20" class="row" align="bottom">
         <a-col span="12">
           <base-input-group
+            advanced
             name="gpuDiskCacheSizeKb"
             label="GPU Disk Cache size KB"
           >
@@ -483,15 +566,20 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Allows explicitly specifying the shader disk cache size for embedded devices.
               Default value is 6MB. On Android, 2MB is default and 128KB for low-end devices.
+            </template>
+            <template #ruDescription>
+              Позволяет явно указать размер дискового кэша шейдеров для встроенных устройств.
+              Значение по умолчанию - 6 МБ. На Android по умолчанию 2MB, а для устройств низкого класса - 128KB.
             </template>
           </base-input-group>
         </a-col>
 
         <a-col span="12">
           <base-input-group
+            advanced
             name="gpuDriverVersion"
             label="GPU Driver version"
           >
@@ -502,8 +590,11 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Passes the active graphics driver version from browser process to info collection GPU process.
+            </template>
+            <template #ruDescription>
+              Передает версию активного графического драйвера из процесса браузера в процесс GPU сбора информации.
             </template>
           </base-input-group>
         </a-col>
@@ -512,6 +603,7 @@
       <a-row :gutter="20" class="row" align="bottom">
         <a-col span="12">
           <base-input-group
+            advanced
             name="gpuLauncher"
             label="GPU Launcher"
           >
@@ -522,14 +614,18 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Extra command line options for launching the GPU process (normally used for debugging). Use like renderer-cmd-prefix.
+            </template>
+            <template #ruDescription>
+              Дополнительные параметры командной строки для запуска процесса GPU (обычно используется для отладки). Используется аналогично renderer-cmd-prefix.
             </template>
           </base-input-group>
         </a-col>
 
         <a-col span="12">
           <base-input-group
+            advanced
             name="gpuPreferences"
             label="GPU Preferences"
           >
@@ -540,8 +636,11 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Passes encoded GpuPreferences to GPU process.
+            </template>
+            <template #ruDescription>
+              Передает закодированные GpuPreferences процессу GPU.
             </template>
           </base-input-group>
         </a-col>
@@ -550,6 +649,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="gpuProgramCacheSizeKb"
             label="GPU program cache size KB"
           >
@@ -560,8 +660,11 @@
               />
             </template>
 
-            <template #description>
-              Sets the maximum size of the in-memory gpu program cache, in kb
+            <template #enDescription>
+              Sets the maximum size of the in-memory gpu program cache, in kb.
+            </template>
+            <template #ruDescription>
+              Устанавливает максимальный размер кэша программ gpu in-memory, в кб.
             </template>
           </base-input-group>
         </a-col>
@@ -570,6 +673,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="gpuSandboxAllowSysvShm"
             label="GPU sandbox allow sysv shm"
           >
@@ -581,8 +685,11 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Allows shmat() system call in the GPU sandbox.
+            </template>
+            <template #ruDescription>
+              Разрешает системный вызов shmat() в песочнице GPU.
             </template>
           </base-input-group>
         </a-col>
@@ -591,6 +698,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="gpuSandboxStartEarly"
             label="GPU sandbox start early"
           >
@@ -602,8 +710,11 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Starts the GPU sandbox before creating a GL context.
+            </template>
+            <template #ruDescription>
+              Запускает "песочницу" GPU перед созданием контекста GL.
             </template>
           </base-input-group>
         </a-col>
@@ -612,6 +723,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="gpuStartupDialog"
             label="GPU startup dialog"
           >
@@ -623,8 +735,11 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Causes the GPU process to display a dialog on launch.
+            </template>
+            <template #ruDescription>
+              Заставляет процесс GPU отображать диалог при запуске.
             </template>
           </base-input-group>
         </a-col>
@@ -633,6 +748,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="gpuSubSystemId"
             label="GPU subsystem ID"
           >
@@ -644,8 +760,11 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Passes the active graphics sub system id from browser process to info collection GPU process.
+            </template>
+            <template #ruDescription>
+              Передает идентификатор активной графической подсистемы из процесса браузера в процесс GPU сбора информации.
             </template>
           </base-input-group>
         </a-col>
@@ -654,6 +773,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="gpuVendorId"
             label="GPU vendor ID"
           >
@@ -665,8 +785,11 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Passes the active graphics vendor id from browser process to info collection GPU process.
+            </template>
+            <template #ruDescription>
+              Передает идентификатор активного поставщика графики из процесса браузера в процесс GPU сбора информации.
             </template>
           </base-input-group>
         </a-col>
@@ -675,8 +798,9 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="inProcessGpu"
-            label="In process GPU"
+            label="Run the GPU process as a thread in the browser process"
           >
             <template #afterLabel>
               <base-checkbox
@@ -684,10 +808,6 @@
                 @change="onChangeField('render.gpu.inProcessGpu', $event.target.checked)"
                 :checked="form.render.gpu.inProcessGpu"
               />
-            </template>
-
-            <template #description>
-              Run the GPU process as a thread in the browser process.
             </template>
           </base-input-group>
         </a-col>
@@ -700,6 +820,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="disableWebgl"
             label="Disable WebGL"
           >
@@ -711,8 +832,11 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Disable all versions of WebGL.
+            </template>
+            <template #ruDescription>
+              Отключает все версии WebGL.
             </template>
           </base-input-group>
         </a-col>
@@ -721,6 +845,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="disableWebglImageChromium"
             label="Disable WebGL image chromium"
           >
@@ -732,8 +857,11 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Disables WebGL rendering into a scanout buffer for overlay support.
+            </template>
+            <template #ruDescription>
+              Отключает рендеринг WebGL в буфер развертки для поддержки оверлея.
             </template>
           </base-input-group>
         </a-col>
@@ -742,6 +870,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="disableWebgl2"
             label="Disable WebGL 2"
           >
@@ -752,10 +881,6 @@
                 :checked="form.render.webgl.disableWebgl2"
               />
             </template>
-
-            <template #description>
-              Disable WebGL2.
-            </template>
           </base-input-group>
         </a-col>
       </a-row>
@@ -763,6 +888,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="webglAntialiasingMode"
             label="WebGL Antialiasing mode"
           >
@@ -774,8 +900,11 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Set the antialiasing method used for webgl. (none, explicit, implicit)
+            </template>
+            <template #ruDescription>
+              Устанавливает метод сглаживания, используемый для webgl. (нет, явный, неявный).
             </template>
           </base-input-group>
         </a-col>
@@ -784,6 +913,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="webglMsaaSampleCount"
             label="WebGL MSAA Sample count"
           >
@@ -795,8 +925,11 @@
               />
             </template>
 
-            <template #description>
-              Set a default sample count for webgl if msaa is enabled..
+            <template #enDescription>
+              Set a default sample count for webgl if msaa is enabled.
+            </template>
+            <template #ruDescription>
+              Установите количество выборок по умолчанию для webgl, если включена функция msaa.
             </template>
           </base-input-group>
         </a-col>
@@ -809,6 +942,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="disableGlDrawingForTests"
             label="Disable GL Drawing for tests"
           >
@@ -820,9 +954,13 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Disables GL drawing operations which produce pixel output.
               With this the GL output will not be correct but tests will run faster.
+            </template>
+            <template #ruDescription>
+              Отключает операции рисования GL, которые производят вывод пикселей.
+              При этом вывод GL не будет корректным, но тесты будут выполняться быстрее.
             </template>
           </base-input-group>
         </a-col>
@@ -831,6 +969,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="disableGlExtensions"
             label="Disable GL extensions"
           >
@@ -841,8 +980,11 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Disables specified comma separated GL Extensions if found.
+            </template>
+            <template #ruDescription>
+              Отключает указанные через запятую расширения GL, если они найдены.
             </template>
           </base-input-group>
         </a-col>
@@ -851,6 +993,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="disableGlslTranslator"
             label="Disable GLSL Translator"
           >
@@ -860,10 +1003,6 @@
                 @change="onChangeField('render.gl.disableGlslTranslator', $event.target.checked)"
                 :checked="form.render.gl.disableGlslTranslator"
               />
-            </template>
-
-            <template #description>
-              Disable the GLSL translator.
             </template>
           </base-input-group>
         </a-col>
@@ -876,6 +1015,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="webviewDisableAppRecovery"
             label="WebView disable app recovery"
           >
@@ -897,6 +1037,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="webviewDisablePackageAllowlistThrottling"
             label="WebView disable package allow list throttling"
           >
@@ -918,6 +1059,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="webviewDisableSafebrowsingSupport"
             label="Used to disable safebrowsing functionality in webview"
           >
@@ -939,6 +1081,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="webviewEnableAppRecovery"
             label="WebView enable app recover"
           >
@@ -960,6 +1103,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="webviewEnableModernCookieSameSite"
             label="WebView enable modern cookie same site"
           >
@@ -984,6 +1128,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="webviewMparchFencedFrames"
             label="WebView mparch fenced frames"
           >
@@ -1005,6 +1150,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="webviewSafebrowsingBlockAllResources"
             label="WebView safebrowsing block all resources"
           >
@@ -1026,6 +1172,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="webviewSandboxedRenderer"
             label="WebView sandboxed renderer"
           >
@@ -1043,6 +1190,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="webviewShadowDomFencedFrames"
             label="WebView Shadow DOM fenced frames"
           >
@@ -1068,6 +1216,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="disableWebrtcEncryption"
             label="Disable WebRTC Encryption"
           >
@@ -1090,6 +1239,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="disableWebrtcHwDecoding"
             label="Disable WebRTC HW Decoding"
           >
@@ -1111,6 +1261,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="disableWebrtcHwEncoding"
             label="Disable WebRTC HW Encoding"
           >
@@ -1132,6 +1283,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="webrtcEventLogProactivePruningDelta"
             label="WebRTC event log proactive pruning delta"
           >
@@ -1154,6 +1306,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="webrtcEventLogUploadDelayMs"
             label="WebRTC event log upload delay ms"
           >
@@ -1174,6 +1327,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="webrtcEventLogUploadNoSuppression"
             label="WebRTC event log upload no suppression"
           >
@@ -1195,6 +1349,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="webrtcEventLogging"
             label="WebRTC event logging"
           >
@@ -1217,6 +1372,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="webrtcIpHandlingPolicy"
             label="WebRTC IP handling police"
           >
@@ -1237,6 +1393,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="webrtcMaxCpuConsumptionPercentage"
             label="WebRTC max CPU consumption percentage"
           >
@@ -1262,6 +1419,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="disableCompositedAntialiasing"
             label="Disable composited antialiasing"
           >
@@ -1283,6 +1441,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="disableD3d11"
             label="Disable D3D11"
           >
@@ -1304,6 +1463,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="disableDirectComposition"
             label="Disable direct composition"
           >
@@ -1325,6 +1485,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="disableDirectCompositionVideoOverlays"
             label="Disable direct composition video overlays"
           >
@@ -1346,6 +1507,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="disableFrameRateLimit"
             label="Disable framerate limit"
           >
@@ -1368,6 +1530,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="disableRendererAccessibility"
             label="Disable renderer accessibility"
           >
@@ -1389,6 +1552,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="disableRendererBackgrounding"
             label="Disable renderer backgrounding"
           >
@@ -1410,6 +1574,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="disableMetalShaderCache"
             label="Disable metal shader cache"
           >
@@ -1431,6 +1596,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="disableNewContentRenderingTimeout"
             label="Disable new content rendering timeout"
           >
@@ -1453,6 +1619,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="disableImageAnimationResync"
             label="Disable image animation resync"
           >
@@ -1475,6 +1642,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="disableNv12DxgiVideo"
             label="Disable nv12dxgi video"
           >
@@ -1496,6 +1664,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="disablePartialRaster"
             label="Disable partial raster"
           >
@@ -1518,6 +1687,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="disableRgba4444Textures"
             label="Disable rgba4444 textures"
           >
@@ -1539,6 +1709,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="disableRtcSmoothnessAlgorithm"
             label="Disable RTC Smoothness algorithm"
           >
@@ -1560,6 +1731,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="disableShaderNameHashing"
             label="Disable shader name hashing"
           >
@@ -1581,6 +1753,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="disableSkiaRuntimeOpts"
             label="Disable skia runtime opts"
           >
@@ -1603,6 +1776,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="disableSmoothScrolling"
             label="Disable smooth scrolling"
           >
@@ -1624,6 +1798,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="disableSoftwareCompositingFallback"
             label="Disable software compositing fallback"
           >
@@ -1646,6 +1821,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="disableSoftwareRasterizer"
             label="Disable software rasterizer"
           >
@@ -1667,6 +1843,7 @@
       <a-row :gutter="20" class="row">
         <a-col span="24">
           <base-input-group
+            advanced
             name="disableAngleFeatures"
             label="Disable angle features"
           >

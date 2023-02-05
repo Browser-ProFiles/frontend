@@ -9,7 +9,7 @@ import { createInstance, editInstance, getInstanceSingle } from '~/api/instance.
 import { CONFIG_INSTANCE_FORM } from '~/forms/config.js'
 
 const DEFAULT_STEP = 0
-const BASE_STEPS_COUNT = 6
+const BASE_STEPS_COUNT = 7
 
 const toast = useToast()
 
