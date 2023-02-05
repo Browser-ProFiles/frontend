@@ -176,6 +176,7 @@ onMounted(() => initMode())
   &__theme {
     display: flex;
     align-items: center;
+    margin-top: 6px;
 
     &-toggle {
       width: 18px;
