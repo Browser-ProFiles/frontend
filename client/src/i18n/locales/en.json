@@ -1,15 +1,136 @@
 {
+  "menu": {
+    "myAccount": "Account",
+    "profilesList": "Profiles",
+    "logout": "Log Out"
+  },
+  "stepsSider": {
+    "screen": "Screen",
+    "proxy": "Proxy",
+    "fingerprint": "Fingerprint",
+    "identity": "Identity",
+    "system": "System",
+    "security": "Security",
+    "checkers": "Checkers",
+    "fonts": "Fonts",
+    "javascript": "JavaScript",
+    "extensions": "Extensions",
+    "api": "API",
+    "devices": "Devices",
+    "render": "Render",
+    "canvas": "Canvas",
+    "additional": "Additional"
+  },
+  "auth": {
+    "login": "Login",
+    "noAccount": "Don't have an account yet?",
+    "signUpAction": "Sign Up",
+    "loginAction": "Login",
+    "signUp": "Sign Up",
+    "alreadyHaveAccount": "Already have an account?",
+    "loginAlreadyAccount": "Log in",
+    "signUpSubmit": "Sign Up"
+  },
+  "profiles": {
+    "title": "Browser profiles",
+    "new": "Create new profile",
+    "creating": "Create new profile"
+  },
   "cabinet": {
-    "title": "Cabinet"
+    "title": "Cabinet",
+    "subscriptionInfo":"Subscription <b>\"{subscriptionName}\"</b> is activated until {subscriptionUntilDate}<br>You can launch up to <b>{subscriptionMaxProfiles}</b> profiles.",
+    "manageSubscription": "Manage Subscription"
   },
   "user": {
     "username": "Username",
     "email": "E-mail",
-    "subscription": "Subscription",
-    "subscriptionInfo":"Plan <b>\"{subscriptionName}\"</b> is activated until {subscriptionUntilDate}<br>You can create up to <b>{subscriptionMaxProfiles}</b> profiles.",
-    "manageSubscription": "Manage Subscriptions"
+    "emailOnlyGmail": "E-mail (only gmail)",
+    "password": "Password",
+    "subscription": "Subscription"
+  },
+  "download": {
+    "title": "Download application",
+    "description": "You can launch browser profiles only from desktop application"
+  },
+  "subscriptions": {
+    "current": "Current subscription",
+    "maxProfiles": "Max profiles count",
+    "revenue": "You need to revenue subscription to see all {realLength} profiles.",
+    "support": {
+      "no": "No Support",
+      "basic": "Basic Support",
+      "priority": "Priority Support"
+    }
+  },
+  "pagination": {
+    "prev": "Prev",
+    "next": "Next"
+  },
+  "domainTerms": {
+    "fingerprint": "Fingerprint",
+    "noFingerprint": "No Fingerprint",
+    "timezone": "Timezone",
+    "proxy": "Proxy"
   },
   "utils": {
-    "loading": "Загрузка..."
+    "loading": "Loading...",
+    "back": "Back",
+    "download": "Download",
+    "current": "current",
+    "month": "month",
+    "areYouSure": "Are you sure?",
+    "switch": "Switch",
+    "cancel": "Cancel",
+    "downloadIt": "Download it ",
+    "here": "here",
+    "note": "Note",
+    "edit": "Edit",
+    "editing": "Edit",
+    "done" : "Save",
+    "doneEditing" : "Save changes",
+    "advancedSettings": "Advanced settings",
+    "delete": "Delete",
+    "click": "Click",
+    "generate": "Generate",
+    "generatedFingerprint": "Generated fingerprint",
+    "header": "Header",
+    "headerExample": "Header example"
+  },
+  "form": {
+    "advanced": {
+      "title": "Be accurate with advanced settings!",
+      "description": "They can break your browser profile or replace generated fingerprint, which can increase fraud score."
+    },
+    "dns": {
+      "title": "It is recommended to secure dns when using proxy.",
+      "description1": "When browser launched, chrome settings page will be opened (chrome://settings/security).",
+      "description2": "Set your own DNS or choose one from the list.",
+      "then": "Then you can check it with one of the scanners, for example"
+    },
+    "fingerprintGenerator": {
+      "warning": "WARNING: You need to choose the same settings as in the browser from what you will launch the profile",
+      "description1": "Otherwise fraud systems can detect you",
+      "description2": "button to fake fingerprint"
+    }
+  },
+  "messages": {
+    "success": {
+      "signUpRequest": "An email was sent to you to verify your account",
+      "signUpConfirm": "Account successfully confirmed",
+      "auth": "Successful authorization",
+      "created": "Profile successfully created",
+      "instanceCreate": "Profile successfully created",
+      "instanceEdit": "Profile successfully edited",
+      "instanceRemove": "Profile successfully removed"
+    },
+    "error": {
+      "auth": "Failed to log in",
+      "authRequired": "Authentication required",
+      "signUpRequest": "Failed to sign up",
+      "signUpConfirm": "Failed to confirm the account",
+      "emailConfirm": "Failed to confirm the account",
+      "profiles": "Failed to fetch browser profiles",
+      "instanceRemove": "Failed to remove profile"
+    }
   }
 }
