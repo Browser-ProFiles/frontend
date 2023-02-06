@@ -22,6 +22,7 @@
                   :value="form.username"
                   :minLength="4"
                   :maxLength="255"
+                  show-count
                   required
                 />
               </template>
@@ -38,6 +39,7 @@
                   @change="onChangeField('email', $event.target.value)"
                   :value="form.email"
                   :maxLength="128"
+                  show-count
                   required
                 />
               </template>
@@ -56,6 +58,7 @@
               :value="form.password"
               :minLength="4"
               :maxLength="255"
+              show-count
               required
             />
           </template>
