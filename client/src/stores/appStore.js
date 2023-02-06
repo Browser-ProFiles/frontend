@@ -3,6 +3,8 @@ import { ref } from 'vue'
 import { toggleTheme } from '@zougt/vite-plugin-theme-preprocessor/dist/browser-utils'
 import { useI18n } from 'vue-i18n'
 
+import api from '@/api'
+
 import { DEFAULT_LANG } from '@/const/appLang.js'
 
 // TODO: Separate?
@@ -49,13 +51,22 @@ export const useAppStore = defineStore('app', () => {
     }
 
     const initLang = () => {
-        i18n.locale.value = getStoreLang()
+        const initialLang = getStoreLang()
+        i18n.locale.value = initialLang
+        api.defaults.params = {
+            ...api.defaults.params ?? {},
+            lang: initialLang,
+        }
     }
 
     const changeLang = (newLang) => {
         setStoreLang(newLang)
         i18n.locale.value = getStoreLang()
         lang.value = newLang
+        api.defaults.params = {
+            ...api.defaults.params ?? {},
+            lang: initialLang,
+        }
     }
 
     return {

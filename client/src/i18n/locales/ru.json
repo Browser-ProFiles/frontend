@@ -98,6 +98,10 @@
   },
   "form": {
     "fields": {
+      "username": "Логин",
+      "email": "E-mail",
+      "password": "Пароль",
+
       "advancedSettings": "Продвинутые настройки",
 
       "name": "Название",
