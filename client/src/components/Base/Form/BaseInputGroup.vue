@@ -1,6 +1,7 @@
 <template>
   <div
     v-if="!advanced || advancedSettings"
+    :key="lang"
     :class="
       `base-input-group ${group === 'row' ? 'base-input-group_row' : ''}
     `"
@@ -11,15 +12,15 @@
           <p class="danger-light">{{ $t('form.advanced.title') }}</p>
           <p>{{ $t('form.advanced.description') }}</p>
         </template>
-        {{ $t(`form.fields.${name}`) !== `form.fields.${name}` ? $t(`form.fields.${name}`) : label }} <slot name="afterLabel" />
+        {{ lang === 'en' ? label : $t(`form.fields.${name}`) }} <slot name="afterLabel" />
       </a-tooltip>
       <span v-else>
-        {{ $t(`form.fields.${name}`) !== `form.fields.${name}` ? $t(`form.fields.${name}`) : label }} <slot name="afterLabel" />
+        {{ lang === 'en' ? label : $t(`form.fields.${name}`) }} <slot name="afterLabel" />
       </span>
     </label>
     <p class="description">
       <slot name="description">
-        <slot :name="`${locale}Description`"></slot>
+        <slot :name="`${lang}Description`"></slot>
       </slot>
     </p>
     <slot />
@@ -28,15 +29,15 @@
 
 <script setup>
 import { storeToRefs } from 'pinia'
-import { useI18n } from 'vue-i18n'
 
+import { useAppStore } from '@/stores/appStore.js'
 import { useInstanceFormStore } from '@/stores/instanceFormStore.js'
 
 const store = useInstanceFormStore()
-const i18n = useI18n()
+const appStore = useAppStore()
 
-const { locale } = i18n
 const { advancedSettings } = storeToRefs(store)
+const { lang } = storeToRefs(appStore)
 
 defineProps({
   name: {

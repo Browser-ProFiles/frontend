@@ -131,9 +131,8 @@ onMounted(() => {
 }
 
 .download {
-  margin-top: 30px;
-
-  padding: 30px 40px;
+  margin-top: 20px;
+  padding: 20px 40px;
 
   border-radius: 10px;
 

@@ -9,6 +9,7 @@
       </base-input-group>
       <div class="mock" />
     </template>
+
     <template #sider>
       <a-button class="back">
         <router-link to="/profiles">{{ $t('utils.back') }}</router-link>
@@ -17,6 +18,7 @@
         <a-step v-for="item in filteredSteps" :key="item.title" :title="item.title" />
       </a-steps>
     </template>
+
     <template #default>
       <a-spin :delay="350" :spinning="loading" :tip="$t('utils.loading')">
         <form @submit.prevent="onSendForm">

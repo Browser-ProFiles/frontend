@@ -9,6 +9,7 @@
       </base-input-group>
       <div class="mock" />
     </template>
+
     <template #sider>
       <a-button class="back">
         <router-link to="/profiles">{{ $t('utils.back') }}</router-link>
@@ -51,6 +52,7 @@ import { useRouter } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { useI18n } from 'vue-i18n'
 
+import { useAppStore } from '~/stores/appStore.js'
 import { useInstanceFormStore } from '~/stores/instanceFormStore.js'
 
 import BaseInputGroup from '~/components/Base/Form/BaseInputGroup.vue'
@@ -75,7 +77,10 @@ import AdditionalStep from '~/components/Instance/Form/Steps/AdditionalStep.vue'
 const i18n = useI18n()
 const { t } = i18n
 
-const steps = [
+const appStore = useAppStore()
+const { lang } = storeToRefs(appStore)
+
+const steps = computed(() => lang && [
   {
     title: t('stepsSider.screen'),
     content: ScreenStep,
@@ -151,10 +156,10 @@ const steps = [
     content: AdditionalStep,
     advanced: true,
   },
-]
+])
 
 const filteredSteps = computed(() => {
-  return steps.filter((step) => !step.advanced || advancedSettings.value)
+  return steps.value.filter((step) => !step.advanced || advancedSettings.value)
 })
 
 const store = useInstanceFormStore()

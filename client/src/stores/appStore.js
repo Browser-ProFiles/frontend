@@ -1,7 +1,21 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 import { toggleTheme } from '@zougt/vite-plugin-theme-preprocessor/dist/browser-utils'
+import { useI18n } from 'vue-i18n'
 
+import { DEFAULT_LANG } from '@/const/appLang.js'
+
+// TODO: Separate?
+// Lang
+const getStoreLang = () => {
+    return localStorage.getItem('lang') || DEFAULT_LANG
+}
+
+const setStoreLang = (theme) => {
+    localStorage.setItem('lang', theme)
+}
+
+// Theme
 export const THEME_DEFAULT = 'default'
 export const THEME_DARK = 'dark'
 
@@ -14,7 +28,10 @@ const setStoreTheme = (theme) => {
 }
 
 export const useAppStore = defineStore('app', () => {
+    const i18n = useI18n()
+
     const theme = ref(getStoreTheme())
+    const lang = ref(getStoreLang())
 
     const initMode = () => {
         toggleTheme({
@@ -31,9 +48,23 @@ export const useAppStore = defineStore('app', () => {
         theme.value = newTheme
     }
 
+    const initLang = () => {
+        i18n.locale.value = getStoreLang()
+    }
+
+    const changeLang = (newLang) => {
+        setStoreLang(newLang)
+        i18n.locale.value = getStoreLang()
+        lang.value = newLang
+    }
+
     return {
         theme,
         initMode,
         toggleMode,
+
+        lang,
+        initLang,
+        changeLang,
     }
 })

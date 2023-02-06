@@ -1,9 +1,10 @@
 <template>
-  <a-layout>
+  <a-layout :key="lang">
     <a-layout-header
       :class="{
         'has-sidebar': route.meta.hasSidebar,
       }"
+      width="250"
       class="header"
     >
       <slot name="header">
@@ -51,9 +52,17 @@
         <slot />
       </a-layout-content>
     </a-layout>
-    <a-layout-footer class="footer">
-      <slot name="footer"></slot>
-    </a-layout-footer>
+    <slot name="footer">
+      <a-layout-footer
+        class="footer"
+        :class="{
+          'has-sidebar': route.meta.hasSidebar,
+        }"
+      >
+        <div class="footer__copyright">© {{ new Date().getFullYear() }} Browser ProFiles</div>
+        <switch-language class="footer__switch-lang" />
+      </a-layout-footer>
+    </slot>
   </a-layout>
 </template>
 
@@ -68,6 +77,7 @@ import { clearAuthToken } from '@/helpers/auth.js'
 
 import DefaultThemeIcon from '@/assets/img/themes/default.svg'
 import DarkThemeIcon from '@/assets/img/themes/dark.svg'
+import SwitchLanguage from '@/components/Utils/SwitchLanguage.vue'
 
 defineProps({
   title: {
@@ -80,18 +90,26 @@ const router = useRouter()
 const route = useRoute()
 
 const store = useAppStore()
-const { theme } = storeToRefs(store)
-const { toggleMode, initMode } = store
+const { theme, lang } = storeToRefs(store)
+const { toggleMode, initMode, initLang } = store
 
 const onLogout = () => {
   clearAuthToken()
   router.push('/auth/login')
 }
 
-onMounted(() => initMode())
+onMounted(() => {
+  initMode()
+  initLang()
+})
 </script>
 
 <style lang="scss">
+.ant-layout-sider-children {
+  width: 100% !important;
+  padding: 0 10px !important;
+}
+
 @media screen and (max-width: 600px) {
   .ant-layout {
     flex-direction: column !important;
@@ -257,12 +275,12 @@ onMounted(() => initMode())
 
 .content {
   overflow-y: scroll;
-  min-height: calc(100vh - 60px);
+  min-height: calc(100vh - 60px - 55px);
 
   padding: 15px 50px;
 
   @media screen and (max-width: 1053px) {
-    min-height: calc(100vh - 100px);
+    min-height: calc(100vh - 100px - 55px);
   }
 
   @media screen and (max-width: 400px) {
@@ -271,8 +289,26 @@ onMounted(() => initMode())
 }
 
 .footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 55px;
+
+  background: #fff;
+
+  @media screen and (max-width: 420px) {
+    font-size: 13px;
+
+    padding: 15px;
+  }
+
   &:empty {
     display: none;
+  }
+
+  &.has-sidebar {
+    margin-left: 250px;
   }
 }
 </style>

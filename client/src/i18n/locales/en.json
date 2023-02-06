@@ -97,6 +97,16 @@
     "headerExample": "Header example"
   },
   "form": {
+    "fields": {
+      "name": "Name",
+      "screen": "Screen",
+      "timezone": "Time Zone",
+      "language": "Language",
+      "isolation": "Isolation",
+      "fakes": "Fakes",
+      "simulation": "Simulation",
+      "other": "Other"
+    },
     "advanced": {
       "title": "Be accurate with advanced settings!",
       "description": "They can break your browser profile or replace generated fingerprint, which can increase fraud score."

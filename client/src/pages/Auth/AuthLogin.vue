@@ -1,5 +1,5 @@
 <template>
-  <div class="page">
+  <auth-layout class="page">
     <form class="form" @submit.prevent="onSubmit">
         <a-spin :delay="350" :spinning="submitting" :tip="$t('utils.loading')">
         <h2 class="title">{{ $t('auth.login') }}</h2>
@@ -57,7 +57,7 @@
         </a-button>
       </a-spin>
     </form>
-  </div>
+  </auth-layout>
 </template>
 
 <script setup>
@@ -70,6 +70,7 @@ import { login } from '~/api/auth.js'
 
 import { setAuthToken } from '~/helpers/auth.js';
 
+import AuthLayout from '~/layouts/AuthLayout.vue'
 import BaseInput from '~/components/Base/Form/BaseInput.vue'
 import BaseInputPassword from '~/components/Base/Form/BaseInputPassword.vue'
 import BaseInputGroup from '~/components/Base/Form/BaseInputGroup.vue'
@@ -108,12 +109,6 @@ const onChangeField = (name, value) => form[name] = value
 
 <style lang="scss" scoped>
 .page {
-  display: flex;
-  justify-content: center;
-  align-self: center;
-
-  height: 100vh;
-
   .row {
     width: 300px;
 

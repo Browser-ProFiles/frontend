@@ -190,4 +190,4 @@ export const LANGUAGES = [
   { value: 'yo', label: 'Yoruba' },
   { value: 'za', label: 'Zhuang, Chuang' },
   { value: 'zu', label: 'Zulu' },
-];
+]
