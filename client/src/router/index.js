@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { useToast } from 'vue-toastification'
 
+import i18n from '~/i18n'
+
 import { isAuth } from '~/helpers/auth.js'
 
 import AuthLogin from '~/pages/Auth/AuthLogin.vue'
@@ -44,7 +46,7 @@ router.beforeEach((to, from, next) => {
         if (isAuth()) {
             next()
         } else {
-            toast.error('Authentication required')
+            toast.error(i18n.global.t('messages.error.authRequired'))
             next('/auth/login')
         }
     }

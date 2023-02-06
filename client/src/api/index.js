@@ -2,6 +2,8 @@ import axios from 'axios'
 import { router } from '~/router'
 import { useToast } from 'vue-toastification'
 
+import i18n from '~/i18n'
+
 import { clearAuthToken } from '~/helpers/auth.js'
 
 const toast = useToast()
@@ -26,12 +28,11 @@ instance.interceptors.response.use(response => response, async error => {
         return Promise.reject(error)
     }
 
-    // TODO: ?
-    toast.error('Authentication required');
-    clearAuthToken();
-    await router.push('/auth/login');
+    toast.error(i18n.global.t('messages.error.authRequired'))
+    clearAuthToken()
+    await router.push('/auth/login')
 
-    return Promise.reject(error);
+    return Promise.reject(error)
 })
 
 export default instance
