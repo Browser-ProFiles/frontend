@@ -1027,8 +1027,11 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Disables WebView from checking for app recovery mitigations.
+            </template>
+            <template #ruDescription>
+              Отключает WebView от проверки смягчения последствий восстановления приложений.
             </template>
           </base-input-group>
         </a-col>
@@ -1049,8 +1052,11 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Disables throttling querying apps package names allowlist components in WebView clients.
+            </template>
+            <template #ruDescription>
+              Отключает дросселирование запросов на имена пакетов приложений allowlist компонентов в клиентах WebView.
             </template>
           </base-input-group>
         </a-col>
@@ -1069,10 +1075,6 @@
                 @change="onChangeField('render.webview.webviewDisableSafebrowsingSupport', $event.target.checked)"
                 :checked="form.render.webview.webviewDisableSafebrowsingSupport"
               />
-            </template>
-
-            <template #description>
-              Used to disable safebrowsing functionality in webview
             </template>
           </base-input-group>
         </a-col>
@@ -1093,8 +1095,11 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Enables WebView to check for app recovery mitigations.
+            </template>
+            <template #ruDescription>
+              Позволяет WebView проверять наличие смягчений для восстановления приложений.
             </template>
           </base-input-group>
         </a-col>
@@ -1115,11 +1120,17 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Enables modern SameSite cookie behavior (as opposed to legacy behavior).
               This is used for WebView versions prior to when the modern behavior will be enabled by default.
               This enables the same-site-by-default-cookies, cookies-without-SameSite-must-be-secure,
               and schemeful-same-site features.
+            </template>
+            <template #ruDescription>
+              Включает современное поведение куки SameSite (в отличие от устаревшего поведения).
+              Используется для версий WebView до того момента, когда современное поведение будет включено по умолчанию.
+              Это включает функции same-site-by-default-cookies, cookies-without-SameSite-must-be-secure,
+              и функции schemeful-same-site.
             </template>
           </base-input-group>
         </a-col>
@@ -1130,7 +1141,7 @@
           <base-input-group
             advanced
             name="webviewMparchFencedFrames"
-            label="WebView mparch fenced frames"
+            label="WebView MPArch fenced frames"
           >
             <template #afterLabel>
               <base-checkbox
@@ -1140,8 +1151,11 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Enables MPArch-based FencedFrames. This also implies PrivacySandboxAdsAPIsOverride and SharedStorageAPI.
+            </template>
+            <template #ruDescription>
+              Позволяет использовать огражденные рамки на основе MPArch. Это также подразумевает PrivacySandboxAdsAPIsOverride и SharedStorageAPI.
             </template>
           </base-input-group>
         </a-col>
@@ -1162,8 +1176,13 @@
               />
             </template>
 
-            <template #description>
-              Enables SafeBrowsing and causes WebView to treat all resources as malicious. Use care: this will block all resources from loading.
+            <template #enDescription>
+              Enables SafeBrowsing and causes WebView to treat all resources as malicious.
+              Use care: this will block all resources from loading.
+            </template>
+            <template #ruDescription>
+              Включает функцию SafeBrowsing и заставляет WebView рассматривать все ресурсы как вредоносные.
+              Будьте осторожны: это блокирует загрузку всех ресурсов.
             </template>
           </base-input-group>
         </a-col>
@@ -1202,8 +1221,12 @@
               />
             </template>
 
-            <template #description>
-              Enables MPArch-based FencedFrames. This also implies PrivacySandboxAdsAPIsOverride and SharedStorageAPI
+            <template #enDescription>
+              Enables MPArch-based FencedFrames. This also implies PrivacySandboxAdsAPIsOverride and SharedStorageAPI.
+            </template>
+            <template #ruDescription>
+              Позволяет использовать огражденные рамки на основе MPArch.
+              Это также подразумевает PrivacySandboxAdsAPIsOverride и SharedStorageAPI.
             </template>
           </base-input-group>
         </a-col>
@@ -1228,9 +1251,13 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Disables encryption of RTP Media for WebRTC.
               When Chrome embeds Content, it ignores this switch on its stable and beta channels.
+            </template>
+            <template #ruDescription>
+              Отключает шифрование RTP-медиа для WebRTC.
+              Когда Chrome встраивает Контент, он игнорирует этот переключатель на своих стабильных и бета-каналах.
             </template>
           </base-input-group>
         </a-col>
@@ -1251,8 +1278,11 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Disables HW decode acceleration for WebRTC.
+            </template>
+            <template #ruDescription>
+              Отключает ускорение декодирования HW для WebRTC.
             </template>
           </base-input-group>
         </a-col>
@@ -1273,8 +1303,11 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Disables HW encode acceleration for WebRTC.
+            </template>
+            <template #ruDescription>
+              Отключает ускорение кодирования HW для WebRTC.
             </template>
           </base-input-group>
         </a-col>
@@ -1294,10 +1327,15 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Sets the delay (in seconds) between proactive prunings of remote-bound WebRTC event logs which are pending upload.
               All positive values are legal. All negative values are illegal, and ignored.
               If set to 0, the meaning is "no proactive pruning".
+            </template>
+            <template #ruDescription>
+              Устанавливает задержку (в секундах) между проактивными обрезками журналов событий WebRTC с удаленным подключением, которые ожидают загрузки.
+              Все положительные значения являются законными. Все отрицательные значения являются незаконными и игнорируются.
+              Если установлено значение 0, это означает "нет проактивной обрезки".
             </template>
           </base-input-group>
         </a-col>
@@ -1317,8 +1355,11 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               WebRTC event logs will only be uploaded if the conditions hold for this many milliseconds.
+            </template>
+            <template #ruDescription>
+              Журналы событий WebRTC будут загружены, только если условия сохраняются в течение этого количества миллисекунд.
             </template>
           </base-input-group>
         </a-col>
@@ -1338,9 +1379,13 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Normally, remote-bound WebRTC event logs are uploaded only when no peer connections are active.
               With this flag, the upload is never suppressed.
+            </template>
+            <template #ruDescription>
+              Обычно удаленные журналы событий WebRTC выгружаются только в том случае, если нет активных одноранговых соединений.
+              При использовании этого флага выгрузка никогда не подавляется.
             </template>
           </base-input-group>
         </a-col>
@@ -1360,10 +1405,15 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Enable capture and local storage of WebRTC event logs without visiting chrome://webrtc-internals.
               This is useful for automated testing. It accepts the path to which the local logs would be stored.
               Disabling is not possible without restarting the browser and relaunching without this flag.
+            </template>
+            <template #ruDescription>
+              Включает захват и локальное хранение журналов событий WebRTC без посещения chrome://webrtc-internals.
+              Это полезно для автоматизированного тестирования. Принимается путь, по которому будут храниться локальные журналы.
+              Отключение невозможно без перезапуска браузера и повторного запуска без этого флага.
             </template>
           </base-input-group>
         </a-col>
@@ -1383,8 +1433,11 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Override WebRTC IP handling policy to mimic the behavior when WebRTC IP handling policy is specified in Preferences.
+            </template>
+            <template #ruDescription>
+              Переопределите политику обработки IP-адресов WebRTC, чтобы имитировать поведение, когда политика обработки IP-адресов WebRTC указана в Настройках.
             </template>
           </base-input-group>
         </a-col>
@@ -1395,18 +1448,22 @@
           <base-input-group
             advanced
             name="webrtcMaxCpuConsumptionPercentage"
-            label="WebRTC max CPU consumption percentage"
+            label="WebRTC max CPU consumption %"
           >
             <template #default>
-              <base-input
+              <base-input-number
                 @change="onChangeField('render.webrtc.webrtcMaxCpuConsumptionPercentage', $event.target.value)"
                 :value="form.render.webrtc.webrtcMaxCpuConsumptionPercentage"
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Configure the maximum CPU time percentage of a single core that can be consumed for desktop capturing.
               Default is 50. Set 100 to disable the throttling of the capture.
+            </template>
+            <template #ruDescription>
+              Настройка максимального процента процессорного времени одного ядра, которое может быть использовано для захвата рабочего стола.
+              По умолчанию - 50. Установите значение 100, чтобы отключить дросселирование захвата.
             </template>
           </base-input-group>
         </a-col>
@@ -1414,7 +1471,7 @@
     </div>
 
     <div class="section">
-      <h2 class="title">Other</h2>
+      <h2 class="title">{{ $t('form.fields.other') }}</h2>
 
       <a-row :gutter="20" class="row">
         <a-col span="24">
@@ -1431,8 +1488,11 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Disables layer-edge anti-aliasing in the compositor.
+            </template>
+            <template #ruDescription>
+              Отключает сглаживание краев слоя в композиторе.
             </template>
           </base-input-group>
         </a-col>
@@ -1452,10 +1512,6 @@
                 :checked="form.render.disableD3d11"
               />
             </template>
-
-            <template #description>
-              Disables use of D3D11.
-            </template>
           </base-input-group>
         </a-col>
       </a-row>
@@ -1473,10 +1529,6 @@
                 @change="onChangeField('render.disableDirectComposition', $event.target.checked)"
                 :checked="form.render.disableDirectComposition"
               />
-            </template>
-
-            <template #description>
-              Disables use of D3D11.
             </template>
           </base-input-group>
         </a-col>
@@ -1497,8 +1549,11 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Disables using DirectComposition video overlays, even if hardware overlays are supported.
+            </template>
+            <template #ruDescription>
+              Отключает использование видеооверлеев DirectComposition, даже если поддерживаются аппаратные оверлеи.
             </template>
           </base-input-group>
         </a-col>
@@ -1519,9 +1574,13 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Disables begin frame limiting in both cc scheduler and display scheduler.
               Also implies --disable-gpu-vsync (see //ui/gl/gl_switches.h).
+            </template>
+            <template #ruDescription>
+              Отключает ограничение начального кадра в планировщике cc и планировщике дисплея.
+              Также подразумевает --disable-gpu-vsync (см. //ui/gl/gl_switches.h).
             </template>
           </base-input-group>
         </a-col>
@@ -1542,8 +1601,11 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Turns off the accessibility in the renderer.
+            </template>
+            <template #ruDescription>
+              Выключает accessibility в рендере.
             </template>
           </base-input-group>
         </a-col>
@@ -1564,8 +1626,11 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Prevent renderer process backgrounding when set.
+            </template>
+            <template #ruDescription>
+              Предотвращает фоновый режим процесса рендеринга, если он установлен.
             </template>
           </base-input-group>
         </a-col>
@@ -1586,8 +1651,11 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Disables Metal's shader cache, using the GPU sandbox to prevent access to it.
+            </template>
+            <template #ruDescription>
+              Отключает шейдерный кэш Metal, используя "песочницу" GPU для предотвращения доступа к нему.
             </template>
           </base-input-group>
         </a-col>
@@ -1608,9 +1676,13 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Disables clearing the rendering output of a renderer when it didn't commit
               new output for a while after a top-frame navigation.
+            </template>
+            <template #ruDescription>
+              Отключает очистку вывода рендерера, если он не зафиксировал
+              новый вывод в течение некоторого времени после навигации по верхнему кадру.
             </template>
           </base-input-group>
         </a-col>
@@ -1631,9 +1703,13 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Disallow image animations to be reset to the beginning to avoid skipping many frames.
               Only effective if compositor image animations are enabled.
+            </template>
+            <template #ruDescription>
+              Запрещает возврат анимации изображения к началу, чтобы избежать пропуска многих кадров.
+              Действует, только если анимация изображений композитора включена.
             </template>
           </base-input-group>
         </a-col>
@@ -1644,7 +1720,7 @@
           <base-input-group
             advanced
             name="disableNv12DxgiVideo"
-            label="Disable nv12dxgi video"
+            label="Disable NV12 dxgi video"
           >
             <template #afterLabel>
               <base-checkbox
@@ -1654,8 +1730,11 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Disables the video decoder from drawing to an NV12 textures instead of ARGB.
+            </template>
+            <template #ruDescription>
+              Запрещает видеодекодеру рисовать в текстуры NV12 вместо ARGB.
             </template>
           </base-input-group>
         </a-col>
@@ -1676,9 +1755,13 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Disable partial raster in the renderer.
               Disabling this switch also disables the use of persistent gpu memory buffers.
+            </template>
+            <template #ruDescription>
+              Отключить частичный растр в рендере.
+              Отключение этого переключателя также отключает использование постоянных буферов памяти gpu.
             </template>
           </base-input-group>
         </a-col>
@@ -1689,7 +1772,7 @@
           <base-input-group
             advanced
             name="disableRgba4444Textures"
-            label="Disable rgba4444 textures"
+            label="Disable RGBA_4444 textures"
           >
             <template #afterLabel>
               <base-checkbox
@@ -1697,10 +1780,6 @@
                 @change="onChangeField('render.disableRgba4444Textures', $event.target.checked)"
                 :checked="form.render.disableRgba4444Textures"
               />
-            </template>
-
-            <template #description>
-              Disables RGBA_4444 textures
             </template>
           </base-input-group>
         </a-col>
@@ -1721,8 +1800,11 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Disables the new rendering algorithm for webrtc, which is designed to improve the rendering smoothness.
+            </template>
+            <template #ruDescription>
+              Отключает новый алгоритм рендеринга для webrtc, который предназначен для улучшения плавности рендеринга.
             </template>
           </base-input-group>
         </a-col>
@@ -1743,8 +1825,11 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Turn off user-defined name hashing in shaders.
+            </template>
+            <template #ruDescription>
+              Отключите хэширование имен, определяемых пользователем, в шейдерах.
             </template>
           </base-input-group>
         </a-col>
@@ -1765,9 +1850,13 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Do not use runtime-detected high-end CPU optimizations in Skia.
               This is useful for forcing a baseline code path for e.g. web tests.
+            </template>
+            <template #ruDescription>
+              Не используйте в Skia обнаруженные во время выполнения высокопроизводительные оптимизации процессора.
+              Это полезно для обеспечения базового пути кода, например, для веб-тестов.
             </template>
           </base-input-group>
         </a-col>
@@ -1786,10 +1875,6 @@
                 @change="onChangeField('render.disableSmoothScrolling', $event.target.checked)"
                 :checked="form.render.disableSmoothScrolling"
               />
-            </template>
-
-            <template #description>
-              Disable smooth scrolling for testing.
             </template>
           </base-input-group>
         </a-col>
@@ -1810,9 +1895,13 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               For tests, to disable falling back to software compositing if the GPU Process
               has crashed, and reached the GPU Process crash limit.
+            </template>
+            <template #ruDescription>
+              Для тестов, чтобы отключить возврат к программному композитингу, если процесс GPU
+              потерпел крах и достиг предела краха GPU Process.
             </template>
           </base-input-group>
         </a-col>
@@ -1833,8 +1922,11 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Disables the use of a 3D software rasterizer.
+            </template>
+            <template #ruDescription>
+              Отключает использование программного растеризатора 3D.
             </template>
           </base-input-group>
         </a-col>
@@ -1855,8 +1947,11 @@
               />
             </template>
 
-            <template #description>
+            <template #enDescription>
               Disables specified comma separated ANGLE features if found.
+            </template>
+            <template #ruDescription>
+              Отключает указанные через запятую функции ANGLE, если они найдены.
             </template>
           </base-input-group>
         </a-col>
@@ -1871,6 +1966,7 @@ import { useInstanceFormStore } from '@/stores/instanceFormStore.js'
 
 import BaseCheckbox from '~/components/Base/Form/BaseCheckbox.vue'
 import BaseInput from '~/components/Base/Form/BaseInput.vue'
+import BaseInputNumber from '~/components/Base/Form/BaseInputNumber.vue'
 import BaseInputGroup from '~/components/Base/Form/BaseInputGroup.vue'
 
 const store = useInstanceFormStore()
