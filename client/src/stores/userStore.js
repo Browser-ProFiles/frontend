@@ -1,10 +1,12 @@
 import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
+import { useToast } from 'vue-toastification'
 
 import { getUser } from '@/api/user.js'
 import { formatDate } from '@/helpers/date.js'
 
 export const useUserStore = defineStore('user', () => {
+    const toast = useToast()
     const loading = ref(false)
     const user = ref({})
 
