@@ -131,6 +131,10 @@ onMounted(() => {
     margin-left: 0 !important;
   }
 
+  .footer.has-sidebar {
+    margin-left: 0 !important;
+  }
+
   .ant-layout-content {
     width: 100% !important;
     margin-left: 0 !important;
