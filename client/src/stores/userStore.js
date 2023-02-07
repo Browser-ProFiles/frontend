@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import {computed, ref} from 'vue'
+import { computed, ref } from 'vue'
 
 import { getUser } from '@/api/user.js'
 import { formatDate } from '@/helpers/date.js'
