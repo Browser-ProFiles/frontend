@@ -6,6 +6,7 @@ import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers'
 import {
   themePreprocessorPlugin,
 } from '@zougt/vite-plugin-theme-preprocessor'
+// import bundleAnalyzer from'"rollup-plugin-bundle-analyzer'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -16,6 +17,7 @@ export default defineConfig({
     }
   },
   plugins: [
+    // bundleAnalyzer(),
     vue(),
     Components({
       dirs: ['src'],

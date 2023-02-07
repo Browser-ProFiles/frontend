@@ -1,33 +1,59 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { useToast } from 'vue-toastification'
+import { defineAsyncComponent } from 'vue'
 
 import i18n from '~/i18n'
 
 import { isAuth } from '~/helpers/auth.js'
 
-import AuthLogin from '~/pages/Auth/AuthLogin.vue'
-import AuthSignUp from '~/pages/Auth/AuthSignUp.vue'
-import AuthConfirm from '~/pages/Auth/AuthConfirm.vue'
-
-import UserCabinet from '~/pages/User/Cabinet.vue'
-import UserSubscriptions from '~/pages/User/Subscriptions.vue'
-
-import InstanceList from '~/pages/Instance/InstanceList.vue'
-import InstanceNew from '~/pages/Instance/InstanceNew.vue'
-import InstanceEdit from '~/pages/Instance/InstanceEdit.vue'
-
 const toast = useToast()
 
 const routes = [
-    { path: '/auth/login', component: AuthLogin, meta: { hasSidebar: true, onlyGuest: true, } },
-    { path: '/auth/sign-up', component: AuthSignUp, meta: { hasSidebar: true, onlyGuest: true, } },
-    { path: '/auth/confirm/:token', component: AuthConfirm, meta: { hasSidebar: true, onlyGuest: true, } },
-    { path: '/', redirect: '/cabinet', meta: { hasSidebar: false, onlyAuth: true, } },
-    { path: '/cabinet', component: UserCabinet, meta: { hasSidebar: false, onlyAuth: true, } },
-    { path: '/cabinet/subscriptions', component: UserSubscriptions, meta: { hasSidebar: false, onlyAuth: true, } },
-    { path: '/profiles', component: InstanceList, meta: { hasSidebar: false, onlyAuth: true, } },
-    { path: '/profile/new', component: InstanceNew, meta: { hasSidebar: true, onlyAuth: true, } },
-    { path: '/profile/edit/:name', component: InstanceEdit, meta: { hasSidebar: true, onlyAuth: true, } },
+    {
+        path: '/auth/login',
+        component: defineAsyncComponent(() => import('~/pages/Auth/AuthLogin.vue')),
+        meta: { hasSidebar: false, onlyGuest: true },
+    },
+    {
+        path: '/auth/sign-up',
+        component: defineAsyncComponent(() => import('~/pages/Auth/AuthSignUp.vue')),
+        meta: { hasSidebar: false, onlyGuest: true },
+    },
+    {
+        path: '/auth/confirm/:token',
+        component: defineAsyncComponent(() => import('~/pages/Auth/AuthConfirm.vue')),
+        meta: { hasSidebar: false, onlyGuest: true },
+    },
+    {
+        path: '/',
+        redirect: '/cabinet',
+        meta: { hasSidebar: false, onlyAuth: true },
+    },
+    {
+        path: '/cabinet',
+        component: defineAsyncComponent(() => import('~/pages/User/Cabinet.vue')),
+        meta: { hasSidebar: false, onlyAuth: true },
+    },
+    {
+        path: '/cabinet/subscriptions',
+        component: defineAsyncComponent(() => import('~/pages/User/Subscriptions.vue')),
+        meta: { hasSidebar: false, onlyAuth: true },
+    },
+    {
+        path: '/profiles',
+        component: defineAsyncComponent(() => import('~/pages/Instance/InstanceList.vue')),
+        meta: { hasSidebar: false, onlyAuth: true },
+    },
+    {
+        path: '/profile/new',
+        component: defineAsyncComponent(() => import('~/pages/Instance/InstanceNew.vue')),
+        meta: { hasSidebar: true, onlyAuth: true },
+    },
+    {
+        path: '/profile/edit/:name',
+        component: defineAsyncComponent(() => import('~/pages/Instance/InstanceEdit.vue')),
+        meta: { hasSidebar: true, onlyAuth: true },
+    },
 ]
 
 export const router = new createRouter({

@@ -8,7 +8,7 @@ import i18n from './i18n'
 
 import App from './App.vue'
 
-import 'ant-design-vue/dist/antd.css'
+import 'ant-design-vue/dist/antd.min.css'
 import 'vue-toastification/dist/index.css'
 import './assets/styles/main.scss'
 

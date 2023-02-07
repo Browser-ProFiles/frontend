@@ -24,6 +24,8 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.0.0",
     "@zougt/some-loader-utils": "^1.4.3",
+    "rollup-plugin-analyzer": "^4.0.0",
+    "rollup-plugin-bundle-analyzer": "^1.6.6",
     "unplugin-vue-components": "^0.22.12",
     "vite": "^4.0.0"
   }
