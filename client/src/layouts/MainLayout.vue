@@ -233,6 +233,8 @@ onMounted(() => {
     align-items: center;
     gap: 20px;
 
+    margin: 0;
+
     text-transform: uppercase;
 
     list-style: none;
