@@ -18,7 +18,7 @@ const instance = axios.create({
     baseURL,
     headers: {
         common: {
-            Authorization: `Bearer ${localStorage.getItem('authToken')}`
+            Authorization: localStorage.getItem('authToken') ? `Bearer ${localStorage.getItem('authToken')}` : null,
         }
     }
 })
