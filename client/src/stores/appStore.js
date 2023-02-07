@@ -65,7 +65,7 @@ export const useAppStore = defineStore('app', () => {
         lang.value = newLang
         api.defaults.params = {
             ...api.defaults.params ?? {},
-            lang: initialLang,
+            lang: newLang,
         }
     }
 
