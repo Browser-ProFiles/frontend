@@ -69,8 +69,6 @@ onMounted(() => {
 
   height: 55px;
 
-  background: #fff;
-
   @media screen and (max-width: 420px) {
     font-size: 13px;
 

@@ -31,6 +31,10 @@
 }
 
 .default {
+    .footer {
+        background-color: #fff;
+    }
+
     .ant-btn {
         &:hover {
             background: lighten(#DC143C, 7%);
@@ -47,6 +51,10 @@
 }
 
 .dark {
+    .footer {
+        background-color: #000;
+    }
+
     .ant-btn.ant-btn-danger {
         &,
         &:hover {
