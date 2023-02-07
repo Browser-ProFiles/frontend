@@ -177,6 +177,7 @@ onMounted(() => {
   /*background: #f7f7f7;*/
 
   &__title {
+    margin: 0;
     font-size: 24px;
     line-height: 1;
 
