@@ -10,7 +10,9 @@ body {
     font-size: 15px;
 }
 
-.Vue-Toastification__toast-body {
+.Vue-Toastification__toast-body,
+button,
+* {
     font-family: 'Jura', sans-serif;
 }
 
