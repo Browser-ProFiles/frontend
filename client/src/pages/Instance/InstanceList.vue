@@ -19,7 +19,7 @@
           }) }}</b>
           <br>
         </template>
-        <b>{{ $t('utils.note') }}: {{ $t('download.description') }}</b>
+        <b>{{ $t('utils.note') }}: {{ $t('download.description') }}.</b>
         {{ $t('utils.downloadIt') }} <router-link to="/cabinet">{{ $t('utils.here') }}</router-link>.
       </p>
 
