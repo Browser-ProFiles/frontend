@@ -4,9 +4,9 @@ if (!baseURL) {
 }
 
 export const DOWNLOAD_LINKS = {
-    windows: 'download/windows',
-    macosIntel: 'download/macos-intel',
-    macosApple: 'download/macos-apple',
+    windows: 'https://drive.google.com/uc?export=download&id=1mJa8kwwEKq0OUvgaM4gA8ttf1_fCW6BG',
+    macosIntel: 'https://drive.google.com/uc?export=download&id=1hiEu_OeDAjf2-v9r6bqr4b3lTpTquPAI',
+    macosApple: 'https://drive.google.com/uc?export=download&id=1y0ua4GACrIeUnqNruYT320DUWIic5MKc',
     linux: 'download/linux',
 }
 
@@ -17,5 +17,5 @@ export const downloadFile = (system, version = LATEST_VERSION) => {
         console.error('Wrong download system', system)
     }
 
-    window.open(`${baseURL}/${DOWNLOAD_LINKS[system]}/${version}`, '_blank')
+    window.open(DOWNLOAD_LINKS[system], '_blank')
 }
