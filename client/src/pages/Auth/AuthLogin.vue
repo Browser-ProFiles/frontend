@@ -14,7 +14,7 @@
             <base-input-group
               class="group"
               name="username"
-              :label="$t('user.username')"
+              :label="$t('user.emailOnlyGmail')"
             >
               <template #default>
                 <base-input

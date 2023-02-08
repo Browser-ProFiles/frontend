@@ -125,7 +125,7 @@
   },
   "messages": {
     "success": {
-      "signUpRequest": "An email was sent to you to verify your account",
+      "signUpRequest": "An email was sent to you to verify your account. If you didn't receive the email, please check your spam folder.",
       "signUpConfirm": "Account successfully confirmed",
       "auth": "Successful authorization",
       "created": "Profile successfully created",
