@@ -1,4 +1,4 @@
-const baseURL = import.meta.env.VITE_APP_API_BASE_URL
+const baseURL = import.meta.env.VITE_APP_API_DOWNLOAD_URL
 if (!baseURL) {
     console.error('No base URL')
 }
