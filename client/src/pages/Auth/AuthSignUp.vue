@@ -2,7 +2,7 @@
   <auth-layout class="page">
     <form class="form" @submit.prevent="onSubmit">
       <a-spin :delay="350" :spinning="submitting" :tip="$t('utils.loading')">
-        <h2 class="title">{{ $t('auth.login') }}</h2>
+        <h2 class="title">{{ $t('auth.signUp') }}</h2>
 
         <p class="note">
           {{ $t('auth.alreadyHaveAccount') }}
