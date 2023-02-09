@@ -199,7 +199,7 @@ export const CONFIG_INSTANCE_FORM = () => ({
         * switches to avoid accidentally regressing the policy support for controlling access
         * to these APIs
         * */
-        disabled3DApis: true, // --disable-3d-apis
+        disabled3DApis: false, // --disable-3d-apis
 
         // Disables touch event based drag and drop.
         disableTouchDragDrop: false, // --disable-touch-drag-drop
@@ -526,7 +526,7 @@ export const CONFIG_INSTANCE_FORM = () => ({
              * Disables GPU hardware acceleration.
              * If software renderer is not in place, then the GPU process won't launch.
              */
-            disableGpu: true, // --disable-gpu
+            disableGpu: false, // --disable-gpu
 
             // Prevent the compositor from using its GPU implementation.
             disableGpuCompositing: false, // --disable-gpu-compositing
@@ -615,7 +615,7 @@ export const CONFIG_INSTANCE_FORM = () => ({
 
         webgl: {
             // Disable all versions of WebGL.
-            disableWebgl: true, // --disable-webgl
+            disableWebgl: false, // --disable-webgl
 
             // Disables WebGL rendering into a scanout buffer for overlay support.
             disableWebglImageChromium: false, // --disable-webgl-image-chromium
