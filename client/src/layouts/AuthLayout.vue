@@ -67,6 +67,7 @@ onMounted(() => {
   justify-content: space-between;
   align-items: center;
 
+  width: 100%;
   height: 55px;
 
   @media screen and (max-width: 420px) {

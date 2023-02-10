@@ -140,7 +140,8 @@
       "signUpConfirm": "Failed to confirm the account",
       "emailConfirm": "Failed to confirm the account",
       "profiles": "Failed to fetch browser profiles",
-      "instanceRemove": "Failed to remove profile"
+      "instanceRemove": "Failed to remove profile",
+      "paymentError": "Payment error"
     }
   }
 }

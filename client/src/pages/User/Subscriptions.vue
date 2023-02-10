@@ -55,7 +55,7 @@
             </template>
             <a-button class="subscription__switch">{{ $t('utils.cancel') }}</a-button>
           </a-popconfirm>
-          <a-button class="subscription__switch" @click="onSwitch" v-else>
+          <a-button class="subscription__switch" @click="onSwitch(item.id)" v-else>
             {{ $t('utils.switch') }}
           </a-button>
         </li>
@@ -75,6 +75,7 @@ import MainLayout from '@/layouts/MainLayout.vue'
 import { useUserStore } from '@/stores/userStore.js'
 
 import { getSubscriptions } from '@/api/user.js'
+import { getPaymentUrl } from '@/api/payment.js'
 
 const toast = useToast()
 
@@ -98,7 +99,21 @@ const fetchSubscriptions = async () => {
   }
 }
 
-const onSwitch = () => {}
+const fetchPaymentUrl = async (id) => {
+  try {
+    const { data } = await getPaymentUrl({
+      subscriptionId: id,
+    });
+    window.open(data.location, '_blank');
+  } catch (e) {
+    console.error(e)
+    toast.error(e.response?.data?.message || e.message)
+  }
+}
+
+const onSwitch = (id) => {
+  fetchPaymentUrl(id);
+}
 
 const onCancel = () => {}
 
