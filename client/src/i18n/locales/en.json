@@ -132,7 +132,7 @@
       "instanceCreate": "Profile successfully created",
       "instanceEdit": "Profile successfully edited",
       "instanceRemove": "Profile successfully removed",
-      "payment": "Subscription successfully paid"
+      "payment": "Subscription successfully paid. Subscription will be updated within a few seconds. If not, contact support please."
     },
     "error": {
       "auth": "Failed to log in",
