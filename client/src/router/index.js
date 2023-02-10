@@ -35,6 +35,11 @@ const routes = [
         meta: { hasSidebar: false, onlyAuth: true },
     },
     {
+        path: '/payment',
+        component: defineAsyncComponent(() => import('~/pages/Payment/PaymentStatus.vue')),
+        meta: { hasSidebar: false, onlyAuth: true },
+    },
+    {
         path: '/cabinet/subscriptions',
         component: defineAsyncComponent(() => import('~/pages/User/Subscriptions.vue')),
         meta: { hasSidebar: false, onlyAuth: true },
