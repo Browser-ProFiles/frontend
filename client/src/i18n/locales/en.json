@@ -131,7 +131,8 @@
       "created": "Profile successfully created",
       "instanceCreate": "Profile successfully created",
       "instanceEdit": "Profile successfully edited",
-      "instanceRemove": "Profile successfully removed"
+      "instanceRemove": "Profile successfully removed",
+      "payment": "Subscription successfully paid"
     },
     "error": {
       "auth": "Failed to log in",
@@ -141,7 +142,8 @@
       "emailConfirm": "Failed to confirm the account",
       "profiles": "Failed to fetch browser profiles",
       "instanceRemove": "Failed to remove profile",
-      "paymentError": "Payment error"
+      "paymentError": "Payment error",
+      "payment": "Subscription pay error"
     }
   }
 }
