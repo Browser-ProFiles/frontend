@@ -1,5 +1,6 @@
 <template>
   <div class="page">
+    <a-spin class="spinner" spinning />
   </div>
 </template>
 
@@ -19,12 +20,25 @@ const { t } = i18n
 const loading = ref(false)
 
 onMounted(() => {
-  const type = route.query.type ?? 'fail'
-  if (type === 'success') {
-    toast.success(t('messages.success.payment'))
-  } else {
-    toast.error(t('messages.error.payment'))
-  }
-  router.push('/cabinet')
+  window.setTimeout(() => {
+    const type = route.query.type ?? 'fail'
+    if (type === 'success') {
+      toast.success(t('messages.success.payment'))
+    } else {
+      toast.error(t('messages.error.payment'))
+    }
+    router.push('/cabinet')
+  }, 3000)
 })
 </script>
+
+<style lang="scss" scoped>
+.page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100vw;
+  height: 100vh;
+}
+</style>
