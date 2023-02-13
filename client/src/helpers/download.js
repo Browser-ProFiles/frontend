@@ -9,7 +9,7 @@ export const DOWNLOAD_LINKS = {
     linux: 'download/linux',
 }
 
-export const LATEST_VERSION = '101'
+export const LATEST_VERSION = '100'
 
 export const downloadFile = (system, version = LATEST_VERSION) => {
     if (!DOWNLOAD_LINKS[system]) {
