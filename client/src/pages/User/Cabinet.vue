@@ -43,10 +43,10 @@
                 {{ $t('utils.download') }} (Apple Processor) (v1.0)
               </a-button>-->
             </div>
-<!--            <div class="platforms__item platform">
+           <div class="platforms__item platform">
               <img :src="theme === THEME_DEFAULT ? linuxIcon : linuxLightIcon" class="platform__icon" alt="Linux" />
               <a-button @click="downloadFile('linux')"  class="platform__download">{{ $t('utils.download') }} (v1.0)</a-button>
-            </div>-->
+            </div>
           </div>
         </div>
       </a-spin>
