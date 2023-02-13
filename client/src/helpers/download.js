@@ -6,7 +6,7 @@ if (!baseURL) {
 export const DOWNLOAD_LINKS = {
     windows: 'browser-profiles-windows.exe',
     macosIntel: 'browser-profiles-mac.dmg',
-    linux: 'download/linux',
+    linux: 'browser-profiles-linux.AppImage',
 }
 
 export const LATEST_VERSION = '100'
