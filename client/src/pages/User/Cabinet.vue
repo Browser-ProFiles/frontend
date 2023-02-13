@@ -69,8 +69,8 @@ import windowsIcon from '@/assets/img/platform/windows.svg'
 import windowsLightIcon from '@/assets/img/platform/windows_light.svg'
 import macosIcon from '@/assets/img/platform/macos.svg'
 import macosLightIcon from '@/assets/img/platform/macos_light.svg'
-// import linuxIcon from '@/assets/img/platform/linux.svg'
-// import linuxLightIcon from '@/assets/img/platform/linux_light.svg'
+import linuxIcon from '@/assets/img/platform/linux.svg'
+import linuxLightIcon from '@/assets/img/platform/linux_light.svg'
 
 import MainLayout from '@/layouts/MainLayout.vue'
 
