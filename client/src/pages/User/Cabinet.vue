@@ -35,12 +35,13 @@
             </div>
             <div class="platforms__item platform">
               <img :src="theme === THEME_DEFAULT ? macosIcon : macosLightIcon" class="platform__icon" alt="MacOS" />
-              <a-button @click="downloadFile('macosIntel')"  class="platform__download">
-                {{ $t('utils.download') }} (Intel) (v1.0)
+              <a-button @click="onDownloadMacApp"  class="platform__download">
+                {{ $t('utils.download') }} (v1.0)
               </a-button>
-              <a-button @click="downloadFile('macosApple')"  class="platform__download">
+              <div @click="setMacosInstallModalOpened(true)" class="platform__note">{{ $t('utils.note') }}</div>
+              <!--<a-button @click="downloadFile('macosApple')"  class="platform__download">
                 {{ $t('utils.download') }} (Apple Processor) (v1.0)
-              </a-button>
+              </a-button>-->
             </div>
 <!--            <div class="platforms__item platform">
               <img :src="theme === THEME_DEFAULT ? linuxIcon : linuxLightIcon" class="platform__icon" alt="Linux" />
@@ -59,6 +60,7 @@ import { storeToRefs } from 'pinia'
 import { useToast } from 'vue-toastification'
 
 import { useUserStore } from '@/stores/userStore.js'
+import { useModalStore } from '@/stores/modalStore.js'
 import { THEME_DEFAULT, useAppStore } from '@/stores/appStore.js'
 
 import { downloadFile } from '@/helpers/download.js'
@@ -67,14 +69,16 @@ import windowsIcon from '@/assets/img/platform/windows.svg'
 import windowsLightIcon from '@/assets/img/platform/windows_light.svg'
 import macosIcon from '@/assets/img/platform/macos.svg'
 import macosLightIcon from '@/assets/img/platform/macos_light.svg'
-import linuxIcon from '@/assets/img/platform/linux.svg'
-import linuxLightIcon from '@/assets/img/platform/linux_light.svg'
+// import linuxIcon from '@/assets/img/platform/linux.svg'
+// import linuxLightIcon from '@/assets/img/platform/linux_light.svg'
 
 import MainLayout from '@/layouts/MainLayout.vue'
 
+const modalStore = useModalStore()
 const userStore = useUserStore()
 const appStore = useAppStore()
 const { fetchUser } = userStore
+const { setMacosInstallModalOpened } = modalStore
 const { loading, user, subscriptionUntilDate } = storeToRefs(userStore)
 const { theme } = storeToRefs(appStore)
 const toast = useToast()
@@ -82,6 +86,11 @@ const toast = useToast()
 onMounted(() => {
   fetchUser()
 })
+
+const onDownloadMacApp = () => {
+  setMacosInstallModalOpened(true)
+  downloadFile('macosIntel')
+}
 </script>
 
 <style lang="scss">
@@ -188,6 +197,18 @@ onMounted(() => {
 
     &:first-of-type {
       margin-top: 20px;
+    }
+  }
+
+  &__note {
+    font-size: 13px;
+
+    color: #1aa7da;
+
+    text-decoration: underline;
+
+    &:hover {
+      cursor: pointer;
     }
   }
 }

@@ -21,6 +21,15 @@
     "canvas": "Canvas",
     "additional": "Additional"
   },
+  "modal": {
+    "macosinstall": {
+      "title": "Install application on MacOS",
+      "p1": "If you have a macOS version higher than 10.15 (Catalina), you must, after moving the application to the \"Applications\" folder, allow Apple to run the application",
+      "p2": "You need to run the following command in the terminal (command line):",
+      "p3": "After that you can start the application. If the error still occurs, please contact support.",
+      "ok": "OK"
+    }
+  },
   "auth": {
     "login": "Login",
     "noAccount": "Don't have an account yet?",

@@ -1,5 +1,17 @@
 import { createApp } from 'vue'
-import { Steps, Button, Layout, Input, InputNumber, Select, Checkbox, Row, Col, List } from 'ant-design-vue'
+import {
+    Steps,
+    Button,
+    Layout,
+    Input,
+    InputNumber,
+    Select,
+    Checkbox,
+    Modal,
+    Row,
+    Col,
+    List
+} from 'ant-design-vue'
 import { createPinia } from 'pinia'
 import Toast from 'vue-toastification'
 
@@ -26,6 +38,7 @@ createApp(App)
     .use(InputNumber)
     .use(Select)
     .use(Checkbox)
+    .use(Modal)
     .use(Row)
     .use(Col)
     .use(List)
