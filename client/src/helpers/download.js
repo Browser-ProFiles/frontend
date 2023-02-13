@@ -5,7 +5,7 @@ if (!baseURL) {
 
 export const DOWNLOAD_LINKS = {
     windows: 'browser-profiles-windows.exe',
-    macosIntel: 'browser-profiles-mac_intel.dmg',
+    macosIntel: 'browser-profiles-mac.dmg',
     linux: 'download/linux',
 }
 
