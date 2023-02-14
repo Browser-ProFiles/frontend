@@ -51,7 +51,8 @@
   },
   "cabinet": {
     "title": "Личный кабинет",
-    "subscriptionInfo":"Подписка <b>\"{subscriptionName}\"</b> активирована до {subscriptionUntilDate}<br>Вы можете создавать до <b>{subscriptionMaxProfiles}</b> профилей.",
+    "subscriptionInfo": "Подписка <b>\"{subscriptionName}\"</b> активирована до {subscriptionUntilDate}<br>Вы можете создавать до <b>{subscriptionMaxProfiles}</b> профилей.",
+    "subscriptionInfoShort": "Подписка активирована до {subscriptionUntilDate}",
     "manageSubscription": "Управлять подпиской"
   },
   "user": {
@@ -69,6 +70,7 @@
     "current": "Текущая подписка",
     "maxProfiles": "Браузерных профилей",
     "revenue": "Вам необходимо продлить свою подписку чтобы увидеть все {realLength} профилей.",
+    "change": "Если вам нужно поменять уровень подписки, обратитесь пожалуйста в тех. поддержку. Либо дождитесь окончания текущей подписки.",
     "support": {
       "no": "Отсутствие поддержки",
       "basic": "Базовый уровень поддержки",

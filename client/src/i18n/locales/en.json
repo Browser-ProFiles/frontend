@@ -51,7 +51,8 @@
   },
   "cabinet": {
     "title": "Cabinet",
-    "subscriptionInfo":"Subscription <b>\"{subscriptionName}\"</b> is activated until {subscriptionUntilDate}<br>You can launch up to <b>{subscriptionMaxProfiles}</b> profiles.",
+    "subscriptionInfo": "Subscription <b>\"{subscriptionName}\"</b> is activated until {subscriptionUntilDate}<br>You can launch up to <b>{subscriptionMaxProfiles}</b> profiles.",
+    "subscriptionInfoShort": "Subscription is activated until {subscriptionUntilDate}",
     "manageSubscription": "Manage Subscription"
   },
   "user": {
@@ -69,6 +70,7 @@
     "current": "Current subscription",
     "maxProfiles": "Max profiles count",
     "revenue": "You need to revenue subscription to see all {realLength} profiles.",
+    "change": "If you need to change the subscription level, please contact tech support. Or wait until the end of the current subscription.",
     "support": {
       "no": "No Support",
       "basic": "Basic Support",

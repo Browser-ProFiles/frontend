@@ -55,9 +55,19 @@
             </template>
             <a-button class="subscription__switch">{{ $t('utils.cancel') }}</a-button>
           </a-popconfirm>-->
-          <a-button class="subscription__switch" @click="onSwitch(item.id)" v-if="user?.subscription?.name !== item.name">
-            {{ $t('utils.switch') }}
-          </a-button>
+          <template v-if="user?.subscription?.name !== item.name">
+            <p class="subscription__change" v-if="user?.subscription?.id !== 1">
+              {{ $t('subscriptions.change') }}
+            </p>
+            <a-button v-else class="subscription__switch" @click="onSwitch(item.id)">
+              {{ $t('utils.switch') }}
+            </a-button>
+          </template>
+          <template v-else>
+            <span class="subscription__activated" v-html="$t('cabinet.subscriptionInfoShort', {
+              subscriptionUntilDate: subscriptionUntilDate,
+            })"></span>
+          </template>
         </li>
       </ul>
       </a-spin>
@@ -66,7 +76,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import {ref, onMounted, computed} from 'vue'
 import { storeToRefs } from 'pinia'
 import { useToast } from 'vue-toastification'
 
@@ -77,6 +87,7 @@ import { useModalStore } from '@/stores/modalStore.js'
 import { useAppStore } from '@/stores/appStore.js'
 
 import { getSubscriptions } from '@/api/user.js'
+import {formatDate} from "@/helpers/date.js";
 
 const toast = useToast()
 
@@ -92,6 +103,10 @@ const { setPaymentMethodModalOpened } = modalStore
 
 const { fetchUser } = userStore
 const { user } = storeToRefs(userStore)
+
+const subscriptionUntilDate = computed(() => {
+  return formatDate(Number(user.value?.subscription?.activeUntil) * 1000)
+})
 
 const fetchSubscriptions = async () => {
   try {
@@ -176,6 +191,10 @@ onMounted(() => {
 
     transition: all 0.4s;
 
+    @media screen and (max-width: 500px) {
+      text-align: center;
+    }
+
     &_current,
     &:hover {
       transform: translateY(-15px) scale(1.04);
@@ -183,6 +202,11 @@ onMounted(() => {
       box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.08);
 
       border: 1px solid lighten(#000, 90%);
+    }
+
+    &__activated {
+      font-weight: 600;
+      text-decoration: underline;
     }
 
     &__name {
@@ -196,6 +220,13 @@ onMounted(() => {
         font-size: 41px;
         font-weight: 700;
       }
+    }
+
+    &__change {
+      font-size: 14px;
+      text-decoration: underline;
+
+      text-align: center;
     }
 
     &__price,
