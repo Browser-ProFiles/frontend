@@ -55,11 +55,11 @@ const { setPaymentMethodModalOpened } = modalStore
 
 const onChoose = (method, type) => {
   if (method === PAYMENT_METHOD_FREEKASSA) {
-    fetchFreekassaPaymentUrl(subscriptionId, type)
+    fetchFreekassaPaymentUrl(subscriptionId.value, type)
   }
 
   if (method === PAYMENT_METHOD_YOOMONEY) {
-    fetchYooMoneyPaymentUrl(subscriptionId, type);
+    fetchYooMoneyPaymentUrl(subscriptionId.value, type);
   }
 }
 
