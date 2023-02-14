@@ -104,7 +104,9 @@ const fetchPaymentUrl = async (id) => {
     const { data } = await getPaymentUrl({
       subscriptionId: id,
     });
-    window.open(data.location, '_blank');
+    setTimeout(() => {
+      window.open(data.location, '_blank');
+    });
   } catch (e) {
     console.error(e)
     toast.error(e.response?.data?.message || e.message)
