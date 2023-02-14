@@ -43,7 +43,7 @@
             </li>
           </ul>
 
-          <a-popconfirm
+          <!--<a-popconfirm
             v-if="user?.subscription?.name === item.name"
             placement="topLeft"
             ok-text="Yes"
@@ -54,8 +54,8 @@
               {{ $t('utils.areYouSure') }}
             </template>
             <a-button class="subscription__switch">{{ $t('utils.cancel') }}</a-button>
-          </a-popconfirm>
-          <a-button class="subscription__switch" @click="onSwitch(item.id)" v-else>
+          </a-popconfirm>-->
+          <a-button class="subscription__switch" @click="onSwitch(item.id)" v-if="user?.subscription?.name !== item.name">
             {{ $t('utils.switch') }}
           </a-button>
         </li>
