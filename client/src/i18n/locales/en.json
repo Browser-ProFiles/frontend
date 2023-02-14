@@ -28,6 +28,10 @@
       "p2": "You need to run the following command in the terminal (command line):",
       "p3": "After that you can start the application. If the error still occurs, please contact support.",
       "ok": "OK"
+    },
+    "paymentmethod" : {
+      "title": "Subscription payment",
+      "ok": "Close"
     }
   },
   "auth": {

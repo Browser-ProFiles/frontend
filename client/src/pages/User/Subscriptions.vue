@@ -73,15 +73,22 @@ import { useToast } from 'vue-toastification'
 import MainLayout from '@/layouts/MainLayout.vue'
 
 import { useUserStore } from '@/stores/userStore.js'
+import { useModalStore } from '@/stores/modalStore.js'
+import { useAppStore } from '@/stores/appStore.js'
 
 import { getSubscriptions } from '@/api/user.js'
-import { getPaymentUrl } from '@/api/payment.js'
 
 const toast = useToast()
 
 const userStore = useUserStore()
 const list = ref([])
 const loading = ref(false)
+
+const appStore = useAppStore()
+const { setSubscriptionId } = appStore
+
+const modalStore = useModalStore()
+const { setPaymentMethodModalOpened } = modalStore
 
 const { fetchUser } = userStore
 const { user } = storeToRefs(userStore)
@@ -99,22 +106,9 @@ const fetchSubscriptions = async () => {
   }
 }
 
-const fetchPaymentUrl = async (id) => {
-  try {
-    const { data } = await getPaymentUrl({
-      subscriptionId: id,
-    });
-    setTimeout(() => {
-      window.open(data.location, '_blank');
-    });
-  } catch (e) {
-    console.error(e)
-    toast.error(e.response?.data?.message || e.message)
-  }
-}
-
 const onSwitch = (id) => {
-  fetchPaymentUrl(id);
+  setSubscriptionId(id)
+  setPaymentMethodModalOpened(true);
 }
 
 const onCancel = () => {}

@@ -32,8 +32,12 @@ const setStoreTheme = (theme) => {
 export const useAppStore = defineStore('app', () => {
     const i18n = useI18n()
 
+    const subscriptionId = ref(null)
+
     const theme = ref(getStoreTheme())
     const lang = ref(getStoreLang())
+
+    const setSubscriptionId = (id) => subscriptionId.value = id
 
     const initMode = () => {
         toggleTheme({
@@ -70,6 +74,9 @@ export const useAppStore = defineStore('app', () => {
     }
 
     return {
+        subscriptionId,
+        setSubscriptionId,
+
         theme,
         initMode,
         toggleMode,

@@ -1,6 +1,7 @@
 <template>
   <a-modal
     class="macos-install-modal"
+    @cancel="setMacosInstallModalOpened(false)"
     @close="setMacosInstallModalOpened(false)"
     @ok="setMacosInstallModalOpened(false)"
     :ok-text="$t('modal.macosinstall.ok')"
