@@ -158,7 +158,11 @@
       "profiles": "Failed to fetch browser profiles",
       "instanceRemove": "Failed to remove profile",
       "paymentError": "Payment error",
-      "payment": "Subscription pay error"
+      "payment": "Subscription pay error",
+      "notFound": {
+        "title": "404",
+        "description": "The page you are looking for doesn't exist or been deleted :("
+      }
     }
   }
 }

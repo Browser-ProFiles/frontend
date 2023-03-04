@@ -6,6 +6,8 @@ import i18n from '~/i18n'
 
 import { isAuth } from '~/helpers/auth.js'
 
+import NotFound from '~/pages/Error/NotFound.vue'
+
 const toast = useToast()
 
 const routes = [
@@ -58,6 +60,11 @@ const routes = [
         path: '/profile/edit/:name',
         component: defineAsyncComponent(() => import('~/pages/Instance/InstanceEdit.vue')),
         meta: { hasSidebar: true, onlyAuth: true },
+    },
+    {
+        path: '/:catchAll(.*)',
+        component: NotFound,
+        meta: { hasSidebar: false, onlyAuth: false },
     },
 ]
 
