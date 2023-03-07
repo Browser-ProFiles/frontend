@@ -62,7 +62,7 @@ const routes = [
         meta: { hasSidebar: true, onlyAuth: true },
     },
     {
-        path: '/:catchAll(.*)',
+        path: '/:pathMatch(.*)*',
         component: NotFound,
         meta: { hasSidebar: false, onlyAuth: false },
     },
@@ -78,14 +78,19 @@ export const router = new createRouter({
 router.beforeEach((to, from, next) => {
     if (to.matched.some((record) => record.meta.onlyGuest)) {
         isAuth() ? next('/') : next()
+        return
     }
 
     if (to.matched.some((record) => record.meta.onlyAuth)) {
         if (isAuth()) {
             next()
+            return
         } else {
             toast.error(i18n.global.t('messages.error.authRequired'))
             next('/auth/login')
+            return
         }
     }
+
+    next()
 })

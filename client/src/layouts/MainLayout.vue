@@ -10,14 +10,14 @@
       <slot name="header">
         <div class="header__title-wrapper">
           <h2 class="header__title">{{ title }}</h2>
-          <div class="header__theme" @click="toggleMode">
+<!--          <div class="header__theme" @click="toggleMode">
             <template v-if="theme === THEME_DEFAULT">
               <img class="header__theme-toggle" :src="DarkThemeIcon" alt="">
             </template>
             <template v-if="theme === THEME_DARK">
               <img class="header__theme-toggle" :src="DefaultThemeIcon" alt="">
             </template>
-          </div>
+          </div>-->
         </div>
         <nav class="header__menu menu">
           <ul class="menu__list">
@@ -60,7 +60,17 @@
         }"
       >
         <div class="footer__copyright">© {{ new Date().getFullYear() }} Browser ProFiles</div>
-        <switch-language class="footer__switch-lang" />
+        <div class="footer__right">
+          <div class="footer__theme" @click="toggleMode">
+            <template v-if="theme === THEME_DEFAULT">
+              <img class="header__theme-toggle" :src="DarkThemeIcon" alt="">
+            </template>
+            <template v-if="theme === THEME_DARK">
+              <img class="header__theme-toggle" :src="DefaultThemeIcon" alt="">
+            </template>
+          </div>
+          <switch-language class="footer__switch-lang" />
+        </div>
       </a-layout-footer>
     </slot>
   </a-layout>
@@ -113,7 +123,7 @@ onMounted(() => {
 @media screen and (max-width: 600px) {
   .ant-layout {
     flex-direction: column !important;
-    min-height: calc(100vh - 60px) !important;
+    min-height: calc(100vh - 84px - 55px) !important;
   }
 
   .ant-layout-sider {
@@ -287,7 +297,7 @@ onMounted(() => {
   padding: 15px 50px;
 
   @media screen and (max-width: 1053px) {
-    min-height: calc(100vh - 100px - 55px);
+    min-height: calc(100vh - 74px - 55px);
   }
 
   @media screen and (max-width: 400px) {
@@ -313,8 +323,14 @@ onMounted(() => {
     display: none;
   }
 
-  &.has-sidebar {
-    margin-left: 250px;
+  &__right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
   }
+
+  /*&.has-sidebar {
+    margin-left: 250px;
+  }*/
 }
 </style>

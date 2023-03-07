@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :key="lang">
     <router-view />
 
     <MacosInstallModal />
@@ -8,6 +8,12 @@
 </template>
 
 <script setup>
+import { storeToRefs } from 'pinia'
+import { useAppStore } from '@/stores/appStore.js'
+
 import MacosInstallModal from '@/components/Modal/MacosInstall.vue'
 import PaymentMethodModal from '@/components/Modal/PaymentMethod.vue'
+
+const store = useAppStore()
+const { lang } = storeToRefs(store)
 </script>

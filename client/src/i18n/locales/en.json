@@ -89,6 +89,7 @@
   },
   "utils": {
     "loading": "Loading...",
+    "goHome": "Go home",
     "back": "Back",
     "download": "Download",
     "current": "current",
@@ -138,6 +139,10 @@
       "description2": "button to fake fingerprint"
     }
   },
+  "notFound": {
+    "title": "404",
+    "description": "The page you are looking for doesn't exist or been deleted :("
+  },
   "messages": {
     "success": {
       "signUpRequest": "An email was sent to you to verify your account. If you didn't receive the email, please check your spam folder.",
@@ -158,11 +163,7 @@
       "profiles": "Failed to fetch browser profiles",
       "instanceRemove": "Failed to remove profile",
       "paymentError": "Payment error",
-      "payment": "Subscription pay error",
-      "notFound": {
-        "title": "404",
-        "description": "The page you are looking for doesn't exist or been deleted :("
-      }
+      "payment": "Subscription pay error"
     }
   }
 }

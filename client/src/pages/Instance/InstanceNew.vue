@@ -19,6 +19,7 @@
         <a-step v-for="item in filteredSteps" :key="item.title" :title="item.title" />
       </a-steps>
     </template>
+
     <template #default>
       <form>
         <div class="steps-action">

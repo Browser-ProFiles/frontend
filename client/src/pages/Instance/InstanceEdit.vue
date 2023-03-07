@@ -183,6 +183,11 @@ onMounted(() => {
   }
 
   setEditName(route.params.name)
+    .catch((e) => {
+      if (e?.response?.status === 404) {
+        router.push('/404')
+      }
+    })
 })
 </script>
 

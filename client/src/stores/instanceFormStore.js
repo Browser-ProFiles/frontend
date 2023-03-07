@@ -69,6 +69,7 @@ export const useInstanceFormStore = defineStore('instanceForm', () => {
             step.value = DEFAULT_STEP
         } catch (e) {
             toast.error(e.response?.data?.message || e.message)
+            throw e
         } finally {
             loading.value = false
         }
