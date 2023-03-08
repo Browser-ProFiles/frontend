@@ -157,7 +157,7 @@ onMounted(() => {
 
 .default {
   .header {
-    background: #fff;
+    background: #fff !important;
   }
 }
 
